@@ -1,0 +1,8 @@
+# Archivos temporales de Godot
+.import/
+export/
+.cache/
+*.tmp
+
+# Configuración específica del usuario
+*.mono/
