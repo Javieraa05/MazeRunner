@@ -109,8 +109,11 @@ animations = [{
 }]
 
 [node name="Player1" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(4, 4)
+collision_layer = 3
 script = ExtResource("1_eo3qx")
+Speed = 100
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -119,9 +122,10 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_lhhwy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.453125, 0.429688)
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.379963, 0.429688)
 sprite_frames = SubResource("SpriteFrames_mxqi2")
-animation = &"Idle"
+animation = &"run_rigth"
 offset = Vector2(1.20405, 0.752815)
 
 [node name="Camera2D" type="Camera2D" parent="."]

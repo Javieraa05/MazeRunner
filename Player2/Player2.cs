@@ -7,6 +7,10 @@ public partial class Player2 : CharacterBody2D
     public int Speed { get; set; } = 120;
 	AnimatedSprite2D animatedSprite2D;
 
+     public void SetInitialPosition(Vector2 newPosition)
+    {
+        Position = newPosition;
+    }
 
     public void GetInput()
     {
@@ -53,6 +57,7 @@ public partial class Player2 : CharacterBody2D
 	public override void _Ready()
     {
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        SetInitialPosition(new Vector2(1575, 1582));
     }
 
 	

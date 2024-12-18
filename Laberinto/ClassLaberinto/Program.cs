@@ -80,6 +80,11 @@ class Laberinto
         tablero[23,10]=0; //derecha 
         tablero[12,23]=0; //abajo
         tablero[12,1]=0; //arriba
+
+        tablero[23,1]=0; //salida
+
+        tablero[1,1] = 3;
+
         
     }
 

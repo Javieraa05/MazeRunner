@@ -5,3 +5,4 @@
 [node name="Romm" type="Node2D"]
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_v7tsc")]
+position = Vector2(1, 0)

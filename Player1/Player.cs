@@ -3,10 +3,15 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	[Export]
-    public int Speed { get; set; } = 120;
+	[Export] public int Speed { get; set; } = 120;
+    [Export] public int Health = 100;
+    public float ActivationCooldown = 2.0f;
 	AnimatedSprite2D animatedSprite2D;
 
+    public void SetInitialPosition(Vector2 newPosition)
+    {
+        Position = newPosition;
+    }
 
     public void GetInput()
     {
@@ -40,12 +45,32 @@ public partial class Player : CharacterBody2D
         }
 	}
 
+    public void TakeDamage(int amount)
+    {
+        Health -= amount;
+        Speed /= 4; // Reduce speed when damaged
+        if (Health <= 0)
+        {
+            GD.Print($"Jugador {Name} ha muerto.");
+            QueueFree();
+        }
+        // Inicia el cooldown
+            var cooldownTimer = new Godot.Timer();
+            cooldownTimer.WaitTime = ActivationCooldown;
+            cooldownTimer.OneShot = true;
+            cooldownTimer.Timeout += ResetSpeed; // Godot 4 utiliza eventos
+            AddChild(cooldownTimer);
+            cooldownTimer.Start();
+    }
+    public void ResetSpeed() 
+    {
+        Speed *= 4; // Restaura la velocidad
+    }
     public override void _PhysicsProcess(double delta)
     {
         GetInput();
 		Animated();
         MoveAndSlide();
-
     }
 
 	
@@ -53,6 +78,7 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
     {
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        SetInitialPosition(new Vector2(10, 1580));
     }
 
 	
