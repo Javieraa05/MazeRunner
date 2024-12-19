@@ -94,7 +94,37 @@ class Laberinto
         return x >= 0 && x < sizeX && y >= 0 && y < sizeY;
     }
 
+    public void ColocarTrampas(int cantidad, int trampa)
+{
+    // Crear una lista para almacenar las posiciones donde hay un 0
+    List<(int, int)> posicionesCero = new List<(int, int)>();
 
+    // Recorrer la matriz para encontrar las posiciones con 0
+    for (int i = 0; i < sizeX; i++)
+    {
+        for (int j = 0; j < sizeY; j++)
+        {
+            if (tablero[i, j] == 0)
+            {
+                posicionesCero.Add((i, j)); // Agregar la posición a la lista
+            }
+        }
+    }
+
+    // Asegurarse de que no intentemos colocar más 3 que posiciones disponibles
+    int cantidadAColocar = Math.Min(cantidad, posicionesCero.Count);
+
+    // Colocar la cantidad deseada de 3 en posiciones aleatorias
+    for (int i = 0; i < cantidadAColocar; i++)
+    {
+        // Elegir una posición aleatoria de las disponibles
+        var posicionAleatoria = posicionesCero[rand.Next(posicionesCero.Count)];
+        tablero[posicionAleatoria.Item1, posicionAleatoria.Item2] = trampa; // Colocar trampa
+
+        // Eliminar la posición elegida de la lista para no repetirla
+        posicionesCero.Remove(posicionAleatoria);
+    }
+}
     
 }
 }

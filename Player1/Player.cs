@@ -49,11 +49,7 @@ public partial class Player : CharacterBody2D
     {
         Health -= amount;
         Speed /= 4; // Reduce speed when damaged
-        if (Health <= 0)
-        {
-            GD.Print($"Jugador {Name} ha muerto.");
-            QueueFree();
-        }
+        
         // Inicia el cooldown
             var cooldownTimer = new Godot.Timer();
             cooldownTimer.WaitTime = ActivationCooldown;
@@ -65,6 +61,10 @@ public partial class Player : CharacterBody2D
     public void ResetSpeed() 
     {
         Speed *= 4; // Restaura la velocidad
+         if (Health <= 0)
+        {
+            QueueFree();
+        }
     }
     public override void _PhysicsProcess(double delta)
     {

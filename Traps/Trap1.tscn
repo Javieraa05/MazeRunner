@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bnm2ffk8084e7"]
 
-[ext_resource type="Script" path="res://Traps/proximityTrap.cs" id="1_cofiq"]
+[ext_resource type="Script" path="res://Traps/Trap1.cs" id="1_cofiq"]
 [ext_resource type="Texture2D" uid="uid://br2fohnuvdfe0" path="res://Traps/Fire_Trap.png" id="1_uiv2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsje7"]
@@ -111,16 +111,16 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_078un"]
-size = Vector2(33.5, 33.75)
+size = Vector2(28.75, 27.875)
 
 [node name="ProximityTrap" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_cofiq")
-Damage = 10
+Damage = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

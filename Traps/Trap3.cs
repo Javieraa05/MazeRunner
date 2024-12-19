@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class proximityTrap : Area2D
+public partial class Trap3 : Area2D
 {
     [Export] public int Damage = 20; // Daño que inflige la trampa
     [Export] public float ActivationCooldown = 2.0f; // Tiempo de espera entre activaciones

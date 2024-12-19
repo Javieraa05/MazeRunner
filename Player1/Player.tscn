@@ -110,6 +110,7 @@ animations = [{
 
 [node name="Player1" type="CharacterBody2D"]
 z_index = 1
+position = Vector2(-4, -9)
 scale = Vector2(4, 4)
 collision_layer = 3
 script = ExtResource("1_eo3qx")
