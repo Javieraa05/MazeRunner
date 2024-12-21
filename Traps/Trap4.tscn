@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0tj7283e8r15"]
+[gd_scene load_steps=19 format=3 uid="uid://b0tj7283e8r15"]
 
+[ext_resource type="Script" path="res://Traps/Trap4.cs" id="1_getk7"]
 [ext_resource type="Texture2D" uid="uid://5n3f3dgxqieb" path="res://Traps/Push_Trap_Right.png" id="1_j31nl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br44o"]
@@ -85,38 +86,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6v86")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1u8ra")
-}],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4rrjo")
-}],
-"loop": true,
-"name": &"new_animation_2",
-"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7aod"]
-size = Vector2(27, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n37js"]
+size = Vector2(20, 27)
 
 [sub_resource type="Animation" id="Animation_lu6sl"]
 resource_name = "Collision"
-length = 5.0
+length = 5.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -125,10 +102,10 @@ tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.966667, 2, 3.33333, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.45, 0.55, 0.95, 1.05, 1.45, 1.55, 3.95, 4.05, 4.45, 4.55, 4.95, 5.05, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-31.25, -0.5), Vector2(-31.25, -0.5), Vector2(2.75, -0.5), Vector2(2.75, -0.5), Vector2(-31.25, -0.5)]
+"values": [Vector2(-5, -0.5), Vector2(-5, -0.5), Vector2(-3, -0.5), Vector2(-3, -0.5), Vector2(11, -0.5), Vector2(11, -0.5), Vector2(22, -0.5), Vector2(22, -0.5), Vector2(12, -0.5), Vector2(12, -0.5), Vector2(2, -0.5), Vector2(2, -0.5), Vector2(-5, -0.5), Vector2(-5, -0.5)]
 }
 
 [sub_resource type="Animation" id="Animation_emhi6"]
@@ -152,14 +129,18 @@ _data = {
 "RESET": SubResource("Animation_emhi6")
 }
 
-[node name="Area2D" type="Area2D"]
+[node name="Trap4" type="RigidBody2D"]
+script = ExtResource("1_getk7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_jvvdf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-13.25, -0.5)
-shape = SubResource("RectangleShape2D_j7aod")
+shape = SubResource("RectangleShape2D_n37js")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

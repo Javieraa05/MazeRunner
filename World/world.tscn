@@ -3,14 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ca4rx23oxml1k" path="res://Romms/room.tscn" id="1_jvqrc"]
 [ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player.tscn" id="2_apfcc"]
 [ext_resource type="Texture2D" uid="uid://f1ti0jpnc65p" path="res://Laberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
-[ext_resource type="Texture2D" uid="uid://bs3c52e4ke0o8" path="res://Laberinto/tilemuro.png" id="3_6a4ks"]
 [ext_resource type="PackedScene" uid="uid://bnv5h27bq7lfu" path="res://Player2/player_2.tscn" id="4_f51sj"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2fqi"]
-texture = ExtResource("3_6a4ks")
-texture_region_size = Vector2i(30, 30)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -15, 15, -15, 15, 15, -15, 15)
+[ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/Trap5.tscn" id="4_wh1qu"]
+[ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/Trap4.tscn" id="6_18yyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qttda"]
 texture = ExtResource("2_gwdqb")
@@ -18,6 +13,7 @@ margins = Vector2i(1, 0)
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(31, 31)
 0:0/0 = 0
+0:0/0/z_index = 1
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -15, 15, -15, 15, 15, -15, 15)
 1:0/0 = 0
 2:0/0 = 0
@@ -38,17 +34,16 @@ texture_region_size = Vector2i(31, 31)
 [sub_resource type="TileSet" id="TileSet_2053b"]
 tile_size = Vector2i(30, 30)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_d2fqi")
 sources/1 = SubResource("TileSetAtlasSource_qttda")
 
 [node name="World" type="Node2D"]
 position = Vector2(-4, 2)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -699.0
-offset_top = -620.0
-offset_right = 2758.0
-offset_bottom = 2177.0
+offset_left = -706.0
+offset_top = -598.0
+offset_right = 2751.0
+offset_bottom = 2199.0
 color = Color(0.129412, 0.14902, 0.180392, 1)
 
 [node name="Room" parent="." instance=ExtResource("1_jvqrc")]
@@ -64,12 +59,60 @@ position = Vector2(-30, 875)
 position = Vector2(870, 875)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(0, 5)
 tile_map_data = PackedByteArray("AAAYABsAAQAAAAAAAAAYABkAAQAAAAAAAAAYABoAAQAAAAAAAAAZABwAAQAAAAAAAAAaABwAAQAAAAAAAAAbABwAAQAAAAAAAAAcABsAAQAAAAAAAAAcABoAAQAAAAAAAAAcABkAAQAAAAAAAAAZABgAAQAAAAAAAAAbABgAAQAAAAAAAAAZAAsAAQAAAAAAAAAbAAsAAQAAAAAAAAAKABgAAQAAAAAAAAAKABkAAQAAAAAAAAAKABoAAQAAAAAAAAAKABsAAQAAAAAAAAAMABgAAQAAAAAAAAAMABkAAQAAAAAAAAAMABoAAQAAAAAAAAAMABsAAQAAAAAAAAAKABwAAQAAAAAAAAAMABwAAQAAAAAAAAAYAAgAAQAAAAAAAAAYAAoAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAZAAoAAQAAAAAAAAAbAAoAAQAAAAAAAAAcAAoAAQAAAAAAAAAqABwAAQAAAAAAAAAqABsAAQAAAAAAAAAqABoAAQAAAAAAAAAqABkAAQAAAAAAAAAqABgAAQAAAAAAAAAoABgAAQAAAAAAAAAoABkAAQAAAAAAAAAoABsAAQAAAAAAAAAoABoAAQAAAAAAAAAoABwAAQAAAAAAAAAcACgAAQAAAAAAAAAbACgAAQAAAAAAAAAaACgAAQAAAAAAAAAZACgAAQAAAAAAAAAYACgAAQAAAAAAAAAYACYAAQAAAAAAAAAZACYAAQAAAAAAAAAaACYAAQAAAAAAAAAbACYAAQAAAAAAAAAcACYAAQAAAAAAAAD//wkAAQAAAAAAAAALAP//AQAAAAAAAAApAP//AQAAAAAAAAA1AAkAAQAAAAAAAAA1ACcAAQAAAAAAAAD//ycAAQAAAAAAAAAMADUAAQAAAAAAAAApADUAAQAAAAAAAAAYABgAAQAAAAAAAAAYABwAAQAAAAAAAAAcABwAAQAAAAAAAAAcABgAAQAAAAAAAAAYAAsAAQABAAAAAAAYAAwAAQABAAAAAAAZAAwAAQABAAAAAAAaAAwAAQABAAAAAAAaAAsAAQABAAAAAAAaAAoAAQABAAAAAAAaAAkAAQABAAAAAAAZAAkAAQABAAAAAAAYAAkAAQABAAAAAAAbAAkAAQABAAAAAAAcAAkAAQABAAAAAAAbAAwAAQABAAAAAAAcAAwAAQABAAAAAAAcAAsAAQABAAAAAAAcAA0AAQABAAAAAAAbAA0AAQABAAAAAAAaAA0AAQABAAAAAAAZAA0AAQABAAAAAAAYAA0AAQABAAAAAAAYAA4AAQABAAAAAAAZAA4AAQABAAAAAAAaAA4AAQABAAAAAAAbAA4AAQABAAAAAAAcAA4AAQABAAAAAAAcAA8AAQABAAAAAAAbAA8AAQABAAAAAAAaAA8AAQABAAAAAAAZAA8AAQABAAAAAAAYAA8AAQABAAAAAAAYABAAAQABAAAAAAAZABAAAQABAAAAAAAaABAAAQABAAAAAAAbABAAAQABAAAAAAAcABAAAQABAAAAAAAcABEAAQABAAAAAAAbABEAAQABAAAAAAAaABEAAQABAAAAAAAZABEAAQABAAAAAAAYABEAAQABAAAAAAAYABIAAQABAAAAAAAZABIAAQABAAAAAAAaABIAAQABAAAAAAAbABIAAQABAAAAAAAcABIAAQABAAAAAAAcABMAAQABAAAAAAAbABMAAQABAAAAAAAaABMAAQABAAAAAAAZABMAAQABAAAAAAAYABMAAQABAAAAAAAYABQAAQABAAAAAAAZABQAAQABAAAAAAAaABQAAQABAAAAAAAbABQAAQABAAAAAAAcABQAAQABAAAAAAAcABUAAQABAAAAAAAbABUAAQABAAAAAAAaABUAAQABAAAAAAAZABUAAQABAAAAAAAYABUAAQABAAAAAAAYABYAAQABAAAAAAAZABYAAQABAAAAAAAaABYAAQABAAAAAAAbABYAAQABAAAAAAAcABYAAQABAAAAAAAcABcAAQABAAAAAAAbABcAAQABAAAAAAAaABcAAQABAAAAAAAZABcAAQABAAAAAAAYABcAAQABAAAAAAAaABgAAQABAAAAAAAaABkAAQABAAAAAAAZABkAAQABAAAAAAAZABoAAQABAAAAAAAZABsAAQABAAAAAAAaABsAAQABAAAAAAAaABoAAQABAAAAAAAbABsAAQABAAAAAAAbABoAAQABAAAAAAAbABkAAQABAAAAAAALABgAAQABAAAAAAALABkAAQABAAAAAAALABoAAQABAAAAAAALABsAAQABAAAAAAALABwAAQABAAAAAAApABgAAQABAAAAAAApABkAAQABAAAAAAApABoAAQABAAAAAAApABsAAQABAAAAAAApABwAAQABAAAAAAAYACcAAQABAAAAAAAZACcAAQABAAAAAAAaACcAAQABAAAAAAAbACcAAQABAAAAAAAcACcAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_2053b")
 
+[node name="Trap6" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(735, 1169)
+rotation = 1.5708
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap5" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(330, 855)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap4" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(330, 735)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap7" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(854, 1169)
+rotation = 1.5708
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap8" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(1229, 735)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap9" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
+position = Vector2(1229, 854)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Trap10" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+position = Vector2(742, 253)
+rotation = 1.5708
+
+[node name="Trap11" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+position = Vector2(742, 317)
+rotation = -1.5708
+
+[node name="Trap12" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+position = Vector2(849, 253)
+rotation = 1.5708
+
+[node name="Trap13" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+position = Vector2(849, 317)
+rotation = -1.5708
+
 [node name="Player1" parent="." instance=ExtResource("2_apfcc")]
-position = Vector2(772, 779)
+position = Vector2(794, 305)
 
 [node name="Player2" parent="." instance=ExtResource("4_f51sj")]
 position = Vector2(795, 782)

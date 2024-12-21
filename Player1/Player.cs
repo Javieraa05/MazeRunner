@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
 
     public void SetInitialPosition(Vector2 newPosition)
     {
-        Position = newPosition;
+      //  Position = newPosition;
     }
 
     public void GetInput()
@@ -63,7 +63,7 @@ public partial class Player : CharacterBody2D
         Speed *= 4; // Restaura la velocidad
          if (Health <= 0)
         {
-            QueueFree();
+            SetInitialPosition(new Vector2(10, 1580));
         }
     }
     public override void _PhysicsProcess(double delta)
