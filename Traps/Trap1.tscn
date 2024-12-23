@@ -117,10 +117,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_078un"]
 size = Vector2(28.75, 27.875)
 
-[node name="ProximityTrap" type="Area2D"]
-collision_mask = 2
+[node name="Trap1" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_cofiq")
-Damage = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

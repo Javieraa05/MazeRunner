@@ -67,6 +67,10 @@ derecha2={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Jugadores"
+
 [physics]
 
 2d/default_gravity=0.0

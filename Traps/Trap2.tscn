@@ -91,8 +91,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sgd4"]
 size = Vector2(25.75, 25.875)
 
-[node name="ProximityTrap2" type="Area2D"]
-collision_mask = 2
+[node name="Trap2" type="Area2D"]
 script = ExtResource("1_4tcbg")
 Damage = 25
 

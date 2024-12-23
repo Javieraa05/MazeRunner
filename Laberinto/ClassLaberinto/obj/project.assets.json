@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto1\\ClassLaberinto1.csproj",
+      "projectUniqueName": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto\\ClassLaberinto1.csproj",
       "projectName": "ClassLaberinto1",
-      "projectPath": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto1\\ClassLaberinto1.csproj",
+      "projectPath": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto\\ClassLaberinto1.csproj",
       "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto1\\obj\\",
+      "outputPath": "C:\\Users\\javie\\Desktop\\Proyecto\\mazerunner\\Laberinto\\ClassLaberinto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config"
