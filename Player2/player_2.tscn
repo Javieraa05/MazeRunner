@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bnv5h27bq7lfu"]
 
 [ext_resource type="Script" path="res://Player2/Player2.cs" id="1_23wr1"]
-[ext_resource type="Texture2D" uid="uid://cdbqpbn2g266o" path="res://Png/32_Characters/F_03.png" id="2_j7fur"]
+[ext_resource type="Texture2D" uid="uid://cdei1ctfkg0rr" path="res://Imagenes/32_Characters/Females/F_03.png" id="2_j7fur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ollf"]
 size = Vector2(23.5, 38)

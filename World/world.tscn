@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://b2y0uf6vddfrj"]
 
 [ext_resource type="PackedScene" uid="uid://ca4rx23oxml1k" path="res://Romms/room.tscn" id="1_jvqrc"]
-[ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player.tscn" id="2_apfcc"]
-[ext_resource type="Texture2D" uid="uid://f1ti0jpnc65p" path="res://Laberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
+[ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player1.tscn" id="2_apfcc"]
+[ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
 [ext_resource type="PackedScene" uid="uid://bnv5h27bq7lfu" path="res://Player2/player_2.tscn" id="4_f51sj"]
-[ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/Trap5.tscn" id="4_wh1qu"]
-[ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/Trap4.tscn" id="6_18yyv"]
+[ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/TrampaMartillo2.tscn" id="4_wh1qu"]
+[ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/TrampaMartillo1.tscn" id="6_18yyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qttda"]
 texture = ExtResource("2_gwdqb")
@@ -112,7 +112,7 @@ position = Vector2(849, 317)
 rotation = -1.5708
 
 [node name="Player1" parent="." instance=ExtResource("2_apfcc")]
-position = Vector2(1247, 780)
+position = Vector2(347, 751)
 
 [node name="Player2" parent="." instance=ExtResource("4_f51sj")]
 position = Vector2(795, 782)

@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=3 uid="uid://hgx6wk0ibl7f"]
+
+[ext_resource type="Texture2D" uid="uid://cooo74pj35rbn" path="res://Imagenes/Trampas/Push_Trap_Front.png" id="1_asrga"]
+[ext_resource type="Script" path="res://Traps/TrampaMartillo.cs" id="1_ptvup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy22e"]
+atlas = ExtResource("1_asrga")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00wp3"]
+atlas = ExtResource("1_asrga")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tibae"]
+atlas = ExtResource("1_asrga")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33y4f"]
+atlas = ExtResource("1_asrga")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7kfa"]
+atlas = ExtResource("1_asrga")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fp0w"]
+atlas = ExtResource("1_asrga")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_excvy"]
+atlas = ExtResource("1_asrga")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx7nm"]
+atlas = ExtResource("1_asrga")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoa4c"]
+atlas = ExtResource("1_asrga")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k88uk"]
+atlas = ExtResource("1_asrga")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j7yq"]
+atlas = ExtResource("1_asrga")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwm1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy22e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00wp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tibae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33y4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7kfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fp0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_excvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx7nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoa4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k88uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j7yq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21faq"]
+size = Vector2(19.0802, 27.9832)
+
+[sub_resource type="Animation" id="Animation_lu6sl"]
+resource_name = "Collision"
+length = 5.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.55, 0.95, 1.05, 3.95, 4.05, 4.45, 4.55, 4.95, 5.05, 5.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11, 0), Vector2(11, 0), Vector2(13, 0), Vector2(13, 0), Vector2(22, 0), Vector2(22, 0), Vector2(19, 0), Vector2(19, 0), Vector2(14, 0), Vector2(14, 0), Vector2(11, 0), Vector2(11, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_emhi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25.25, -0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3s8r"]
+_data = {
+"Collision": SubResource("Animation_lu6sl"),
+"RESET": SubResource("Animation_emhi6")
+}
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ptvup")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_bwm1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-25.25, -0.5)
+rotation = 7.8218e-05
+shape = SubResource("RectangleShape2D_21faq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n3s8r")
+}
