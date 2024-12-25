@@ -13,6 +13,7 @@ public partial class TileMapLayer : Godot.TileMapLayer
     private PackedScene _trapScene1; // Trampa instanciable
     private PackedScene _trapScene2; // Trampa instanciable
     private PackedScene _trapScene3; // Trampa instanciable
+    private PackedScene _keyScene;
 
     public override void _Ready()
     {
@@ -21,9 +22,11 @@ public partial class TileMapLayer : Godot.TileMapLayer
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Puas);
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Fuego);
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Osos);
+        laberinto.ColocarLlave();
         _trapScene1 = GD.Load<PackedScene>("res://Traps/TrampaFuego.tscn");
         _trapScene2 = GD.Load<PackedScene>("res://Traps/TrampaPuas.tscn");
         _trapScene3 = GD.Load<PackedScene>("res://Traps/TrampaOso.tscn");
+        _keyScene = GD.Load<PackedScene>("res://LLaves/LLave1.tscn");
         Mostrar();
     }
 
@@ -70,12 +73,13 @@ public partial class TileMapLayer : Godot.TileMapLayer
                         trapInstance.Position = MapToLocal(new Vector2I(i, j));
                         AddChild(trapInstance);
                     }
+                    if(tileData.TieneLlave)
+                    {
+                        var llaveInstance = (LLave1)_keyScene.Instantiate();
+                        llaveInstance.Position = MapToLocal(new Vector2I(i, j));
+                        AddChild(llaveInstance);
+                    }
                 }
-
-               /* if (tileData.TieneLlave)
-                {
-                    // Aquí podrías instanciar una llave si fuera necesario.
-                }*/
             }
         }
     }

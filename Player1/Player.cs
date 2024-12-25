@@ -5,6 +5,7 @@ public partial class Player : CharacterBody2D
 {
 	[Export] public int Speed { get; set; } = 120;
     [Export] public int Health = 100;
+    public static int CantidadLlaves = 0;
     public float ActivationCooldown = 2.0f;
 	AnimatedSprite2D animatedSprite2D;
 

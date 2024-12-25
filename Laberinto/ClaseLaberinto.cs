@@ -84,6 +84,19 @@
                     celdasAbiertas.Remove((x, y));
                 }
             }
+
+            //Abrir puertas 
+            tablero[12,0].EsCamino = true;
+            tablero[12,1].EsCamino = true;
+
+            tablero[0,12].EsCamino = true;
+            tablero[1,12].EsCamino = true;
+
+            tablero[23,12].EsCamino = true;
+            tablero[24,12].EsCamino = true;
+
+            tablero[12,23].EsCamino = true;
+            tablero[12,24].EsCamino = true;
         }
 
         public void ColocarTrampas(int cantidad, TipoTrampa tipoTrampa)
@@ -110,7 +123,29 @@
                 tablero[x, y].Trampa = tipoTrampa;
             }
         }
+   
+        public void ColocarLlave()
+        {
+            var posicionesCaminos = new List<(int, int)>();
 
+            for (int i = 0; i < sizeX; i++)
+            {
+                for (int j = 0; j < sizeY; j++)
+                {
+                    if (tablero[i, j].EsCamino)
+                    {
+                        posicionesCaminos.Add((i, j));
+                    }
+                }
+            }
+
+            if (posicionesCaminos.Count > 0)
+            {
+                var (x, y) = posicionesCaminos[rand.Next(posicionesCaminos.Count)];
+                tablero[x, y].TieneLlave = true;
+            }
+
+    }
         private bool EsPosicionValida(int x, int y)
         {
             return x >= 0 && x < sizeX && y >= 0 && y < sizeY;

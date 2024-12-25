@@ -5,6 +5,8 @@ public partial class Player2 : CharacterBody2D
 {
 	[Export]
     public int Speed { get; set; } = 120;
+    public static int CantidadLlaves = 0;
+
 	AnimatedSprite2D animatedSprite2D;
 
      public void SetInitialPosition(Vector2 newPosition)
