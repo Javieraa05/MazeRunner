@@ -6,14 +6,14 @@ using System.Collections.Generic;
 public partial class TileMapLayer : Godot.TileMapLayer
 {
     [Export] public int cantidadTrampas = 3;
-    Vector2I tile = new Vector2I(0,0);
-    Vector2I position = new Vector2I(0,0);
-    int tile_id = 1;
+    Vector2I coordenada_tile = new Vector2I(0,0);
+    Vector2I position_map = new Vector2I(0,0);
+    int tile_set_id = 1;
     Laberinto laberinto = new Laberinto(); 
     private PackedScene _trapScene1; // Trampa instanciable
     private PackedScene _trapScene2; // Trampa instanciable
     private PackedScene _trapScene3; // Trampa instanciable
-    private PackedScene _keyScene;
+    public PackedScene _keyScene;
 
     public override void _Ready()
     {
@@ -26,7 +26,7 @@ public partial class TileMapLayer : Godot.TileMapLayer
         _trapScene1 = GD.Load<PackedScene>("res://Traps/TrampaFuego.tscn");
         _trapScene2 = GD.Load<PackedScene>("res://Traps/TrampaPuas.tscn");
         _trapScene3 = GD.Load<PackedScene>("res://Traps/TrampaOso.tscn");
-        _keyScene = GD.Load<PackedScene>("res://LLaves/LLave1.tscn");
+        
         Mostrar();
     }
 
@@ -34,7 +34,7 @@ public partial class TileMapLayer : Godot.TileMapLayer
     {
     }
 
-    public void Mostrar()
+    public virtual void Mostrar()
     {
         for (int i = 0; i < laberinto.sizeX; i++)
         {
@@ -43,17 +43,21 @@ public partial class TileMapLayer : Godot.TileMapLayer
                 Tile tileData = laberinto.tablero[i, j];
                 if (!tileData.EsCamino) 
                 {
-                    tile.X = 0;
-                    position.X = i;
-                    position.Y = j;
-                    SetCell(position, tile_id, tile);
+                    coordenada_tile.X = 0;
+                    position_map.X = i;
+                    position_map.Y = j;
+                    
+                    SetCell(position_map, tile_set_id, coordenada_tile);
+                    
                 }
                 else 
-                {
-                    tile.X = 1;
-                    position.X = i;
-                    position.Y = j;
-                    SetCell(position, tile_id, tile);
+                {   
+                    coordenada_tile.X = 1;
+                    position_map.X = i;
+                    position_map.Y = j;
+                    
+                    SetCell(position_map, tile_set_id, coordenada_tile);
+                     
 
                     if (tileData.Trampa == TipoTrampa.Puas)
                     {
@@ -75,7 +79,8 @@ public partial class TileMapLayer : Godot.TileMapLayer
                     }
                     if(tileData.TieneLlave)
                     {
-                        var llaveInstance = (LLave1)_keyScene.Instantiate();
+                        
+                        var llaveInstance = (LLaves)_keyScene.Instantiate();
                         llaveInstance.Position = MapToLocal(new Vector2I(i, j));
                         AddChild(llaveInstance);
                     }

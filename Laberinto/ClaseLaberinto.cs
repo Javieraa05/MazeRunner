@@ -14,7 +14,8 @@
     {
         public bool EsCamino { get; set; } = false;      // Indica si es camino o muro
         public TipoTrampa Trampa { get; set; } = TipoTrampa.Ninguna;  // Tipo de trampa
-        public bool TieneLlave { get; set; } = false;    // Indica si tiene llave
+        public bool TieneLlave { get; set; } = false;  
+        public (int,int) PosicionLlave = (0,0);  
 
         public Tile(bool esCamino = false)
         {
@@ -143,6 +144,7 @@
             {
                 var (x, y) = posicionesCaminos[rand.Next(posicionesCaminos.Count)];
                 tablero[x, y].TieneLlave = true;
+                tablero[x,y].PosicionLlave = (x,y);
             }
 
     }

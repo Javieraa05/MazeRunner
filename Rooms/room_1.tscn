@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://crhrtrwdwwaqm"]
+
+[ext_resource type="PackedScene" uid="uid://c0on52orc30c2" path="res://Laberinto/escena_base.tscn" id="1_yesaj"]
+[ext_resource type="Script" path="res://Rooms/room1.cs" id="2_dkll2"]
+
+[node name="Room1" instance=ExtResource("1_yesaj")]
+
+[node name="TileMapLayer" parent="." index="0"]
+script = ExtResource("2_dkll2")

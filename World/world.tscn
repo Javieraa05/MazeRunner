@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://b2y0uf6vddfrj"]
+[gd_scene load_steps=12 format=4 uid="uid://b2y0uf6vddfrj"]
 
-[ext_resource type="PackedScene" uid="uid://ca4rx23oxml1k" path="res://Romms/room.tscn" id="1_jvqrc"]
 [ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player1.tscn" id="2_apfcc"]
 [ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
+[ext_resource type="PackedScene" uid="uid://crhrtrwdwwaqm" path="res://Rooms/room_1.tscn" id="4_f2ng0"]
 [ext_resource type="PackedScene" uid="uid://bnv5h27bq7lfu" path="res://Player2/player_2.tscn" id="4_f51sj"]
 [ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/TrampaMartillo2.tscn" id="4_wh1qu"]
+[ext_resource type="PackedScene" uid="uid://bijpwe5hvkew4" path="res://Rooms/room_2.tscn" id="5_k7eu6"]
 [ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/TrampaMartillo1.tscn" id="6_18yyv"]
+[ext_resource type="PackedScene" uid="uid://cuf8qhdoj6pvo" path="res://Rooms/room_3.tscn" id="6_46mvv"]
+[ext_resource type="PackedScene" uid="uid://c5yuiq1gwospm" path="res://Rooms/room_4.tscn" id="7_abs0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qttda"]
 texture = ExtResource("2_gwdqb")
@@ -97,20 +100,20 @@ rotation = 1.5708
 position = Vector2(878, 407)
 rotation = -1.5708
 
-[node name="Room" parent="." instance=ExtResource("1_jvqrc")]
+[node name="Room1" parent="." instance=ExtResource("4_f2ng0")]
 position = Vector2(-30, -26)
 
-[node name="Room2" parent="." instance=ExtResource("1_jvqrc")]
+[node name="Room2" parent="." instance=ExtResource("5_k7eu6")]
 position = Vector2(870, -26)
 
-[node name="Room3" parent="." instance=ExtResource("1_jvqrc")]
+[node name="Room3" parent="." instance=ExtResource("6_46mvv")]
 position = Vector2(-30, 874)
 
-[node name="Room4" parent="." instance=ExtResource("1_jvqrc")]
+[node name="Room4" parent="." instance=ExtResource("7_abs0e")]
 position = Vector2(870, 874)
+
+[node name="Player1" parent="." instance=ExtResource("2_apfcc")]
+position = Vector2(739, 474)
 
 [node name="Player2" parent="." instance=ExtResource("4_f51sj")]
 position = Vector2(795, 782)
-
-[node name="Player1" parent="." instance=ExtResource("2_apfcc")]
-position = Vector2(793, 652)
