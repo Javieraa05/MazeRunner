@@ -43,20 +43,28 @@ public partial class TileMapLayer : Godot.TileMapLayer
                 Tile tileData = laberinto.tablero[i, j];
                 if (!tileData.EsCamino) 
                 {
-                    coordenada_tile.X = 0;
+                    coordenada_tile.X = 2;
+                    coordenada_tile.Y = 1;
+
                     position_map.X = i;
                     position_map.Y = j;
+
+                    tile_set_id = 2;
                     
                     SetCell(position_map, tile_set_id, coordenada_tile);
                     
                 }
                 else 
                 {   
-                    coordenada_tile.X = 1;
+                 /*   coordenada_tile.X = 2;
+                    coordenada_tile.Y = 1;
+
                     position_map.X = i;
                     position_map.Y = j;
+
+                    tile_set_id = 3;
                     
-                    SetCell(position_map, tile_set_id, coordenada_tile);
+                    SetCell(position_map, tile_set_id, coordenada_tile);*/
                      
 
                     if (tileData.Trampa == TipoTrampa.Puas)

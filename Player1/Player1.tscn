@@ -130,3 +130,4 @@ animation = &"run_rigth"
 offset = Vector2(1.20405, 0.752815)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

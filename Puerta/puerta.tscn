@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjp2kojruql6"]
+
+[ext_resource type="Script" path="res://Puerta/Door.cs" id="1_10stm"]
+[ext_resource type="Texture2D" uid="uid://bq7jmatj71nwa" path="res://Imagenes/Puerta/Rusty Crate.png" id="2_p7ccu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gho88"]
+size = Vector2(31, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6esl"]
+size = Vector2(30, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uncen"]
+size = Vector2(63, 22)
+
+[node name="Puerta" type="Node2D"]
+scale = Vector2(0.94, 0.94)
+script = ExtResource("1_10stm")
+OpenSpeed = 10.0
+
+[node name="PuertaDerecha" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionDerecha" type="CollisionShape2D" parent="PuertaDerecha"]
+shape = SubResource("RectangleShape2D_gho88")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuertaDerecha"]
+texture = ExtResource("2_p7ccu")
+
+[node name="PuertaIzquierda" type="StaticBody2D" parent="."]
+position = Vector2(-16, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionIzquierda" type="CollisionShape2D" parent="PuertaIzquierda"]
+position = Vector2(1.90735e-06, 1.90735e-06)
+shape = SubResource("RectangleShape2D_f6esl")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuertaIzquierda"]
+texture = ExtResource("2_p7ccu")
+
+[node name="Area2DAbrir" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area2DAbrir"]
+position = Vector2(-0.5, -27)
+shape = SubResource("RectangleShape2D_uncen")
+debug_color = Color(0.723284, 0.462911, 0.33023, 0.42)
