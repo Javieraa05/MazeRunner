@@ -24,7 +24,7 @@ public partial class TrampaBase : Area2D
             return;
 
         // Si el objeto que entra es el jugador, aplica daño
-        if (body is Player player)
+        if (body is Player1 player)
         {
             player.TakeDamage(Damage);
             Visible = true;

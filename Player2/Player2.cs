@@ -17,26 +17,26 @@ public partial class Player2 : CharacterBody2D
     public void GetInput()
     {
 
-        Vector2 inputDirection = Input.GetVector("izquierda2", "derecha2", "arriba2", "abajo2");
+        Vector2 inputDirection = Input.GetVector("izquierda1", "derecha1", "arriba1", "abajo1");
         Velocity = inputDirection * Speed;
 		
     }
 
 	public void Animated()
 	{
-		if(Input.IsActionPressed("izquierda2"))
+		if(Input.IsActionPressed("izquierda1"))
         {
             animatedSprite2D.Play("run_lefth");
         }
-        else if(Input.IsActionPressed("derecha2"))
+        else if(Input.IsActionPressed("derecha1"))
         {
             animatedSprite2D.Play("run_rigth");
         }
-		else if(Input.IsActionPressed("arriba2"))
+		else if(Input.IsActionPressed("arriba1"))
         {
             animatedSprite2D.Play("run_top");
         }
-        else if(Input.IsActionPressed("abajo2"))
+        else if(Input.IsActionPressed("abajo1"))
         {
             animatedSprite2D.Play("run_down");
         }

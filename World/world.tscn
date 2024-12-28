@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=4 uid="uid://b2y0uf6vddfrj"]
 
 [ext_resource type="Texture2D" uid="uid://dkp6n5nco2spe" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="1_sgv0j"]
-[ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player1.tscn" id="2_apfcc"]
 [ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
 [ext_resource type="PackedScene" uid="uid://crhrtrwdwwaqm" path="res://Rooms/room_1.tscn" id="4_f2ng0"]
-[ext_resource type="PackedScene" uid="uid://bnv5h27bq7lfu" path="res://Player2/player_2.tscn" id="4_f51sj"]
 [ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/TrampaMartillo2.tscn" id="4_wh1qu"]
 [ext_resource type="PackedScene" uid="uid://bijpwe5hvkew4" path="res://Rooms/room_2.tscn" id="5_k7eu6"]
 [ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/TrampaMartillo1.tscn" id="6_18yyv"]
 [ext_resource type="PackedScene" uid="uid://cuf8qhdoj6pvo" path="res://Rooms/room_3.tscn" id="6_46mvv"]
 [ext_resource type="PackedScene" uid="uid://c5yuiq1gwospm" path="res://Rooms/room_4.tscn" id="7_abs0e"]
+[ext_resource type="PackedScene" uid="uid://f4ou12dcflsu" path="res://Player1/Player1.tscn" id="10_trfqd"]
+[ext_resource type="PackedScene" uid="uid://bnv5h27bq7lfu" path="res://Player2/Player2.tscn" id="11_0fa28"]
 [ext_resource type="PackedScene" uid="uid://bjp2kojruql6" path="res://Puerta/puerta.tscn" id="11_8fl1g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt1s2"]
@@ -65,17 +65,18 @@ sources/0 = SubResource("TileSetAtlasSource_bt1s2")
 
 [node name="World" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -658.0
-offset_top = -590.0
-offset_right = 2799.0
-offset_bottom = 2207.0
-color = Color(0.175164, 0.215306, 0.24257, 1)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-30, -26)
 tile_map_data = PackedByteArray("AAAZAAsAAAACAAEAAAAbAAsAAAACAAEAAAAaAAsAAAACAAEAAAALABkAAAACAAEAAAALABoAAAACAAEAAAALABsAAAACAAEAAAALABwAAAACAAEAAAAdAA0AAAACAAEAAAAdAAsAAAACAAEAAAAcAAsAAAACAAEAAAAYABkAAAACAAEAAAAYABoAAAACAAEAAAAYABsAAAACAAEAAAAYABwAAAACAAEAAAAYAB0AAAACAAEAAAAZAB4AAAACAAEAAAAaAB4AAAACAAEAAAAbAB4AAAACAAEAAAAcAB4AAAACAAEAAAAdAB4AAAACAAEAAAAZABgAAAACAAEAAAALAB0AAAACAAEAAAANABkAAAACAAEAAAANABoAAAACAAEAAAANABsAAAACAAEAAAANABwAAAACAAEAAAANAB0AAAACAAEAAAAdACkAAAACAAEAAAAcACkAAAACAAEAAAAbACkAAAACAAEAAAAaACkAAAACAAEAAAAZACkAAAACAAEAAAAdACsAAAACAAEAAAAcACsAAAACAAEAAAAbACsAAAACAAEAAAAaACsAAAACAAEAAAAZACsAAAACAAEAAAAMADYAAAACAAEAAAAAACoAAAACAAEAAAAaAA0AAAACAAEAAAAZAA0AAAACAAEAAAAeAAsAAAACAAEAAAAeAA0AAAACAAEAAAA3ACoAAAACAAEAAAAeACkAAAACAAEAAAAeACsAAAACAAEAAAArADYAAAACAAEAAAAqABkAAAACAAEAAAAqABsAAAACAAEAAAAqABoAAAACAAEAAAAqABwAAAACAAEAAAAqAB0AAAACAAEAAAAsAB0AAAACAAEAAAAsABwAAAACAAEAAAAsABsAAAACAAEAAAAsABoAAAACAAEAAAAsABkAAAACAAEAAAAeAB4AAAACAAEAAAAfAB0AAAACAAEAAAAfABwAAAACAAEAAAAfABsAAAACAAEAAAAfABkAAAACAAEAAAAfABoAAAACAAEAAAAeABgAAAACAAEAAAAdABgAAAACAAEAAAAaABgAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_2053b")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TileMapLayer"]
+offset_left = -628.0
+offset_top = -564.0
+offset_right = 2829.0
+offset_bottom = 2233.0
+color = Color(0.175164, 0.215306, 0.24257, 1)
 
 [node name="Trap6" parent="TileMapLayer" instance=ExtResource("6_18yyv")]
 position = Vector2(765, 1258)
@@ -125,23 +126,22 @@ rotation = 1.5708
 position = Vector2(906, 407)
 rotation = -1.5708
 
-[node name="Room1" parent="." instance=ExtResource("4_f2ng0")]
-position = Vector2(-30, -26)
+[node name="Room1" parent="TileMapLayer" instance=ExtResource("4_f2ng0")]
 
-[node name="Room2" parent="." instance=ExtResource("5_k7eu6")]
-position = Vector2(900, -26)
+[node name="Room2" parent="TileMapLayer" instance=ExtResource("5_k7eu6")]
+position = Vector2(930, 0)
 
-[node name="Room3" parent="." instance=ExtResource("6_46mvv")]
-position = Vector2(-30, 874)
+[node name="Room3" parent="TileMapLayer" instance=ExtResource("6_46mvv")]
+position = Vector2(0, 900)
 
-[node name="Room4" parent="." instance=ExtResource("7_abs0e")]
-position = Vector2(900, 874)
+[node name="Room4" parent="TileMapLayer" instance=ExtResource("7_abs0e")]
+position = Vector2(930, 900)
 
-[node name="Player1" parent="." instance=ExtResource("2_apfcc")]
-position = Vector2(1825, 167)
+[node name="Puerta" parent="TileMapLayer" instance=ExtResource("11_8fl1g")]
+position = Vector2(840, 735)
 
-[node name="Player2" parent="." instance=ExtResource("4_f51sj")]
-position = Vector2(795, 782)
+[node name="Player1" parent="." instance=ExtResource("10_trfqd")]
+position = Vector2(753, 777)
 
-[node name="Puerta" parent="." instance=ExtResource("11_8fl1g")]
-position = Vector2(810, 709)
+[node name="Player2" parent="." instance=ExtResource("11_0fa28")]
+position = Vector2(815, 779)

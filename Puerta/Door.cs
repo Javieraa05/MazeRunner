@@ -32,11 +32,11 @@ public partial class Door : Node2D
     {
         
 
-        if (body is Player player)
+        if (body is Player1 player)
         {
             
             // Verificar si el jugador tiene al menos 2 llaves
-            if (Player.CantidadLlaves >= 2)
+            if (Player1.CantidadLlaves >= 2)
             {
                
                 _isOpening = true; // Iniciar la apertura

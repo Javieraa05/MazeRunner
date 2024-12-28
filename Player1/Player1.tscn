@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://f4ou12dcflsu"]
 
-[ext_resource type="Script" path="res://Player1/Player.cs" id="1_eo3qx"]
+[ext_resource type="Script" path="res://Player1/Player1.cs" id="1_eo3qx"]
 [ext_resource type="Texture2D" uid="uid://ddg0wt7qgrrvw" path="res://Imagenes/32_Characters/M_06.png" id="2_1kk61"]
 [ext_resource type="Texture2D" uid="uid://3qf5d8l0p1pi" path="res://Imagenes/32_Characters/Males/M_06.png" id="3_hw4ur"]
 
@@ -128,6 +128,3 @@ scale = Vector2(0.379963, 0.429688)
 sprite_frames = SubResource("SpriteFrames_mxqi2")
 animation = &"run_rigth"
 offset = Vector2(1.20405, 0.752815)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
