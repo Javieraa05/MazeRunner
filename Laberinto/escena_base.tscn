@@ -1,85 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0on52orc30c2"]
+[gd_scene load_steps=5 format=3 uid="uid://c0on52orc30c2"]
 
-[ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="1_anorp"]
 [ext_resource type="Script" path="res://Laberinto/TileMapLayer.cs" id="2_s4idw"]
 [ext_resource type="Texture2D" uid="uid://dkp6n5nco2spe" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="2_unwbs"]
-[ext_resource type="Texture2D" uid="uid://dlqwfi42x16ne" path="res://Imagenes/TilesLaberinto/hedge_tileset.png" id="3_1xd2f"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8ohw"]
-texture = ExtResource("1_anorp")
-separation = Vector2i(2, 0)
-texture_region_size = Vector2i(30, 30)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofyb3"]
 texture = ExtResource("2_unwbs")
 separation = Vector2i(4, 0)
 texture_region_size = Vector2i(30, 30)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
 1:1/0 = 0
-0:2/0 = 0
 1:2/0 = 0
-0:3/0 = 0
 1:3/0 = 0
-0:4/0 = 0
 1:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -15, 15, -15, 15, 15, -15, 15)
-3:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8priq"]
-texture = ExtResource("3_1xd2f")
-separation = Vector2i(4, 0)
-texture_region_size = Vector2i(30, 30)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jm25e"]
 tile_size = Vector2i(30, 30)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_r8ohw")
 sources/2 = SubResource("TileSetAtlasSource_ofyb3")
-sources/3 = SubResource("TileSetAtlasSource_8priq")
 
 [node name="EscenaBase" type="Node2D"]
 

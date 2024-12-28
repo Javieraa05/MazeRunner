@@ -56,16 +56,6 @@ public partial class TileMapLayer : Godot.TileMapLayer
                 }
                 else 
                 {   
-                 /*   coordenada_tile.X = 2;
-                    coordenada_tile.Y = 1;
-
-                    position_map.X = i;
-                    position_map.Y = j;
-
-                    tile_set_id = 3;
-                    
-                    SetCell(position_map, tile_set_id, coordenada_tile);*/
-                     
 
                     if (tileData.Trampa == TipoTrampa.Puas)
                     {
