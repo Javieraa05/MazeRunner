@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 public partial class TrampaBase : Area2D
 {
-    [Export] public int Damage = 20;              // Daño que inflige la trampa
-    [Export] public float ActivationCooldown = 2; // Tiempo de espera entre activaciones
+    [Export] public int Damage = 1;              // Daño que inflige la trampa
+    [Export] public float ActivationCooldown = 5; // Tiempo de espera entre activaciones
     protected bool _isActive = true;
     
     protected AnimatedSprite2D animatedSprite2D;
@@ -24,9 +24,25 @@ public partial class TrampaBase : Area2D
             return;
 
         // Si el objeto que entra es el jugador, aplica daño
-        if (body is Player1 player)
+        if (body is Player_1 player1)
         {
-            player.TakeDamage(Damage);
+            Visible = true;
+            animatedSprite2D.Play("default");
+
+            // Inicia el cooldown
+            _isActive = false;
+            var cooldownTimer = new Godot.Timer
+            {
+                WaitTime = ActivationCooldown,
+                OneShot = true
+            };
+            cooldownTimer.Timeout += ResetTrap;
+            AddChild(cooldownTimer);
+            cooldownTimer.Start();
+        }
+
+         if (body is Player_2 player2)
+        {
             Visible = true;
             animatedSprite2D.Play("default");
 

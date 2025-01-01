@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main/Main.cs" id="1_27c8a"]
 [ext_resource type="PackedScene" uid="uid://b2y0uf6vddfrj" path="res://World/world.tscn" id="1_h8ldf"]
-[ext_resource type="Script" path="res://Main/Camera2d.cs" id="2_48vsd"]
+[ext_resource type="Script" path="res://Main/Camera2d1.cs" id="2_p76uk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_27c8a")
@@ -35,7 +35,7 @@ render_target_update_mode = 4
 
 [node name="Camera2D1" type="Camera2D" parent="Viewports/ViewportContainer1/Viewport1"]
 zoom = Vector2(5, 5)
-script = ExtResource("2_48vsd")
+script = ExtResource("2_p76uk")
 
 [node name="World" parent="Viewports/ViewportContainer1/Viewport1" instance=ExtResource("1_h8ldf")]
 
@@ -52,7 +52,7 @@ render_target_update_mode = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Viewports/ViewportContainer2/Viewport2"]
 zoom = Vector2(5, 5)
-script = ExtResource("2_48vsd")
+script = ExtResource("2_p76uk")
 
 [node name="Line2D" type="Line2D" parent="Viewports"]
 position = Vector2(7.5, 0)

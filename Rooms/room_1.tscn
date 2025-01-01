@@ -6,5 +6,4 @@
 [node name="Room1" instance=ExtResource("1_yesaj")]
 
 [node name="TileMapLayer" parent="." index="0"]
-tile_map_data = PackedByteArray(0, 0, 12, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 0, 0, 0, 12, 0, 2, 0, 2, 0, 1, 0, 0, 0)
 script = ExtResource("2_dkll2")

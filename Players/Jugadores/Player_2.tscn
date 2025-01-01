@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://t17xsmquwfqd"]
+
+[ext_resource type="Script" path="res://Players/Jugadores/Player_2.cs" id="1_fn8bp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_626m0"]
+size = Vector2(6, 9.27345)
+
+[node name="Player_2" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_fn8bp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_626m0")
