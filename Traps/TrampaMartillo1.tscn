@@ -89,7 +89,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n37js"]
-size = Vector2(20, 27)
+size = Vector2(23.75, 27)
 
 [sub_resource type="Animation" id="Animation_lu6sl"]
 resource_name = "Collision"

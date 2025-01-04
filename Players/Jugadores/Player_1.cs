@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 public partial class Player_1 : CharacterBody2D
 {
-	[Export] public int Speed { get; set; } = 120;
+	[Export] public  int Speed { get; set; } = 120;
     [Export] public int Health { get; set; } = 6;
-    [Export] public int P = 1; 
+    public static int P = 1; 
     
     public static int CantidadLlaves;
 	PackedScene characterScene;

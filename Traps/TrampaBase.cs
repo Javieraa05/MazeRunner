@@ -29,6 +29,8 @@ public partial class TrampaBase : Area2D
             Visible = true;
             animatedSprite2D.Play("default");
 
+            //Aplicar efecto
+
             // Inicia el cooldown
             _isActive = false;
             var cooldownTimer = new Godot.Timer

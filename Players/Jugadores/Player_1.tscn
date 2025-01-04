@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Players/Jugadores/Player_1.cs" id="1_yjgwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_626m0"]
-size = Vector2(6, 9.27345)
+size = Vector2(6, 7.66667)
 
 [node name="Player_1" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -12,5 +12,5 @@ collision_mask = 3
 script = ExtResource("1_yjgwg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-0.333333, -0.5)
 shape = SubResource("RectangleShape2D_626m0")

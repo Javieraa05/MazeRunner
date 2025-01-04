@@ -5,7 +5,7 @@ public partial class Player_2 : CharacterBody2D
 {
 	[Export] public int Speed { get; set; } = 120;
     [Export] public int Health { get; set; } = 6;
-    [Export] public int P = 2; 
+    public static int P = 2; 
     
     public static int CantidadLlaves;
 	PackedScene characterScene;

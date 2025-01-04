@@ -108,8 +108,8 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
-position = Vector2(1.19209e-07, 0.179)
-scale = Vector2(0.379963, 0.410343)
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sxs7e")
 animation = &"Idle"
 offset = Vector2(1.20405, 0.752815)
