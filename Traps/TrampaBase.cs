@@ -19,46 +19,24 @@ public partial class TrampaBase : Area2D
     // Método que pueden sobrescribir las subclases para añadir lógica particular.
     protected virtual void OnBodyEntered(Node body)
     {
+    
         // Si la trampa no está activa, no hace nada
         if (!_isActive) 
             return;
 
-        // Si el objeto que entra es el jugador, aplica daño
-        if (body is Player_1 player1)
+        Visible = true;
+        animatedSprite2D.Play("default");
+
+        // Inicia el cooldown
+        _isActive = false;
+        var cooldownTimer = new Godot.Timer
         {
-            Visible = true;
-            animatedSprite2D.Play("default");
-
-            //Aplicar efecto
-
-            // Inicia el cooldown
-            _isActive = false;
-            var cooldownTimer = new Godot.Timer
-            {
-                WaitTime = ActivationCooldown,
-                OneShot = true
-            };
-            cooldownTimer.Timeout += ResetTrap;
-            AddChild(cooldownTimer);
-            cooldownTimer.Start();
-        }
-
-         if (body is Player_2 player2)
-        {
-            Visible = true;
-            animatedSprite2D.Play("default");
-
-            // Inicia el cooldown
-            _isActive = false;
-            var cooldownTimer = new Godot.Timer
-            {
-                WaitTime = ActivationCooldown,
-                OneShot = true
-            };
-            cooldownTimer.Timeout += ResetTrap;
-            AddChild(cooldownTimer);
-            cooldownTimer.Start();
-        }
+            WaitTime = ActivationCooldown,
+            OneShot = true
+        };
+        cooldownTimer.Timeout += ResetTrap;
+        AddChild(cooldownTimer);
+        cooldownTimer.Start();
     }
 
     protected virtual void ResetTrap()
@@ -66,4 +44,7 @@ public partial class TrampaBase : Area2D
         Visible = false;
         _isActive = true;
     }
+  
+   
+
 }

@@ -1,77 +1,20 @@
 using Godot;
-using System;
 
-public partial class Player_2 : CharacterBody2D
+public partial class Player_2 : PlayerBase
 {
-	[Export] public int Speed { get; set; } = 120;
-    [Export] public int Health { get; set; } = 6;
-    public static int P = 2; 
-    
-    public static int CantidadLlaves;
-	PackedScene characterScene;
-	AnimatedSprite2D animatedSprite;
-	
-	
-	public override void _Ready()
-	{
-		characterScene = GD.Load<PackedScene>($"res://Players/Personaje{P}/personaje_{P}.tscn");
-		if (characterScene == null)
-        {
-            GD.PrintErr("No se pudo cargar la escena.");
-        }
-        else
-        {
-            // Instancia la escena
-            AnimatedSprite2D characterInstance = (AnimatedSprite2D)characterScene.Instantiate();
-            characterInstance.Position = new Vector2(0, 0);
-
-            // Agrega la instancia al nodo padre actual (este Node2D)
-            AddChild(characterInstance);
-
-            // Instancia del personaje
-            animatedSprite = characterInstance;
-        }
-        PosicionInicial();
-	}
-
-    public override void _Process(double delta)
+    public override void _Ready()
+    {   
+        if(SelectedCharacter2 == 0) SelectedCharacter2=2;
+        characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SelectedCharacter2}/personaje_{SelectedCharacter2}.tscn");
+        base._Ready();
+    }    
+    protected override Vector2 GetInput()
     {
-        Vector2 input = Input.GetVector("izquierda1", "derecha1", "arriba1", "abajo1");
-        Move(input);  
-        Animate(input); 
+        return Input.GetVector("izquierda1", "derecha1", "arriba1", "abajo1");
     }
 
-    public virtual void Move(Vector2 input)
+    protected override void SetInitialPosition()
     {
-        Velocity = input * Speed;
-        MoveAndSlide();  
+        Position = new Vector2(1795, 1877);
     }
-
-    public virtual void Animate(Vector2 direction)
-    {
-        if (GetNode<AnimatedSprite2D>("AnimatedSprite2D") is AnimatedSprite2D sprite)
-        {
-            if (direction.Length() > 0)
-            {
-                if (direction.X > 0) sprite.Play("corre_derecha");
-                else if (direction.X < 0) sprite.Play("corre_izquierda");
-                else if (direction.Y > 0) sprite.Play("corre_abajo");
-                else sprite.Play("corre_arriba");
-            }
-            else
-            {
-                sprite.Play("Idle");
-            }
-        }
-    }
-     public static void RecogerLlave()
-    {
-       CantidadLlaves++;
-        GD.Print("Llaves: " + CantidadLlaves);  
-    }
-     private void PosicionInicial()
-    {
-        Position = new Vector2(1795,1877);
-    }
- 
 }

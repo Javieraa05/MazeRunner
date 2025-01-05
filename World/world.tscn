@@ -128,14 +128,12 @@ position = Vector2(930, 900)
 [node name="Puerta" parent="TileMapLayer" instance=ExtResource("11_8fl1g")]
 position = Vector2(840, 735)
 
-[node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
-position = Vector2(859, 648)
-Speed = 100
-
-[node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
-position = Vector2(91, 179)
-Speed = 100
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(859, 650)
 zoom = Vector2(5, 5)
+
+[node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
+position = Vector2(883, 654)
+
+[node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
+position = Vector2(844, 644)

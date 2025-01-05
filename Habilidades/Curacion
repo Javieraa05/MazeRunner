@@ -1,0 +1,11 @@
+public class Curacion : HabilidadBase
+{
+    public override string Nombre => "Curación";
+    public override float Cooldown => 30f;
+
+    protected override void Efecto(Node jugador)
+    {
+        if (jugador is Player_1 player1) player1.Health += 2;
+        else if (jugador is Player_2 player2) player2.Health += 2;
+    }
+}

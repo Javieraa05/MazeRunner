@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://clfjo7hkyqg6j"]
+[gd_scene load_steps=4 format=3 uid="uid://clfjo7hkyqg6j"]
 
 [ext_resource type="Script" path="res://Players/Jugadores/Player_1.cs" id="1_yjgwg"]
+[ext_resource type="PackedScene" uid="uid://cle551c2kxhl4" path="res://Players/health_component.tscn" id="2_xhkti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_626m0"]
 size = Vector2(6, 7.66667)
@@ -14,3 +15,5 @@ script = ExtResource("1_yjgwg")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.333333, -0.5)
 shape = SubResource("RectangleShape2D_626m0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_xhkti")]

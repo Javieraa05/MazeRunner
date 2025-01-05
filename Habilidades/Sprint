@@ -1,0 +1,14 @@
+public class Sprint : HabilidadBase
+{
+    public override string Nombre => "Sprint";
+    public override float Cooldown => 10f;
+
+    protected override void Efecto(Node jugador)
+    {
+        if (jugador is CharacterBody2D player)
+        {
+            player.Speed *= 2;  // Dobla la velocidad
+            player.GetTree().CreateTimer(5).Timeout += () => player.Speed /= 2;  // Vuelve a la velocidad normal después de 5 segundos
+        }
+    }
+}

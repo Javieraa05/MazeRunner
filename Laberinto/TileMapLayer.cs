@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public partial class TileMapLayer : Godot.TileMapLayer
 {
-    [Export] public int cantidadTrampas = 3;
+    [Export] public int cantidadTrampas = 5;
     Vector2I coordenada_tile = new Vector2I(0,0);
     Vector2I position_map = new Vector2I(0,0);
     int tile_set_id = 1;
