@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Players/Jugadores/Player_2.cs" id="1_fn8bp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btccv"]
-size = Vector2(6, 7.66667)
+size = Vector2(5.66667, 7.33333)
 
 [node name="Player_2" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -12,5 +12,5 @@ collision_mask = 3
 script = ExtResource("1_fn8bp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0.333333, 0.5)
+position = Vector2(0.166666, 0.333333)
 shape = SubResource("RectangleShape2D_btccv")

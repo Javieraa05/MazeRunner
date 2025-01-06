@@ -7,6 +7,11 @@ public partial class Player_2 : PlayerBase
         if(SelectedCharacter2 == 0) SelectedCharacter2=2;
         characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SelectedCharacter2}/personaje_{SelectedCharacter2}.tscn");
         base._Ready();
+        // Asignar habilidad según el personaje seleccionado
+        if (habilidadesPorPersonaje.ContainsKey(SelectedCharacter1))
+        {
+            AsignarHabilidad(habilidadesPorPersonaje[SelectedCharacter1]);
+        }
     }    
     protected override Vector2 GetInput()
     {
@@ -17,4 +22,14 @@ public partial class Player_2 : PlayerBase
     {
         Position = new Vector2(1795, 1877);
     }
+    public override void _Process(double delta)
+{
+    base._Process(delta);
+
+    if (Input.IsActionJustPressed("habilidad_player2")) // Jugador 1
+    {   
+        GD.Print("Se presiono la tecla");
+        UsarHabilidad();
+    }
+}
 }

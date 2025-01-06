@@ -1,3 +1,4 @@
+using Godot;
 public class Escudo : HabilidadBase
 {
     public override string Nombre => "Escudo";
@@ -7,9 +8,9 @@ public class Escudo : HabilidadBase
     {
         if (jugador is Player_1 || jugador is Player_2)
         {
-            // Implementa una lógica de escudo, como ignorar trampas
+           /* // Implementa una lógica de escudo, como ignorar trampas
             jugador.Set("TieneEscudo", true);
-            jugador.GetTree().CreateTimer(5).Timeout += () => jugador.Set("TieneEscudo", false);
+            jugador.GetTree().CreateTimer(5).Timeout += () => jugador.Set("TieneEscudo", false);*/
         }
     }
 }

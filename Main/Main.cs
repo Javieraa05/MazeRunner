@@ -21,8 +21,17 @@ public partial class Main : Node
     viewport2.World2D = viewport1.World2D;
 
     // Configurar los objetivos de las cámaras
-    var player1 = world.GetNodeOrNull<Node2D>("Player_1");
-    var player2 = world.GetNodeOrNull<Node2D>("Player_2");
+    var player1 = world.GetNodeOrNull<PlayerBase>("Player_1");
+    var player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
+    // Vincular HUDs
+    var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
+   
+
+    if (player1 != null && hudPlayer1 != null)
+    {
+        hudPlayer1.SetPlayer(player1);
+    }
+   
     
     if (player1 != null && player2 != null)
     {

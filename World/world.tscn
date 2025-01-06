@@ -134,6 +134,12 @@ zoom = Vector2(5, 5)
 
 [node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
 position = Vector2(883, 654)
+Speed = 120
+MaxHealth = 6
+Health = 6
 
 [node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
 position = Vector2(844, 644)
+Speed = 120
+MaxHealth = 6
+Health = 6

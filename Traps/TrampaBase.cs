@@ -24,6 +24,7 @@ public partial class TrampaBase : Area2D
         if (!_isActive) 
             return;
 
+        
         Visible = true;
         animatedSprite2D.Play("default");
 
@@ -37,6 +38,11 @@ public partial class TrampaBase : Area2D
         cooldownTimer.Timeout += ResetTrap;
         AddChild(cooldownTimer);
         cooldownTimer.Start();
+         
+         if (body is PlayerBase player)
+        {
+            player.TomarDano(1); // Daño fijo de 1
+        }
     }
 
     protected virtual void ResetTrap()

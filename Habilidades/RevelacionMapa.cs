@@ -1,3 +1,4 @@
+using Godot;
 public class RevelacionMapa : HabilidadBase
 {
     public override string Nombre => "Revelación de mapa";
@@ -5,9 +6,6 @@ public class RevelacionMapa : HabilidadBase
 
     protected override void Efecto(Node jugador)
     {
-        if (jugador.GetParent() is TileMapLayer mapa)
-        {
-            mapa.RevelarMapaTemporalmente(5);  // Implementa esta función para mostrar el mapa
-        }
+
     }
 }
