@@ -4,10 +4,12 @@ using System.Collections.Generic;
 public partial class HUD_Player : CanvasLayer
 {
     private PlayerBase player; // Referencia al jugador asociado
+    private Label KeyCounter;
     private List<TextureRect> hearts; // Lista de corazones del HUD
-
+    
     public override void _Ready()
     {
+        
         // Inicializa los corazones del HUD
         hearts = new List<TextureRect>();
         foreach (Node child in GetNode("HeartsContainer").GetChildren())
@@ -17,6 +19,7 @@ public partial class HUD_Player : CanvasLayer
                 hearts.Add(textureRect);
             }
         }
+        KeyCounter = GetNodeOrNull<Label>("KeyCounter");
     }
 
     public void SetPlayer(PlayerBase player)
@@ -50,6 +53,9 @@ public partial class HUD_Player : CanvasLayer
 
     private void OnKeysChanged(int keys)
     {
-        // Aquí puedes actualizar el contador de llaves si es necesario
+        KeyCounter.Text = $"Llaves: {keys}"; // Actualiza el contador en el HUD
     }
+
+    
+    
 }

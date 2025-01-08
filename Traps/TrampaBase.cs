@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 public partial class TrampaBase : Area2D
 {
-    [Export] public int Damage = 1;              // Daño que inflige la trampa
-    [Export] public float ActivationCooldown = 5; // Tiempo de espera entre activaciones
+    public int Damage = 1;              // Daño que inflige la trampa
+    public float ActivationCooldown = 5; // Tiempo de espera entre activaciones
     protected bool _isActive = true;
     
     protected AnimatedSprite2D animatedSprite2D;
@@ -24,7 +24,9 @@ public partial class TrampaBase : Area2D
         if (!_isActive) 
             return;
 
-        
+        if (body is PlayerBase player)
+        {
+        GD.Print("Entro a la trampa");
         Visible = true;
         animatedSprite2D.Play("default");
 
@@ -39,8 +41,7 @@ public partial class TrampaBase : Area2D
         AddChild(cooldownTimer);
         cooldownTimer.Start();
          
-         if (body is PlayerBase player)
-        {
+        
             player.TomarDano(1); // Daño fijo de 1
         }
     }

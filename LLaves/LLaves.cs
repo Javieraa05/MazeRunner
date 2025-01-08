@@ -14,14 +14,9 @@ public partial class LLaves : Area2D
 
 	protected virtual void OnBodyEntered(Node body)
 	{
-		if ((body is Player_1 player1) && Player_1.CantidadLlaves<=2)
+		if ((body is PlayerBase player) && player.CantidadLlaves<=2)
 		{
-			player1.RecogerLlave();
-			QueueFree();
-		}
-		if (body is Player_2 player2 && Player_2.CantidadLlaves<=2)
-		{
-			player2.RecogerLlave();
+			player.RecogerLlave();
 			QueueFree();
 		}
 	}

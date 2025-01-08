@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public abstract partial class PlayerBase : CharacterBody2D
 {
-    [Export] public int Speed { get; set; } = 120;
-    [Export] public int MaxHealth { get; set; } = 6;
+    public int Speed { get; set; } = 100;
+    public int MaxHealth { get; set; } = 6;
 
-    [Export] public int Health { get; set; } = 6;
-    private HabilidadBase habilidadActual;
+    public int Health { get; set; } = 6;
+    public HabilidadBase habilidadActual;
     public int SelectedCharacter1 { get; set; }
     public int SelectedCharacter2 { get; set; }
-    public static int CantidadLlaves;
+    public int CantidadLlaves=0;
     protected PackedScene characterScene;
     protected AnimatedSprite2D animatedSprite;
     
@@ -30,7 +30,6 @@ public abstract partial class PlayerBase : CharacterBody2D
     public override void _Ready()
     {
        
-        
         if (characterScene == null)
         {
             GD.PrintErr("No se pudo cargar la escena.");
@@ -84,19 +83,22 @@ public abstract partial class PlayerBase : CharacterBody2D
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
         GD.Print($"Llaves: {CantidadLlaves}");
     }
+    public int GetCantidadLlaves()
+    {
+        return CantidadLlaves; // Método para obtener la cantidad actual de llaves
+    }
 
     protected abstract void SetInitialPosition();
 
     public void TomarDano(int cantidadDano)
     {
-        Health -= cantidadDano;
+        AjustarSalud(-cantidadDano);
         GD.Print($"Salud restante: {Health}");
         EmitSignal(nameof(HealthChanged), Health); // Emitir señal para actualizar el HUD
 
         if (Health <= 0)
         {
             GD.Print("¡Jugador eliminado! Restableciendo posición...");
-            Health = 6; // Restablece la salud al valor inicial
             ResetPosition(); // Llama al método para restablecer la posición
         }
     }
@@ -105,13 +107,11 @@ public abstract partial class PlayerBase : CharacterBody2D
         SetInitialPosition(); // Usa el método que ya define la posición inicial
         Velocity = Vector2.Zero; // Detiene el movimiento
         GD.Print("El jugador ha sido restablecido a la posición inicial.");
+        CantidadLlaves = 0; 
+        EmitSignal(nameof(KeysChanged), CantidadLlaves);
+        AjustarSalud(7);
     }
 
-    public void ModificarSalud(int cantidad)
-    {
-        Health = Mathf.Clamp(Health + cantidad, 0, MaxHealth);
-        GD.Print($"Salud actual: {Health}");
-    }
     public void AsignarHabilidad(HabilidadBase habilidad)
     {   
         habilidadActual = habilidad;
@@ -119,11 +119,24 @@ public abstract partial class PlayerBase : CharacterBody2D
 
     public void UsarHabilidad()
     {
+        if(habilidadActual == null) GD.Print("No hay habilidad asignada");
         if (habilidadActual != null && habilidadActual.Disponible)
         {
             GD.Print("Se mando a activar la habilidad");
             habilidadActual.Activar(this);
         }
+        else
+        {
+            GD.Print("No se puede usar la habilidad");
+        }
     }
+
+    public void AjustarSalud(int cantidad)
+    {
+        Health = Mathf.Clamp(Health + cantidad, 0, 6); // Asegura que la salud esté dentro de los límites
+        EmitSignal(nameof(HealthChanged), Health);    // Emite la señal para actualizar el HUD
+        GD.Print($"La salud del jugador ahora es: {Health}");
+    }
+
 
 }

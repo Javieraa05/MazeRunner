@@ -35,7 +35,7 @@ size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
 [node name="Camera2D1" type="Camera2D" parent="Viewports/ViewportContainer1/Viewport1"]
-zoom = Vector2(5, 5)
+zoom = Vector2(2, 2)
 script = ExtResource("2_p76uk")
 
 [node name="World" parent="Viewports/ViewportContainer1/Viewport1" instance=ExtResource("1_h8ldf")]
@@ -44,30 +44,63 @@ script = ExtResource("2_p76uk")
 script = ExtResource("4_ta12e")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_right = 40.0
-offset_bottom = 17.0
+offset_left = 618.0
+offset_top = 15.0
+offset_right = 938.0
+offset_bottom = 65.0
+size_flags_horizontal = 4
 
 [node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_right = 40.0
-offset_bottom = 26.0
+offset_left = 5.0
+offset_top = 1046.0
+offset_right = 45.0
+offset_bottom = 1072.0
+
+[node name="HabilidadContainer" type="VBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 857.0
+offset_top = -97.0
+offset_right = 933.0
+offset_bottom = -17.0
+grow_vertical = 0
+
+[node name="IconoHabilidad" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HabilidadContainer"]
+layout_mode = 2
+
+[node name="TeclaYCooldown" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1/HabilidadContainer"]
+layout_mode = 2
 
 [node name="ViewportContainer2" type="SubViewportContainer" parent="Viewports"]
 custom_minimum_size = Vector2(960, 1080)
@@ -81,8 +114,71 @@ size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Viewports/ViewportContainer2/Viewport2"]
-zoom = Vector2(5, 5)
+zoom = Vector2(2, 2)
 script = ExtResource("2_p76uk")
+
+[node name="HUD_Player2" type="CanvasLayer" parent="Viewports/ViewportContainer2"]
+script = ExtResource("4_ta12e")
+
+[node name="HabilidadContainer" type="VBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="IconoHabilidad" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HabilidadContainer"]
+layout_mode = 2
+
+[node name="TeclaYCooldown" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2/HabilidadContainer"]
+layout_mode = 2
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
+offset_left = 1573.0
+offset_top = 28.0
+offset_right = 1893.0
+offset_bottom = 78.0
+size_flags_horizontal = 4
+
+[node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2"]
+offset_left = 972.0
+offset_top = 1024.0
+offset_right = 1012.0
+offset_bottom = 1050.0
 
 [node name="Line2D" type="Line2D" parent="Viewports"]
 position = Vector2(7.5, 0)

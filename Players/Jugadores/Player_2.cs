@@ -8,9 +8,9 @@ public partial class Player_2 : PlayerBase
         characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SelectedCharacter2}/personaje_{SelectedCharacter2}.tscn");
         base._Ready();
         // Asignar habilidad según el personaje seleccionado
-        if (habilidadesPorPersonaje.ContainsKey(SelectedCharacter1))
+        if (habilidadesPorPersonaje.ContainsKey(SelectedCharacter2))
         {
-            AsignarHabilidad(habilidadesPorPersonaje[SelectedCharacter1]);
+            AsignarHabilidad(habilidadesPorPersonaje[SelectedCharacter2]);
         }
     }    
     protected override Vector2 GetInput()

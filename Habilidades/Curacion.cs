@@ -8,7 +8,7 @@ public class Curacion : HabilidadBase
     {
         if (jugador is PlayerBase player)
         {
-            player.ModificarSalud(2); // Incrementa la salud en 2 puntos
+            player.AjustarSalud(2); // Incrementa la salud en 2 puntos
         }
     }
 }

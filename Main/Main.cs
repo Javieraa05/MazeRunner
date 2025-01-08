@@ -25,11 +25,14 @@ public partial class Main : Node
     var player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
-   
+    var hudPlayer2 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer2/HUD_Player2");
+    var texturaIcono1 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player1.SelectedCharacter1}.png");
+    var texturaIcono2 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player2.SelectedCharacter2}.png");
 
-    if (player1 != null && hudPlayer1 != null)
+    if (player1 != null && hudPlayer1 != null && player2 != null && hudPlayer2 != null)
     {
         hudPlayer1.SetPlayer(player1);
+        hudPlayer2.SetPlayer(player2);
     }
    
     
@@ -46,10 +49,5 @@ public partial class Main : Node
         GD.PrintErr("No se encontraron los nodos Player_1 o Player_2.");
     }
 }
-
-
-
-
-    
-    
+   
 }

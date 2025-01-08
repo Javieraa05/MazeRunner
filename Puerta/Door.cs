@@ -2,8 +2,8 @@ using Godot;
 
 public partial class Door : Node2D
 {
-    [Export] public float OpenSpeed = 50f; // Velocidad de apertura
-    [Export] public float MaxDistance = 30f; // Distancia máxima de movimiento de cada bloque
+    public float OpenSpeed = 50f; // Velocidad de apertura
+    public float MaxDistance = 30f; // Distancia máxima de movimiento de cada bloque
     private StaticBody2D puertaIzquierda;
     private StaticBody2D puertaDerecha;
     private Area2D _Area2DAbrir;
@@ -30,33 +30,15 @@ public partial class Door : Node2D
 
     private void OnBodyEntered(Node body)
     {
-        if (body is Player_1)
+        if (body is PlayerBase player && player.GetCantidadLlaves()>=2)
         {
-            
-            // Verificar si el jugador tiene al menos 2 llaves
-            if (Player_1.CantidadLlaves >= 2)
-            {
-               
-                _isOpening = true; // Iniciar la apertura
-            }
-            else
-            {
-                GD.Print("No tienes suficientes llaves para abrir la puerta.");
-            }
+            _isOpening = true;
         }
-        if (body is Player_2)
+        else
         {
-            // Verificar si el jugador tiene al menos 2 llaves
-            if (Player_2.CantidadLlaves >= 2)
-            {
-               
-                _isOpening = true; // Iniciar la apertura
-            }
-            else
-            {
-                GD.Print("No tienes suficientes llaves para abrir la puerta.");
-            }
+            GD.Print("No tienes suficientes llaves para abrir la puerta.");
         }
+        
     }
 
     public override void _Process(double delta)

@@ -2,7 +2,7 @@ using Godot;
 
 public partial class HealthComponent : Node
 {
-    [Export] public int MaxHealth { get; set; } = 6;
+    public int MaxHealth { get; set; } = 6;
     private int _currentHealth;
     public int CurrentHealth
     {
