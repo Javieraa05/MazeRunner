@@ -41,8 +41,10 @@ public partial class TrampaBase : Area2D
         AddChild(cooldownTimer);
         cooldownTimer.Start();
          
-        
+        if(!player.Escudo)
+        {    
             player.TomarDano(1); // Daño fijo de 1
+        }
         }
     }
 

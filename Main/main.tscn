@@ -35,7 +35,7 @@ size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
 [node name="Camera2D1" type="Camera2D" parent="Viewports/ViewportContainer1/Viewport1"]
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 script = ExtResource("2_p76uk")
 
 [node name="World" parent="Viewports/ViewportContainer1/Viewport1" instance=ExtResource("1_h8ldf")]
@@ -114,7 +114,7 @@ size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Viewports/ViewportContainer2/Viewport2"]
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 script = ExtResource("2_p76uk")
 
 [node name="HUD_Player2" type="CanvasLayer" parent="Viewports/ViewportContainer2"]

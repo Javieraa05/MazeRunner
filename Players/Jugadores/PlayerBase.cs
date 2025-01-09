@@ -14,6 +14,8 @@ public abstract partial class PlayerBase : CharacterBody2D
     public int CantidadLlaves=0;
     protected PackedScene characterScene;
     protected AnimatedSprite2D animatedSprite;
+    public bool Escudo = false;
+    public Vector2 Zoom = new Vector2(5,5);
     
     [Signal] public delegate void HealthChangedEventHandler(int health);
 
@@ -21,9 +23,11 @@ public abstract partial class PlayerBase : CharacterBody2D
 
     public static Dictionary<int, HabilidadBase> habilidadesPorPersonaje = new Dictionary<int, HabilidadBase>
     {
-        { 1, new Curacion() },  // Personaje 1 tiene Curación
-        { 2, new Sprint() },    // Personaje 2 tiene Sprint
-        // Personaje 4 tiene Radar de Llaves
+        { 1, new Curacion() },  
+        { 2, new Sprint() },   
+        { 3, new Escudo() },
+        { 4, new RevelacionMapa() },
+        { 5, new IntercambiaPosicion() },
     };
 
 
@@ -137,6 +141,7 @@ public abstract partial class PlayerBase : CharacterBody2D
         EmitSignal(nameof(HealthChanged), Health);    // Emite la señal para actualizar el HUD
         GD.Print($"La salud del jugador ahora es: {Health}");
     }
+   
 
 
 }

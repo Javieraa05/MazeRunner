@@ -4,7 +4,7 @@ public class Sprint : HabilidadBase
     public override string Nombre => "Sprint";
     public override float Cooldown => 10f;
 
-    protected override void Efecto(Node jugador)
+    protected override void Efecto(PlayerBase jugador)
     {
         if (jugador is PlayerBase player)
         {   

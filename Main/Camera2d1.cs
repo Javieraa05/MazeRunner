@@ -3,7 +3,8 @@ using System;
 
 public partial class Camera2d1 : Camera2D
 {
-	private Node2D target;
+	private PlayerBase target;
+    
 
     public override void _Ready()
     {
@@ -25,6 +26,8 @@ public partial class Camera2d1 : Camera2D
         newPosition.Y = Mathf.Clamp(newPosition.Y, LimitTop, LimitBottom);
 
         Position = newPosition;
+        Zoom = target.Zoom;
+        
     }
     else
     {
@@ -32,7 +35,7 @@ public partial class Camera2d1 : Camera2D
     }
 }
 
-    public void SetTarget(Node2D newTarget)
+    public void SetTarget(PlayerBase newTarget)
     {
         target = newTarget; 
     }

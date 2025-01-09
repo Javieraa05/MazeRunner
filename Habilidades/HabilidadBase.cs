@@ -7,7 +7,7 @@ public abstract class HabilidadBase
     public bool Disponible { get; private set; } = true;
     private float tiempoRestanteCooldown = 0;
 
-    public void Activar(Node jugador)
+    public void Activar(PlayerBase jugador)
     {
         if (!Disponible)
             return;
@@ -18,6 +18,6 @@ public abstract class HabilidadBase
         jugador.GetTree().CreateTimer(Cooldown).Timeout += () => Disponible = true;
     }
 
-    protected abstract void Efecto(Node jugador);
+    protected abstract void Efecto(PlayerBase jugador);
 
 }
