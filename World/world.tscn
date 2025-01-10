@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b2y0uf6vddfrj"]
+[gd_scene load_steps=16 format=4 uid="uid://b2y0uf6vddfrj"]
 
 [ext_resource type="Texture2D" uid="uid://dkp6n5nco2spe" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="1_sgv0j"]
 [ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjp2kojruql6" path="res://Puerta/puerta.tscn" id="11_8fl1g"]
 [ext_resource type="PackedScene" uid="uid://clfjo7hkyqg6j" path="res://Players/Jugadores/Player_1.tscn" id="11_o21r3"]
 [ext_resource type="PackedScene" uid="uid://t17xsmquwfqd" path="res://Players/Jugadores/Player_2.tscn" id="12_bii6o"]
+[ext_resource type="PackedScene" uid="uid://dnx1cml2m82du" path="res://Main/area_victoria.tscn" id="12_mu8in"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt1s2"]
 texture = ExtResource("1_sgv0j")
@@ -129,11 +130,14 @@ position = Vector2(930, 900)
 position = Vector2(840, 735)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(859, 650)
+position = Vector2(1007, 1077)
 zoom = Vector2(5, 5)
 
 [node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
-position = Vector2(883, 654)
+position = Vector2(1004, 1047)
 
 [node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
-position = Vector2(844, 644)
+position = Vector2(1038, 1048)
+
+[node name="AreaVictoria" parent="." instance=ExtResource("12_mu8in")]
+position = Vector2(1003, 1081)
