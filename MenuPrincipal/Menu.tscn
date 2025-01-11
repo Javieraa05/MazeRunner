@@ -1,22 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3whc1cukj3pu"]
+[gd_scene load_steps=5 format=3 uid="uid://c3whc1cukj3pu"]
 
-[ext_resource type="Texture2D" uid="uid://ds4hqpktg6q3" path="res://Imagenes/Menu Principal/Imagen Menu .webp" id="1_e3iqr"]
 [ext_resource type="Script" path="res://MenuPrincipal/Menu.cs" id="1_sxxhg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbm10"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uivhn"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kpk3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxdtp"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiksk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktt2j"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://btr5l13ypnu88" path="res://Imagenes/Menu Principal/edited_maze_refined.webp" id="2_208vf"]
+[ext_resource type="Script" path="res://MenuPrincipal/Jugar.cs" id="3_r1xxt"]
+[ext_resource type="AudioStream" uid="uid://b036i7rsqjn7s" path="res://Audio/Boton/tap-a.ogg" id="4_eeoa3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -34,41 +21,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_e3iqr")
+texture = ExtResource("2_208vf")
 
-[node name="Container" type="VBoxContainer" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.5
-offset_top = -132.5
-offset_right = 120.5
-offset_bottom = 132.5
+anchors_preset = -1
+anchor_left = 0.107813
+anchor_top = 0.0657407
+anchor_right = 0.381771
+anchor_bottom = 0.224074
+offset_left = -192.0
+offset_top = -16.0
+offset_right = 192.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_type_variation = &"HeaderLarge"
+text = "MAZE 
+RUNNERS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 1516.0
+offset_top = 690.0
+offset_right = 1856.0
+offset_bottom = 1032.0
+theme_override_constants/separation = 45
+alignment = 1
 
 [node name="Jugar" type="Button" parent="Container"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-theme_override_styles/hover = SubResource("StyleBoxFlat_hbm10")
-theme_override_styles/normal = SubResource("StyleBoxFlat_uivhn")
-text = "JUGAR"
+text = "Jugar"
+script = ExtResource("3_r1xxt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Jugar"]
+stream = ExtResource("4_eeoa3")
 
 [node name="Opciones" type="Button" parent="Container"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-theme_override_styles/hover = SubResource("StyleBoxFlat_5kpk3")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xxdtp")
-text = "OPCIONES"
+text = "Opciones"
+script = ExtResource("3_r1xxt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Opciones"]
+stream = ExtResource("4_eeoa3")
 
 [node name="Salir" type="Button" parent="Container"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 38
-theme_override_styles/hover = SubResource("StyleBoxFlat_aiksk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktt2j")
-text = "SALIR
-"
+text = "Salir"
+script = ExtResource("3_r1xxt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Salir"]
+stream = ExtResource("4_eeoa3")
