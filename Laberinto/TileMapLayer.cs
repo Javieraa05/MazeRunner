@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 public partial class TileMapLayer : Godot.TileMapLayer
 {
-    public int cantidadTrampas = 2;
+    public int cantidadTrampas = 1;
     Vector2I coordenada_tile = new Vector2I(0,0);
     Vector2I position_map = new Vector2I(0,0);
-    int tile_set_id = 1;
+    int tile_set_id = 4;
     Laberinto laberinto = new Laberinto(); 
     private PackedScene _trapScene1; // Trampa instanciable
     private PackedScene _trapScene2; // Trampa instanciable

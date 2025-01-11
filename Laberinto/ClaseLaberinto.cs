@@ -104,9 +104,9 @@
         {
             var posicionesCaminos = new List<(int, int)>();
 
-            for (int i = 0; i < sizeX; i++)
+            for (int i = 1; i < sizeX-1; i++)
             {
-                for (int j = 0; j < sizeY; j++)
+                for (int j = 1; j < sizeY-1; j++)
                 {
                     if (tablero[i, j].EsCamino)
                     {
@@ -129,9 +129,9 @@
         {
             var posicionesCaminos = new List<(int, int)>();
 
-            for (int i = 0; i < sizeX; i++)
+            for (int i = 5; i < sizeX-5; i++)
             {
-                for (int j = 0; j < sizeY; j++)
+                for (int j = 5; j < sizeY-5; j++)
                 {
                     if (tablero[i, j].EsCamino)
                     {

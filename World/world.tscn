@@ -100,18 +100,22 @@ position = Vector2(1287, 884)
 position = Vector2(1287, 766)
 
 [node name="Trap10" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+z_index = -1
 position = Vector2(771, 340)
 rotation = 1.5708
 
 [node name="Trap11" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+z_index = -1
 position = Vector2(771, 410)
 rotation = -1.5708
 
 [node name="Trap12" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+z_index = -1
 position = Vector2(906, 340)
 rotation = 1.5708
 
 [node name="Trap13" parent="TileMapLayer" instance=ExtResource("4_wh1qu")]
+z_index = -1
 position = Vector2(906, 410)
 rotation = -1.5708
 
@@ -130,14 +134,14 @@ position = Vector2(930, 900)
 position = Vector2(840, 735)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1007, 1077)
+position = Vector2(992, 669)
 zoom = Vector2(5, 5)
 
 [node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
-position = Vector2(1004, 1047)
+position = Vector2(988, 1053)
 
 [node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
 position = Vector2(1038, 1048)
 
 [node name="AreaVictoria" parent="." instance=ExtResource("12_mu8in")]
-position = Vector2(1003, 1081)
+position = Vector2(1008, 1085)

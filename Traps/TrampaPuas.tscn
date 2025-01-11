@@ -89,16 +89,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sgd4"]
-size = Vector2(25.75, 25.875)
+size = Vector2(20.875, 18.9375)
 
 [node name="TrampaPuas" type="Area2D"]
 script = ExtResource("1_qtkgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -3)
 scale = Vector2(1, 1.0122)
 sprite_frames = SubResource("SpriteFrames_2srqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_2sgd4")

@@ -32,18 +32,13 @@ public partial class TrampaBase : Area2D
 
         // Inicia el cooldown
         _isActive = false;
-        var cooldownTimer = new Godot.Timer
-        {
-            WaitTime = ActivationCooldown,
-            OneShot = true
-        };
-        cooldownTimer.Timeout += ResetTrap;
-        AddChild(cooldownTimer);
-        cooldownTimer.Start();
+        GetTree().CreateTimer(ActivationCooldown).Timeout += ResetTrap;
          
         if(!player.Escudo)
         {    
             player.TomarDano(1); // Daño fijo de 1
+            player.ReducirVelocidad();
+
         }
         }
     }

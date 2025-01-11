@@ -73,7 +73,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghvs5"]
-size = Vector2(23.875, 22.4375)
+size = Vector2(16.9375, 15.2188)
 
 [node name="TrampaOso" type="Area2D"]
 script = ExtResource("1_simxh")
@@ -85,6 +85,4 @@ sprite_frames = SubResource("SpriteFrames_pd6re")
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.0625, -7.78125)
 shape = SubResource("RectangleShape2D_ghvs5")

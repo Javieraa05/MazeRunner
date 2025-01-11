@@ -14,11 +14,18 @@ public partial class LLaves : Area2D
 
 	protected virtual void OnBodyEntered(Node body)
 	{
-		if ((body is PlayerBase player) && player.CantidadLlaves<=2)
+		if ((body is PlayerBase player) && player.CantidadLlaves<=2 && Visible==true)
 		{
-			player.RecogerLlave();
-			QueueFree();
+			player.RecogerLlave(this);
 		}
+	}
+	public void Desaparecer()
+	{
+		Visible=false;
+	}
+	public void Aparecer()
+	{
+		Visible=true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

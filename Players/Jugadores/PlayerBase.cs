@@ -16,6 +16,7 @@ public abstract partial class PlayerBase : CharacterBody2D
     protected AnimatedSprite2D animatedSprite;
     public bool Escudo = false;
     public Vector2 Zoom = new Vector2(5,5);
+    public List<LLaves> llaves = new List<LLaves>();
     
     [Signal] public delegate void HealthChangedEventHandler(int health);
 
@@ -81,9 +82,11 @@ public abstract partial class PlayerBase : CharacterBody2D
         }
     }
 
-    public void RecogerLlave()
+    public void RecogerLlave(LLaves llave)
     {
         CantidadLlaves++;
+        llave.Desaparecer();
+        llaves.Add(llave);
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
         GD.Print($"Llaves: {CantidadLlaves}");
     }
@@ -113,6 +116,11 @@ public abstract partial class PlayerBase : CharacterBody2D
         GD.Print("El jugador ha sido restablecido a la posición inicial.");
         CantidadLlaves = 0; 
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
+        foreach(LLaves llave in llaves)
+        {
+            llave.Aparecer();
+        }
+        llaves.Clear();
         AjustarSalud(7);
     }
 
@@ -142,6 +150,11 @@ public abstract partial class PlayerBase : CharacterBody2D
         GD.Print($"La salud del jugador ahora es: {Health}");
     }
    
+   public void ReducirVelocidad()
+   {
+    Speed /= 4;
+    GetTree().CreateTimer(2).Timeout += () => Speed*=4;
+   }
 
 
 }
