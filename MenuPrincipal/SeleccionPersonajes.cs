@@ -6,8 +6,7 @@ public partial class SeleccionPersonajes : Control
     private int _personajeActual = 0; // Índice del personaje actual
     private string[] _personajes = {
         "Personaje1", "Personaje2", "Personaje3", "Personaje4", 
-        "Personaje5", "Personaje6", "Personaje7", "Personaje8", 
-        "Personaje9", "Personaje10"
+        "Personaje5"
     };
     private bool _esTurnoPlayer1 = true; // Controla el turno de selección
     private TextureRect _imagenPersonaje;
@@ -22,9 +21,9 @@ public partial class SeleccionPersonajes : Control
 
         ActualizarVista();
         
-        GetNode<Button>("BoxContainer/BotonAnterior").Pressed += OnBotonAnteriorPressed;
-        GetNode<Button>("BoxContainer/BotonSiguiente").Pressed += OnBotonSiguientePressed;
-        GetNode<Button>("BoxContainer/BotonSeleccionar").Pressed += OnBotonSeleccionarPressed;
+        GetNode<Button>("BotonAnterior").Pressed += OnBotonAnteriorPressed;
+        GetNode<Button>("BotonSiguiente").Pressed += OnBotonSiguientePressed;
+        GetNode<Button>("BotonSeleccionar").Pressed += OnBotonSeleccionarPressed;
     }
 
     private void OnBotonAnteriorPressed()
@@ -47,7 +46,7 @@ public partial class SeleccionPersonajes : Control
         _seleccionPlayer1 = _personajeActual + 1;
         GD.Print($"Player 1 seleccionó: {_seleccionPlayer1}");
         _esTurnoPlayer1 = false;
-        _etiquetaJugador.Text = "Turno de Player 2";
+        _etiquetaJugador.Text = "Player 2";
     }
     else
     {
@@ -90,7 +89,7 @@ public partial class SeleccionPersonajes : Control
         _imagenPersonaje.Texture = (Texture2D)GD.Load<Texture>($"res://Imagenes/Personajes/{_personajes[_personajeActual]}.png");
 
 
-    	_etiquetaJugador.Text = _esTurnoPlayer1 ? "Turno de Player 1" : "Turno de Player 2";
+    	_etiquetaJugador.Text = _esTurnoPlayer1 ? "Player 1" : "Player 2";
     }
 }
 

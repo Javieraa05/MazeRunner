@@ -1,11 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf00ccu0dcj10"]
+[gd_scene load_steps=14 format=3 uid="uid://cf00ccu0dcj10"]
 
 [ext_resource type="Script" path="res://MenuPrincipal/SeleccionPersonajes.cs" id="1_3uijv"]
+[ext_resource type="Texture2D" uid="uid://ce8qjw3ar5cbd" path="res://Imagenes/UI_Essential_Pack/UI_Flat_ButtonPlay01a.png" id="2_yjy7r"]
+[ext_resource type="Texture2D" uid="uid://ctpqq22pagxmq" path="res://Imagenes/UI_Essential_Pack/ButtonPlay.png" id="3_mkwbm"]
+[ext_resource type="Texture2D" uid="uid://b8ce22bcqi6y7" path="res://Imagenes/UI_Essential_Pack/UI_Flat_ButtonCheck01a.png" id="3_t8rcl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tqy4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6j2qb"]
+texture = ExtResource("2_yjy7r")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rdx8"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1n7o"]
+texture = ExtResource("2_yjy7r")
+modulate_color = Color(0.172376, 0.138234, 6.37732e-07, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1dsc"]
+texture = ExtResource("2_yjy7r")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81s6k"]
+texture = ExtResource("3_mkwbm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pniy0"]
+texture = ExtResource("3_mkwbm")
+modulate_color = Color(0.306409, 0.25214, 1.92523e-06, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xds3g"]
+texture = ExtResource("3_mkwbm")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bty2k"]
+texture = ExtResource("3_t8rcl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0n41"]
+texture = ExtResource("3_t8rcl")
+modulate_color = Color(0.545098, 0.921569, 0.580392, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0jup"]
+texture = ExtResource("3_t8rcl")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
 
 [node name="SeleccionPersonajes" type="Control"]
 layout_mode = 3
@@ -23,15 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.129412, 0.14902, 0.180392, 1)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-offset_left = 808.0
-offset_top = 264.0
-offset_right = 1024.0
-offset_bottom = 552.0
+color = Color(0.194386, 0.438378, 0.640116, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -40,43 +72,76 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = 16.0
-offset_right = 85.0
-offset_bottom = 80.0
+offset_left = -161.5
+offset_top = -459.0
+offset_right = 161.5
+offset_bottom = -315.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 70
 horizontal_alignment = 1
 
-[node name="BoxContainer" type="HBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(250, 320)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = 99.0
-offset_right = 76.0
-offset_bottom = 166.0
+offset_top = -33.5
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 11
 
-[node name="BotonAnterior" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5tqy4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4rdx8")
-text = "Anterior"
+[node name="BotonSiguiente" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 243.0
+offset_top = -45.0
+offset_right = 340.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6j2qb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r1n7o")
+theme_override_styles/normal = SubResource("StyleBoxTexture_g1dsc")
 
-[node name="BotonSeleccionar" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5tqy4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4rdx8")
-text = "Seleccionar"
+[node name="BotonAnterior" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -46.0
+offset_right = -234.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_81s6k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pniy0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xds3g")
 
-[node name="BotonSiguiente" type="Button" parent="BoxContainer"]
-layout_mode = 2
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5tqy4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4rdx8")
-text = "Siguiente"
+[node name="BotonSeleccionar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = 276.5
+offset_right = 49.5
+offset_bottom = 369.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_bty2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o0n41")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s0jup")
