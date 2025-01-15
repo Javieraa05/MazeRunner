@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://MenuPrincipal/Menu.cs" id="1_sxxhg"]
 [ext_resource type="Texture2D" uid="uid://btr5l13ypnu88" path="res://Imagenes/Menu Principal/edited_maze_refined.webp" id="2_208vf"]
-[ext_resource type="Script" path="res://MenuPrincipal/Jugar.cs" id="3_r1xxt"]
+[ext_resource type="Script" path="res://MenuPrincipal/Boton.cs" id="3_es8q0"]
 [ext_resource type="AudioStream" uid="uid://b036i7rsqjn7s" path="res://Audio/Boton/tap-a.ogg" id="4_eeoa3"]
 
 [node name="Menu" type="Control"]
@@ -60,7 +60,7 @@ alignment = 1
 [node name="Jugar" type="Button" parent="Container"]
 layout_mode = 2
 text = "Jugar"
-script = ExtResource("3_r1xxt")
+script = ExtResource("3_es8q0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Jugar"]
 stream = ExtResource("4_eeoa3")
@@ -68,7 +68,7 @@ stream = ExtResource("4_eeoa3")
 [node name="Opciones" type="Button" parent="Container"]
 layout_mode = 2
 text = "Opciones"
-script = ExtResource("3_r1xxt")
+script = ExtResource("3_es8q0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Opciones"]
 stream = ExtResource("4_eeoa3")
@@ -76,7 +76,7 @@ stream = ExtResource("4_eeoa3")
 [node name="Salir" type="Button" parent="Container"]
 layout_mode = 2
 text = "Salir"
-script = ExtResource("3_r1xxt")
+script = ExtResource("3_es8q0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Salir"]
 stream = ExtResource("4_eeoa3")

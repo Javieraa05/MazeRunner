@@ -44,10 +44,10 @@ script = ExtResource("2_p76uk")
 script = ExtResource("4_ta12e")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_left = 618.0
-offset_top = 15.0
-offset_right = 938.0
-offset_bottom = 65.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 345.0
+offset_bottom = 75.0
 size_flags_horizontal = 4
 
 [node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
@@ -80,31 +80,35 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_left = 5.0
-offset_top = 1046.0
-offset_right = 45.0
-offset_bottom = 1072.0
-
 [node name="HabilidadContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -170.0
-offset_top = -158.0
-offset_right = -45.0
-offset_bottom = -2.0
-grow_horizontal = 2
+offset_left = 25.0
+offset_top = -145.0
+offset_right = 150.0
+offset_bottom = -25.0
 grow_vertical = 0
 
 [node name="TeclaYCooldown" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1/HabilidadContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 0
 
 [node name="IconoHabilidad" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HabilidadContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
+
+[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
+offset_left = 884.0
+offset_top = 29.0
+offset_right = 885.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 
 [node name="ViewportContainer2" type="SubViewportContainer" parent="Viewports"]
 custom_minimum_size = Vector2(960, 1080)
@@ -125,30 +129,33 @@ script = ExtResource("2_p76uk")
 script = ExtResource("4_ta12e")
 
 [node name="HabilidadContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -185.0
-offset_top = -122.0
-offset_right = -60.0
-offset_bottom = -2.0
-grow_horizontal = 0
+offset_left = 40.5
+offset_top = -145.0
+offset_right = 165.5
+offset_bottom = -25.0
+grow_horizontal = 2
 grow_vertical = 0
 
 [node name="TeclaYCooldown" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2/HabilidadContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 
 [node name="IconoHabilidad" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HabilidadContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 
 [node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
-offset_left = 1573.0
-offset_top = 28.0
-offset_right = 1893.0
-offset_bottom = 78.0
+offset_left = 985.0
+offset_top = 25.0
+offset_right = 1305.0
+offset_bottom = 75.0
 size_flags_horizontal = 4
 
 [node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
@@ -182,10 +189,17 @@ layout_mode = 2
 stretch_mode = 5
 
 [node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2"]
-offset_left = 972.0
-offset_top = 1024.0
-offset_right = 1012.0
-offset_bottom = 1050.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 
 [node name="Line2D" type="Line2D" parent="Viewports"]
 position = Vector2(7.5, 0)

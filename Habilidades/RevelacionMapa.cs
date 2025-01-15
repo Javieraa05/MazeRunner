@@ -2,7 +2,7 @@ using Godot;
 public class RevelacionMapa : HabilidadBase
 {
     public override string Nombre => "Revelación de mapa";
-    public override float Cooldown => 1f;
+    public override float Cooldown => 30f;
 
     protected override void Efecto(PlayerBase jugador)
     {

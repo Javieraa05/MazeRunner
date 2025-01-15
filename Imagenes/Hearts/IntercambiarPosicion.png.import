@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ntyeaa3a5pw"
-path="res://.godot/imported/Personaje5.png-7bff5ca21c6551317e15aeb727cd1d60.ctex"
+uid="uid://dt3vhl8py0h5y"
+path="res://.godot/imported/IntercambiarPosicion.png-c7accd527d4aadb5bcc16c19446106e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Personajes/Personaje5.png"
-dest_files=["res://.godot/imported/Personaje5.png-7bff5ca21c6551317e15aeb727cd1d60.ctex"]
+source_file="res://Imagenes/Hearts/IntercambiarPosicion.png"
+dest_files=["res://.godot/imported/IntercambiarPosicion.png-c7accd527d4aadb5bcc16c19446106e9.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ public partial class HUD_Player : CanvasLayer
     private List<TextureRect> hearts; // Lista de corazones del HUD
     private TextureRect imagenHabilidad; 
     private Label textoHabilidad;
-    private string teclaHabilidad;    
+    private string teclaHabilidad;   
     public override void _Ready()
     {
         
@@ -44,8 +44,31 @@ public partial class HUD_Player : CanvasLayer
     }
     private void SeActivaHabilidad(float cuentaRegresiva)
     {
-        textoHabilidad.Text = "Uii";
-        GetTree().CreateTimer(cuentaRegresiva).Timeout += () => textoHabilidad.Text = teclaHabilidad;
+            // Inicia la cuenta regresiva
+        float tiempoRestante = cuentaRegresiva;
+
+        // Usa un temporizador para actualizar el texto de la habilidad cada segundo
+        Timer timer = new Timer();
+        AddChild(timer);
+        timer.WaitTime = 1.0f; // Cada segundo
+        timer.OneShot = false; // Se repite hasta que llegue a 0
+        timer.Start();
+
+        textoHabilidad.Text = $"{tiempoRestante:F0}"; // Mostrar los segundos restantes
+
+        timer.Timeout += () =>
+        {
+            tiempoRestante -= 1.0f;
+            if (tiempoRestante > 0)
+            {
+                textoHabilidad.Text = $"{tiempoRestante:F0}"; // Actualizar la cuenta regresiva
+            }
+            else
+            {
+                textoHabilidad.Text = teclaHabilidad; // Mostrar la tecla de habilidad al terminar
+                timer.QueueFree(); // Eliminar el temporizador
+            }
+        };
     }
 
     private void OnHealthChanged(int health)
@@ -63,9 +86,10 @@ public partial class HUD_Player : CanvasLayer
         }
     }
 
-    private void OnKeysChanged(int keys)
+    private void OnKeysChanged(int CantidadLlaves)
     {
-        KeyCounter.Text = $"Llaves: {keys}"; // Actualiza el contador en el HUD
+         // Actualiza el contador en el HUD
+        KeyCounter.Text = $"{CantidadLlaves}";
     }
     public void ImagenHabilidad(Texture texture)
     {

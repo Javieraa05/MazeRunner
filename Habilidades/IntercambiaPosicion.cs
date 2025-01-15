@@ -2,7 +2,7 @@ using Godot;
 public class IntercambiaPosicion : HabilidadBase
 {
     public override string Nombre => "Radar de llaves";
-    public override float Cooldown => 1f;
+    public override float Cooldown => 30f;
 
     protected override void Efecto(PlayerBase jugador)
     {
