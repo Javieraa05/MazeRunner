@@ -2,7 +2,7 @@ using Godot;
 public class Curacion : HabilidadBase
 {
    public override string Nombre => "Curación";
-    public override float Cooldown => 30f;
+    public override float Cooldown => 1f;
 
     protected override void Efecto(PlayerBase jugador)
     {

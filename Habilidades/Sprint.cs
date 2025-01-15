@@ -2,7 +2,7 @@ using Godot;
 public class Sprint : HabilidadBase
 {
     public override string Nombre => "Sprint";
-    public override float Cooldown => 10f;
+    public override float Cooldown => 1f;
 
     protected override void Efecto(PlayerBase jugador)
     {

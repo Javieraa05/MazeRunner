@@ -21,6 +21,7 @@ public abstract partial class PlayerBase : CharacterBody2D
     [Signal] public delegate void HealthChangedEventHandler(int health);
 
     [Signal] public delegate void KeysChangedEventHandler(int keys);
+    [Signal] public delegate void ActivarHabilidadEventHandler(int cuentaRegresiva);
 
     public static Dictionary<int, HabilidadBase> habilidadesPorPersonaje = new Dictionary<int, HabilidadBase>
     {
@@ -136,6 +137,7 @@ public abstract partial class PlayerBase : CharacterBody2D
         {
             GD.Print("Se mando a activar la habilidad");
             habilidadActual.Activar(this);
+            EmitSignal(nameof(ActivarHabilidad), habilidadActual.Cooldown);
         }
         else
         {

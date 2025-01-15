@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Escudo : HabilidadBase
 {
     public override string Nombre => "Escudo";
-    public override float Cooldown => 15f;
+    public override float Cooldown => 1f;
 
     protected override void Efecto(PlayerBase jugador)
     {

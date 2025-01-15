@@ -23,6 +23,7 @@ public partial class Main : Node
     // Configurar los objetivos de las cámaras
     var player1 = world.GetNodeOrNull<PlayerBase>("Player_1");
     var player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
+
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
     var hudPlayer2 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer2/HUD_Player2");
@@ -33,6 +34,12 @@ public partial class Main : Node
     {
         hudPlayer1.SetPlayer(player1);
         hudPlayer2.SetPlayer(player2);
+        hudPlayer1.ImagenHabilidad(texturaIcono1);
+        hudPlayer2.ImagenHabilidad(texturaIcono2);
+        hudPlayer1.TeclaHabilidad("E");
+        hudPlayer2.TeclaHabilidad("M");
+        
+
     }
    
     
