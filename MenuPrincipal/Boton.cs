@@ -8,9 +8,9 @@ public partial class Boton : Button
 	public override void _Ready()
 	{
 		audioPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-		this.Pressed += IsPressed;
+		this.Pressed += onIsPressed;
 	}
-	public void IsPressed()
+	public void onIsPressed()
 	{
 		audioPlayer.Play();
 	}

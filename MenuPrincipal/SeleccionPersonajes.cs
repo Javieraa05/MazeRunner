@@ -23,39 +23,70 @@ public partial class SeleccionPersonajes : Control
        
          // Inicializar los personajes
         personajes.Add(1, new Personaje(
-            "Miguel", 
-            "Curación", 
-            "Miguel, conocido en su barrio como el “doctor de los remedios caseros”, se hizo famoso porque curó al vecino con una mezcla de miel, limón y “un toquecito” de ron. Cuando el ciclón dejó sin médicos al pueblo, él tomó la batuta, aplicando desde sueros improvisados con tubos de refresco hasta masajes de la vida que revivían hasta al más agotado. Ahora, recorre el laberinto con su botiquín que incluye una botella de Habana Club por si acaso... ya sabes, para “desinfectar heridas”."
+            "Miguel\n", 
+            "Curación\n", 
+            "Conocido en su barrio como el “doctor de los remedios caseros”, \n" +
+            "se hizo famoso porque curó al vecino con una mezcla de miel, limón y “un toquecito” de ron. \n" +
+            "Cuando el ciclón dejó sin médicos al pueblo, él tomó la batuta, aplicando desde sueros improvisados \n" +
+            "con tubos de refresco hasta 'masajes de la vida' que revivían hasta al más agotado. \n" +
+            "Ahora, recorre el laberinto con su botiquín que incluye una botella de Habana Club por si acaso... \n" +
+            "ya sabes, para “desinfectar heridas”."
+
         ));
         personajes.Add(2, new Personaje(
-            "Yadira", 
-            "Sprint", 
-            "Yadira, campeona del Marabana tres años seguidos, siempre decía que su secreto era correr detrás de la guagua cuando no hay vuelto. Una vez, en pleno apagón, corrió tan rápido para alcanzar la última croqueta en la cafetería que hasta el vendedor quedó asustado. Ahora, en el laberinto, Yadira usa su velocidad para esquivar trampas y llegar primera a las cajas de comida… porque “el que no corre, vuela”."
+            "Yadira\n", 
+            "Sprint\n", 
+            "Campeona del Marabana tres años seguidos, siempre decía que su secreto era\n" +
+            "'correr detrás de la guagua cuando no hay vuelto'.\n" +
+            "Una vez, en pleno apagón, corrió tan rápido para alcanzar la última croqueta en la cafetería\n" +
+            "que hasta el vendedor quedó asustado.\n" +
+            "Ahora, en el laberinto, Yadira usa su velocidad para esquivar trampas y llegar primera a las cajas de comida…\n" +
+            "porque “el que no corre, vuela”."
+
+
         ));
         personajes.Add(3, new Personaje(
-            "Maritza", 
-            "Escudo", 
-            "Maritza era herrera en un taller de mecánica en Centro Habana. Un día, tras un apagón que dejó la ciudad sin hornos, creó un escudo indestructible fundiendo pedazos de lavadoras soviéticas y tapas de olla de presión. En su barrio, siempre la llamaban para proteger las mesas de dominó cuando alguien se ponía “muy caliente”. Ahora, en el laberinto, su escudo es legendario y siempre dice: “¡Aquí no pasa ni el panadero con el carrito!"
+            "Maritza\n", 
+            "Escudo\n", 
+            "Era herrera en un taller de mecánica en Centro Habana.\n" +
+            "Un día, tras un apagón que dejó la ciudad sin hornos, creó un escudo indestructible\n" +
+            "fundiendo pedazos de lavadoras soviéticas y tapas de olla de presión.\n" +
+            "En su barrio, siempre la llamaban para proteger las mesas de dominó cuando alguien se ponía “muy caliente”.\n" +
+            "Ahora, en el laberinto, su escudo es legendario y siempre dice:\n" +
+            "“¡Aquí no pasa ni el panadero con el carrito!”."
+
         ));
         personajes.Add(4, new Personaje(
-            "Ernesto", 
-            "Revelación de Mapa", 
-            "Ernesto trabajaba como guía turístico en Viñales, conocido por llevar a los extranjeros a “rutas alternativas” donde el GPS no funcionaba. Con un ojo para los atajos y una habilidad innata para leer mapas del tiempo de los españoles, siempre decía: “Si yo me pierdo, ¡es porque el camino cambió de lugar!”. Ahora, en el laberinto, su habilidad para descubrir pasillos secretos lo convirtió en el tipo que todos siguen, especialmente cuando hay comida de por medio."
+            "Ernesto\n", 
+            "Revelación de Mapa\n", 
+            "Ernesto trabajaba como guía turístico en Viñales, conocido por llevar a los extranjeros\n" +
+            "a 'rutas alternativas' donde el GPS no funcionaba.\n" +
+            "Con un ojo para los atajos y una habilidad innata para leer mapas del tiempo de los españoles,\n" +
+            "siempre decía: 'Si yo me pierdo, ¡es porque el camino cambió de lugar!'.\n" +
+            "Ahora, en el laberinto, su habilidad para descubrir pasillos secretos lo convirtió en el tipo que todos siguen,\n" +
+            "especialmente cuando hay comida de por medio."
+
         ));
         personajes.Add(5, new Personaje(
-            "Manolo", 
-            "Intercambio de Posición", 
-            "Manolo era un maestro del truco y la improvisación, conocido en el malecón por su habilidad de cambiar su lugar en la cola del pollo con una charla rápida y un par de gestos mágicos. Una vez, logró colarse en una cola de dos cuadras con el famoso “oye, ¿tú eres el primo de fulano?”. Ahora, en el laberinto, usa su don para cambiar posiciones estratégicas, aunque siempre dice con una sonrisa: “El que no inventa, no avanza"
+            "Manolo\n", 
+            "Intercambio de Posición\n", 
+            "Manolo era un maestro del truco y la improvisación, conocido en el malecón\n" +
+            "por su habilidad de cambiar su lugar en la cola del pollo con una charla rápida y un par de gestos mágicos.\n" +
+            "Una vez, logró colarse en una cola de dos cuadras con el famoso\n" +
+            "‘oye, ¿tú eres el primo de fulano?’. \n" +
+            "Ahora, en el laberinto, usa su don para cambiar posiciones estratégicas,\n" +
+            "aunque siempre dice con una sonrisa: 'El que no inventa, no avanza'."
+
         ));
        
-        _imagenPersonaje = GetNode<TextureRect>("TextureRect");
-        _etiquetaJugador = GetNode<Label>("LabelPlayer");
-        _etiquetaHistoria = GetNode<Label>("LabelHistoria");
+        _imagenPersonaje = GetNode<TextureRect>("VContainer/HContainer/ContainerImagen/TextureRect");
+        _etiquetaJugador = GetNode<Label>("VContainer/LabelPlayer");
+        _etiquetaHistoria = GetNode<Label>("VContainer/LabelHistoria");
 
         ActualizarVista();
         
-        GetNode<Button>("BotonAnterior").Pressed += OnBotonAnteriorPressed;
-        GetNode<Button>("BotonSiguiente").Pressed += OnBotonSiguientePressed;
+        GetNode<Button>("VContainer/HContainer/ContainerBoton1/BotonAnterior").Pressed += OnBotonAnteriorPressed;
+        GetNode<Button>("VContainer/HContainer/ContainerBoton2/BotonSiguiente").Pressed += OnBotonSiguientePressed;
         GetNode<Button>("BotonSeleccionar").Pressed += OnBotonSeleccionarPressed;
     }
 

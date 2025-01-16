@@ -7,20 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b8ce22bcqi6y7" path="res://Imagenes/UI_Essential_Pack/UI_Flat_ButtonCheck01a.png" id="3_t8rcl"]
 [ext_resource type="AudioStream" uid="uid://b036i7rsqjn7s" path="res://Audio/Boton/tap-a.ogg" id="4_huc33"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6j2qb"]
-texture = ExtResource("2_yjy7r")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1n7o"]
-texture = ExtResource("2_yjy7r")
-modulate_color = Color(0.172376, 0.138234, 6.37732e-07, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1dsc"]
-texture = ExtResource("2_yjy7r")
-texture_margin_left = 1.0
-texture_margin_top = 1.0
-texture_margin_right = 1.0
-texture_margin_bottom = 2.0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81s6k"]
 texture = ExtResource("3_mkwbm")
 
@@ -30,6 +16,20 @@ modulate_color = Color(0.306409, 0.25214, 1.92523e-06, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xds3g"]
 texture = ExtResource("3_mkwbm")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6j2qb"]
+texture = ExtResource("2_yjy7r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1n7o"]
+texture = ExtResource("2_yjy7r")
+modulate_color = Color(0.172376, 0.138234, 6.37732e-07, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1dsc"]
+texture = ExtResource("2_yjy7r")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
@@ -67,110 +67,87 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.194386, 0.438378, 0.640116, 1)
 
-[node name="LabelPlayer" type="Label" parent="."]
+[node name="VContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -353.0
-offset_right = 353.0
-offset_bottom = 114.0
+anchor_bottom = 0.5
+offset_left = -564.5
+offset_top = -386.0
+offset_right = 564.5
+offset_bottom = 386.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelPlayer" type="Label" parent="VContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 70
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 3
-custom_minimum_size = Vector2(250, 320)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -190.0
-offset_right = 125.0
-offset_bottom = 130.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HContainer" type="HBoxContainer" parent="VContainer"]
+clip_contents = true
+layout_mode = 2
+alignment = 1
 
-[node name="LabelHistoria" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -245.0
-offset_top = 146.0
-offset_right = 331.0
-offset_bottom = 252.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
+[node name="ContainerBoton1" type="MarginContainer" parent="VContainer/HContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 200
 
-[node name="BotonSiguiente" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 243.0
-offset_top = -45.0
-offset_right = 340.0
-offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_6j2qb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_r1n7o")
-theme_override_styles/normal = SubResource("StyleBoxTexture_g1dsc")
-script = ExtResource("3_73sad")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BotonSiguiente"]
-stream = ExtResource("4_huc33")
-
-[node name="BotonAnterior" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -334.0
-offset_top = -46.0
-offset_right = -234.0
-offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BotonAnterior" type="Button" parent="VContainer/HContainer/ContainerBoton1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_81s6k")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pniy0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xds3g")
 script = ExtResource("3_73sad")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BotonAnterior"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VContainer/HContainer/ContainerBoton1/BotonAnterior"]
 stream = ExtResource("4_huc33")
 
+[node name="ContainerImagen" type="MarginContainer" parent="VContainer/HContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="VContainer/HContainer/ContainerImagen"]
+texture_filter = 3
+custom_minimum_size = Vector2(250, 320)
+layout_mode = 2
+
+[node name="ContainerBoton2" type="MarginContainer" parent="VContainer/HContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="BotonSiguiente" type="Button" parent="VContainer/HContainer/ContainerBoton2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6j2qb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r1n7o")
+theme_override_styles/normal = SubResource("StyleBoxTexture_g1dsc")
+script = ExtResource("3_73sad")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VContainer/HContainer/ContainerBoton2/BotonSiguiente"]
+stream = ExtResource("4_huc33")
+
+[node name="LabelHistoria" type="Label" parent="VContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+
 [node name="BotonSeleccionar" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.5
-offset_top = 276.5
-offset_right = 49.5
-offset_bottom = 369.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+offset_left = 891.0
+offset_top = 969.0
+offset_right = 995.0
+offset_bottom = 1050.0
 theme_override_styles/hover = SubResource("StyleBoxTexture_bty2k")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_o0n41")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s0jup")
