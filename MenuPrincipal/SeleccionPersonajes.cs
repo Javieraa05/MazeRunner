@@ -81,7 +81,7 @@ public partial class SeleccionPersonajes : Control
        
         _imagenPersonaje = GetNode<TextureRect>("VContainer/HContainer/ContainerImagen/TextureRect");
         _etiquetaJugador = GetNode<Label>("VContainer/LabelPlayer");
-        _etiquetaHistoria = GetNode<Label>("VContainer/LabelHistoria");
+        _etiquetaHistoria = GetNode<Label>("VContainer/PanelContainer/MarginContainer/LabelHistoria");
 
         ActualizarVista();
         

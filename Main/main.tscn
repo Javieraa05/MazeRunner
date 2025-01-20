@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc5hnk61jqmqb"]
+[gd_scene load_steps=8 format=3 uid="uid://cc5hnk61jqmqb"]
 
 [ext_resource type="Script" path="res://Main/Main.cs" id="1_27c8a"]
 [ext_resource type="PackedScene" uid="uid://b2y0uf6vddfrj" path="res://World/world.tscn" id="1_h8ldf"]
 [ext_resource type="Script" path="res://Main/Camera2d1.cs" id="2_p76uk"]
 [ext_resource type="Script" path="res://Main/HUD_Player.cs" id="4_ta12e"]
+[ext_resource type="Texture2D" uid="uid://vxfjw2r7r83t" path="res://Imagenes/MiniMapa.png" id="5_8iyvt"]
+[ext_resource type="Texture2D" uid="uid://b64xh8k7onvhq" path="res://Imagenes/PuntoRojo.png" id="6_5erq1"]
+[ext_resource type="Texture2D" uid="uid://di7vby1s45t1e" path="res://Imagenes/PuntoAzul.png" id="7_l13pg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_27c8a")
@@ -13,8 +16,7 @@ clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_right = 1915.0
+offset_right = 1925.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -46,8 +48,8 @@ script = ExtResource("4_ta12e")
 [node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
 offset_left = 25.0
 offset_top = 25.0
-offset_right = 345.0
-offset_bottom = 75.0
+offset_right = 285.0
+offset_bottom = 65.0
 size_flags_horizontal = 4
 
 [node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
@@ -134,9 +136,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 40.5
+offset_left = 170.5
 offset_top = -145.0
-offset_right = 165.5
+offset_right = 295.5
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -201,6 +203,27 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 
-[node name="Line2D" type="Line2D" parent="Viewports"]
+[node name="LineaDivision" type="Line2D" parent="Viewports"]
 position = Vector2(7.5, 0)
 points = PackedVector2Array(953, 0, 953, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Viewports"]
+position = Vector2(831, 804)
+scale = Vector2(0.348203, 0.361269)
+texture = ExtResource("5_8iyvt")
+offset = Vector2(373.345, 368.147)
+
+[node name="PuntoRojo" type="Sprite2D" parent="Viewports/Sprite2D"]
+position = Vector2(17.2313, 714.149)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_5erq1")
+offset = Vector2(5, 0)
+
+[node name="PuntoAzul" type="Sprite2D" parent="Viewports/Sprite2D"]
+position = Vector2(726.588, 711.381)
+scale = Vector2(0.04, 0.039)
+texture = ExtResource("7_l13pg")
+
+[node name="LineaCuadro" type="Line2D" parent="Viewports"]
+position = Vector2(820, 794)
+points = PackedVector2Array(0, 0, 0, 283, 281, 283, 281, 0, -5, 0)

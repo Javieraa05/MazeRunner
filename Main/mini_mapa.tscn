@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd8i7lcpsk2bh"]
+
+[ext_resource type="Texture2D" uid="uid://dcccjjtt5nh1o" path="res://Imagenes/MiniMapa.png" id="1_y8w6r"]
+
+[node name="MiniMapa" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_y8w6r")
+
+[node name="PuntoRojo" type="Line2D" parent="."]
+position = Vector2(20, 668)
+points = PackedVector2Array(2, 2, 2, 12)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(665, 650)
+points = PackedVector2Array(20, 18, 20, 28)
+default_color = Color(0, 0, 1, 1)

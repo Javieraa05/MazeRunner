@@ -8,6 +8,6 @@ public class RevelacionMapa : HabilidadBase
     {
         
         jugador.Zoom = new Vector2(2,2);
-        jugador.GetTree().CreateTimer(10).Timeout += () => { jugador.Zoom = new Vector2(4,4); };
+        jugador.GetTree().CreateTimer(10).Timeout += () => { jugador.Zoom = new Vector2(5,5); };
     }
 }

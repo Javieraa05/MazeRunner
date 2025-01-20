@@ -9,9 +9,9 @@ public partial class Camera2d1 : Camera2D
     public override void _Ready()
     {
          MakeCurrent();
-         LimitLeft = 164;
+         LimitLeft = 0;
          LimitRight = 1843;
-         LimitTop = 274;
+         LimitTop = 0;
          LimitBottom = 1923;
     }
    public override void _Process(double delta)

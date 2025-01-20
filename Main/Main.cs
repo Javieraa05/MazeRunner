@@ -7,6 +7,15 @@ public partial class Main : Node
     private Camera2d1 camera1;
     private Camera2d1 camera2;
     private Node world;
+    private Sprite2D puntoRojo;
+    private Sprite2D puntoAzul;
+    private PlayerBase player1;
+    private PlayerBase player2;
+    float posX1;
+    float posY1;
+    float posX2;
+    float posY2;
+    
 
   public override void _Ready()
 {
@@ -17,12 +26,17 @@ public partial class Main : Node
     camera2 = GetNode<Camera2d1>("Viewports/ViewportContainer2/Viewport2/Camera2D2");
     world = GetNode<Node>("Viewports/ViewportContainer1/Viewport1/World");
 
+
+    puntoRojo = GetNode<Sprite2D>("Viewports/Sprite2D/PuntoRojo");
+    puntoAzul = GetNode<Sprite2D>("Viewports/Sprite2D/PuntoAzul");
+
+
     // Compartir el mismo World2D entre ambos Viewports
     viewport2.World2D = viewport1.World2D;
 
     // Configurar los objetivos de las cámaras
-    var player1 = world.GetNodeOrNull<PlayerBase>("Player_1");
-    var player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
+     player1 = world.GetNodeOrNull<PlayerBase>("Player_1");
+     player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
 
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
@@ -56,5 +70,17 @@ public partial class Main : Node
         GD.PrintErr("No se encontraron los nodos Player_1 o Player_2.");
     }
 }
+
+ public override void _Process(double delta)
+ {
+    posX1 = player1.Position.X / 2.24157216f;
+    posY1 = player1.Position.Y / 2.24462962f;
+    posX2 = player2.Position.X / 2.25299f;
+    posY2 = player2.Position.Y / 2.2533666f;
+    puntoRojo.Position = new Vector2(posX1,posY1);
+    puntoAzul.Position = new Vector2(posX2,posY2);
+    GD.Print(puntoRojo.Position);
+    GD.Print(puntoAzul.Position);
+ }
    
 }

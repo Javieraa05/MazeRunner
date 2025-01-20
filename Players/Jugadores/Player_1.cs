@@ -23,7 +23,7 @@ public partial class Player_1 : PlayerBase
 
     protected override void SetInitialPosition()
     {
-        Position = new Vector2(205, 1877);
+        Position = new Vector2(45, 1603);
     }
     public override void _Process(double delta)
 {
