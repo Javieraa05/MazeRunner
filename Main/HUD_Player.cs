@@ -8,6 +8,8 @@ public partial class HUD_Player : CanvasLayer
     private List<TextureRect> hearts; // Lista de corazones del HUD
     private TextureRect imagenHabilidad; 
     private Label textoHabilidad;
+    private Label ExperienciaContador;
+    private Label atacarLabel;
     private string teclaHabilidad;   
     public override void _Ready()
     {
@@ -21,9 +23,12 @@ public partial class HUD_Player : CanvasLayer
                 hearts.Add(textureRect);
             }
         }
+
         KeyCounter = GetNodeOrNull<Label>("KeyCounter");
+        ExperienciaContador = GetNode<Label>("ExperienciaContainer/ExperienciaLabel");
         imagenHabilidad = GetNode<TextureRect>("HabilidadContainer/IconoHabilidad");
         textoHabilidad = GetNode<Label>("HabilidadContainer/TeclaYCooldown");
+        atacarLabel =  GetNode<Label>("AtacarLabel");
         
     }
 
@@ -36,6 +41,7 @@ public partial class HUD_Player : CanvasLayer
             player.Connect("HealthChanged", new Callable(this, nameof(OnHealthChanged)));
             player.Connect("KeysChanged", new Callable(this, nameof(OnKeysChanged)));
             player.Connect("ActivarHabilidad", new Callable(this, nameof(SeActivaHabilidad)));
+            player.Connect("ExperienciaCambio", new Callable(this, nameof(SeCambioExperiencia)));
 
 
             // Inicializa el HUD con los valores actuales del jugador
@@ -95,11 +101,29 @@ public partial class HUD_Player : CanvasLayer
     {
         imagenHabilidad.Texture = (Texture2D)texture;
     }
+     
      public void TeclaHabilidad(string tecla)
     {
         teclaHabilidad = tecla;
         textoHabilidad.Text = teclaHabilidad;
     }
+
+    public void SeCambioExperiencia(int experiencia)
+    {
+        ExperienciaContador.Text = experiencia.ToString();
+    }
+    
+     public override void _Process(double delta)
+     {
+        if(player.botonAtaque)
+        {
+            string tecla; 
+            if(teclaHabilidad == "E") tecla = "R";
+            else tecla = "N";
+            atacarLabel.Text = $"presiona -{tecla}- para atacar";
+        }
+        else atacarLabel.Text = "";
+     }
 
     
     

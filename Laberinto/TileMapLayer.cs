@@ -14,6 +14,7 @@ public partial class TileMapLayer : Godot.TileMapLayer
     private PackedScene _trapScene2; // Trampa instanciable
     private PackedScene _trapScene3; // Trampa instanciable
     public PackedScene _keyScene;
+    public PackedScene _experienciaScena;
 
     public override void _Ready()
     {
@@ -22,10 +23,12 @@ public partial class TileMapLayer : Godot.TileMapLayer
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Puas);
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Fuego);
         laberinto.ColocarTrampas(cantidadTrampas, TipoTrampa.Osos);
+        laberinto.ColocarExperiencia(15);
         laberinto.ColocarLlave();
         _trapScene1 = GD.Load<PackedScene>("res://Traps/TrampaFuego.tscn");
         _trapScene2 = GD.Load<PackedScene>("res://Traps/TrampaPuas.tscn");
         _trapScene3 = GD.Load<PackedScene>("res://Traps/TrampaOso.tscn");
+        _experienciaScena = GD.Load<PackedScene>("res://Experiencia/experiencia.tscn");
         
         Mostrar();
     }
@@ -77,11 +80,17 @@ public partial class TileMapLayer : Godot.TileMapLayer
                     }
                     if(tileData.TieneLlave)
                     {
-                        
                         var llaveInstance = (LLaves)_keyScene.Instantiate();
                         llaveInstance.Position = MapToLocal(new Vector2I(i, j));
                         AddChild(llaveInstance);
                     }
+                    if(tileData.TieneExperiencia)
+                    {
+                        var experienciaInstance = (Experiencia)_experienciaScena.Instantiate();
+                        experienciaInstance.Position = MapToLocal(new Vector2I(i, j));
+                        AddChild(experienciaInstance);
+                    }
+
                 }
             }
         }

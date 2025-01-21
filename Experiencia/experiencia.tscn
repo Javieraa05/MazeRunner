@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://46uldy8cjjh2"]
+
+[ext_resource type="Script" path="res://Experiencia/Experiencia.cs" id="1_v6ybf"]
+[ext_resource type="Texture2D" uid="uid://kjib8yowsaf4" path="res://Imagenes/Experiencia/experiencia.png" id="2_jn2xx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qamlc"]
+size = Vector2(168, 166.5)
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.055, 0.055)
+script = ExtResource("1_v6ybf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(2, -0.25)
+shape = SubResource("RectangleShape2D_qamlc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jn2xx")

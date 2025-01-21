@@ -15,6 +15,7 @@
         public bool EsCamino { get; set; } = false;      // Indica si es camino o muro
         public TipoTrampa Trampa { get; set; } = TipoTrampa.Ninguna;  // Tipo de trampa
         public bool TieneLlave { get; set; } = false;  
+        public bool TieneExperiencia { get; set; } = false;
         public (int,int) PosicionLlave = (0,0);  
 
         public Tile(bool esCamino = false)
@@ -104,9 +105,9 @@
         {
             var posicionesCaminos = new List<(int, int)>();
 
-            for (int i = 1; i < sizeX-1; i++)
+            for (int i = 2; i < sizeX-2; i++)
             {
-                for (int j = 1; j < sizeY-1; j++)
+                for (int j = 2; j < sizeY-2; j++)
                 {
                     if (tablero[i, j].EsCamino)
                     {
@@ -148,6 +149,31 @@
             }
 
     }
+        public void ColocarExperiencia(int cantidad)
+        {
+            var posicionesCaminos = new List<(int, int)>();
+
+            for (int i = 2; i < sizeX-2; i++)
+            {
+                for (int j = 2; j < sizeY-2; j++)
+                {
+                    if (tablero[i, j].EsCamino)
+                    {
+                        posicionesCaminos.Add((i, j));
+                    }
+                }
+            }
+
+            int cantidadAColocar = Math.Min(cantidad, posicionesCaminos.Count);
+            for (int i = 0; i < cantidadAColocar; i++)
+            {
+                var (x, y) = posicionesCaminos[rand.Next(posicionesCaminos.Count)];
+                posicionesCaminos.Remove((x, y));
+
+                tablero[x, y].TieneExperiencia = true;
+            }
+        }
+
         private bool EsPosicionValida(int x, int y)
         {
             return x >= 0 && x < sizeX && y >= 0 && y < sizeY;

@@ -79,8 +79,7 @@ public partial class Main : Node
     posY2 = player2.Position.Y / 2.2533666f;
     puntoRojo.Position = new Vector2(posX1,posY1);
     puntoAzul.Position = new Vector2(posX2,posY2);
-    GD.Print(puntoRojo.Position);
-    GD.Print(puntoAzul.Position);
+    
  }
    
 }

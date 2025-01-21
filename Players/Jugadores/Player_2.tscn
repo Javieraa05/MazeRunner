@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://t17xsmquwfqd"]
+[gd_scene load_steps=4 format=3 uid="uid://t17xsmquwfqd"]
 
 [ext_resource type="Script" path="res://Players/Jugadores/Player_2.cs" id="1_fn8bp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btccv"]
 size = Vector2(5.66667, 7.33333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3uyp"]
+radius = 11.3382
 
 [node name="Player_2" type="CharacterBody2D"]
 scale = Vector2(3, 3)
@@ -14,3 +17,9 @@ script = ExtResource("1_fn8bp")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(0.166666, 0.333333)
 shape = SubResource("RectangleShape2D_btccv")
+
+[node name="AreaAtaque" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
+shape = SubResource("CircleShape2D_s3uyp")
+debug_color = Color(0.8467, 0.34167, 0.422977, 0.42)

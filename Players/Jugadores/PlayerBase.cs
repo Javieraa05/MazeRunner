@@ -17,11 +17,16 @@ public abstract partial class PlayerBase : CharacterBody2D
     public bool Escudo = false;
     public Vector2 Zoom = new Vector2(5,5);
     public List<LLaves> llaves = new List<LLaves>();
+    public Area2D areaAtaque;
+    public bool botonAtaque=false;
+    
+    public int Experiencia=0;
     
     [Signal] public delegate void HealthChangedEventHandler(int health);
 
     [Signal] public delegate void KeysChangedEventHandler(LLaves llave);
     [Signal] public delegate void ActivarHabilidadEventHandler(int cuentaRegresiva);
+    [Signal] public delegate void ExperienciaCambioEventHandler(int experiencia);
 
     public static Dictionary<int, HabilidadBase> habilidadesPorPersonaje = new Dictionary<int, HabilidadBase>
     {
@@ -35,7 +40,10 @@ public abstract partial class PlayerBase : CharacterBody2D
 
     public override void _Ready()
     {
-       
+        
+        
+        
+        
         if (characterScene == null)
         {
             GD.PrintErr("No se pudo cargar la escena.");
@@ -47,6 +55,8 @@ public abstract partial class PlayerBase : CharacterBody2D
             animatedSprite = characterInstance;
         }
         SetInitialPosition();
+
+
     }
 
     public override void _Process(double delta)
@@ -116,7 +126,9 @@ public abstract partial class PlayerBase : CharacterBody2D
         Velocity = Vector2.Zero; // Detiene el movimiento
         GD.Print("El jugador ha sido restablecido a la posición inicial.");
         CantidadLlaves = 0; 
+        Experiencia = 0;
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
+        EmitSignal(nameof(ExperienciaCambio), Experiencia);
         foreach(LLaves llave in llaves)
         {
             llave.Aparecer();
@@ -156,6 +168,15 @@ public abstract partial class PlayerBase : CharacterBody2D
    {
     Speed /= 4;
     GetTree().CreateTimer(2).Timeout += () => Speed*=4;
+   }
+
+   public abstract void EliminarP();
+
+   public void RecogerExperiencia()
+   {
+    Experiencia++;
+    EmitSignal(nameof(ExperienciaCambio), Experiencia);
+    GD.Print("Experiencia: " + Experiencia);
    }
 
 
