@@ -9,7 +9,7 @@ size = Vector2(6, 7.66667)
 radius = 11.6667
 
 [node name="Player_1" type="CharacterBody2D"]
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_yjgwg")

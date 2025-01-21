@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc5hnk61jqmqb"]
+[gd_scene load_steps=10 format=3 uid="uid://cc5hnk61jqmqb"]
 
 [ext_resource type="Script" path="res://Main/Main.cs" id="1_27c8a"]
 [ext_resource type="PackedScene" uid="uid://b2y0uf6vddfrj" path="res://World/world.tscn" id="1_h8ldf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kjib8yowsaf4" path="res://Imagenes/Experiencia/experiencia.png" id="5_1sk3r"]
 [ext_resource type="Texture2D" uid="uid://vxfjw2r7r83t" path="res://Imagenes/MiniMapa.png" id="5_8iyvt"]
 [ext_resource type="Texture2D" uid="uid://b64xh8k7onvhq" path="res://Imagenes/PuntoRojo.png" id="6_5erq1"]
+[ext_resource type="Texture2D" uid="uid://dypa1hsas5d4p" path="res://Imagenes/Llaves/LlaveUHDt.png" id="6_n6bj0"]
 [ext_resource type="Texture2D" uid="uid://di7vby1s45t1e" path="res://Imagenes/PuntoAzul.png" id="7_l13pg"]
 
 [node name="Main" type="Node2D"]
@@ -46,42 +47,85 @@ script = ExtResource("2_p76uk")
 [node name="HUD_Player1" type="CanvasLayer" parent="Viewports/ViewportContainer1"]
 script = ExtResource("4_ta12e")
 
-[node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 285.0
-offset_bottom = 65.0
+[node name="PanelContainer" type="PanelContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
+offset_right = 329.0
+offset_bottom = 146.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/HeartsContainer"]
+[node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="ExperienciaContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExperienciaLabel" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+
+[node name="TextureRect" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+texture = ExtResource("5_1sk3r")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 60
+
+[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+
+[node name="TextureRect2" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+texture = ExtResource("6_n6bj0")
 
 [node name="HabilidadContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
 anchors_preset = 2
@@ -104,15 +148,6 @@ theme_override_constants/shadow_outline_size = 0
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 
-[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_left = 884.0
-offset_top = 29.0
-offset_right = 885.0
-offset_bottom = 61.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-
 [node name="AtacarLabel" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,24 +163,24 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 15
 
-[node name="ExperienciaContainer" type="HBoxContainer" parent="Viewports/ViewportContainer1/HUD_Player1"]
-offset_left = 15.0
-offset_top = 73.0
-offset_right = 60.0
-offset_bottom = 113.0
-pivot_offset = Vector2(22, 19)
-
-[node name="ExperienciaLabel" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1/ExperienciaContainer"]
-layout_mode = 2
+[node name="InformacionLabel" type="Label" parent="Viewports/ViewportContainer1/HUD_Player1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -677.0
+offset_top = -346.0
+offset_right = -297.0
+offset_bottom = -314.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-
-[node name="Sprite2D" type="TextureRect" parent="Viewports/ViewportContainer1/HUD_Player1/ExperienciaContainer"]
-layout_mode = 2
-texture = ExtResource("5_1sk3r")
-expand_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
 
 [node name="ViewportContainer2" type="SubViewportContainer" parent="Viewports"]
 custom_minimum_size = Vector2(960, 1080)
@@ -165,23 +200,87 @@ script = ExtResource("2_p76uk")
 [node name="HUD_Player2" type="CanvasLayer" parent="Viewports/ViewportContainer2"]
 script = ExtResource("4_ta12e")
 
-[node name="ExperienciaContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
-offset_left = 981.0
-offset_top = 64.0
-offset_right = 1048.0
-offset_bottom = 104.0
-pivot_offset = Vector2(22, 19)
+[node name="PanelContainer" type="PanelContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
+offset_left = 966.0
+offset_top = 1.0
+offset_right = 1298.0
+offset_bottom = 146.0
 
-[node name="ExperienciaLabel" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2/ExperienciaContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/HeartsContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="ExperienciaContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExperienciaLabel" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 
-[node name="Sprite2D" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/ExperienciaContainer"]
+[node name="TextureRect" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
 layout_mode = 2
 texture = ExtResource("5_1sk3r")
 expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 60
+
+[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+
+[node name="TextureRect2" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer"]
+layout_mode = 2
+texture = ExtResource("6_n6bj0")
 
 [node name="HabilidadContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
 anchors_preset = 7
@@ -206,56 +305,6 @@ theme_override_constants/outline_size = 15
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 
-[node name="HeartsContainer" type="HBoxContainer" parent="Viewports/ViewportContainer2/HUD_Player2"]
-offset_left = 985.0
-offset_top = 25.0
-offset_right = 1305.0
-offset_bottom = 75.0
-size_flags_horizontal = 4
-
-[node name="Heart1" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="Heart2" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="Heart3" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="Heart4" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="Heart5" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="Heart6" type="TextureRect" parent="Viewports/ViewportContainer2/HUD_Player2/HeartsContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-stretch_mode = 5
-
-[node name="KeyCounter" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -65.0
-offset_top = 25.0
-offset_right = -25.0
-offset_bottom = 57.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-
 [node name="AtacarLabel" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -271,6 +320,24 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 15
+
+[node name="InformacionLabel" type="Label" parent="Viewports/ViewportContainer2/HUD_Player2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -345.0
+offset_right = 684.0
+offset_bottom = -313.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
 
 [node name="LineaDivision" type="Line2D" parent="Viewports"]
 position = Vector2(7.5, 0)

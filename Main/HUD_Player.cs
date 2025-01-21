@@ -10,13 +10,14 @@ public partial class HUD_Player : CanvasLayer
     private Label textoHabilidad;
     private Label ExperienciaContador;
     private Label atacarLabel;
+    private Label informacionLabel;
     private string teclaHabilidad;   
     public override void _Ready()
     {
         
         // Inicializa los corazones del HUD
         hearts = new List<TextureRect>();
-        foreach (Node child in GetNode("HeartsContainer").GetChildren())
+        foreach (Node child in GetNode("PanelContainer/MarginContainer/VBoxContainer/HeartsContainer").GetChildren())
         {
             if (child is TextureRect textureRect)
             {
@@ -24,11 +25,12 @@ public partial class HUD_Player : CanvasLayer
             }
         }
 
-        KeyCounter = GetNodeOrNull<Label>("KeyCounter");
-        ExperienciaContador = GetNode<Label>("ExperienciaContainer/ExperienciaLabel");
+        KeyCounter = GetNodeOrNull<Label>("PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer/KeyCounter");
+        ExperienciaContador = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer/ExperienciaLabel");
         imagenHabilidad = GetNode<TextureRect>("HabilidadContainer/IconoHabilidad");
         textoHabilidad = GetNode<Label>("HabilidadContainer/TeclaYCooldown");
         atacarLabel =  GetNode<Label>("AtacarLabel");
+        informacionLabel = GetNode<Label>("InformacionLabel");
         
     }
 
@@ -42,6 +44,7 @@ public partial class HUD_Player : CanvasLayer
             player.Connect("KeysChanged", new Callable(this, nameof(OnKeysChanged)));
             player.Connect("ActivarHabilidad", new Callable(this, nameof(SeActivaHabilidad)));
             player.Connect("ExperienciaCambio", new Callable(this, nameof(SeCambioExperiencia)));
+            player.Connect("HaMuerto", new Callable(this, nameof(MurioP)));
 
 
             // Inicializa el HUD con los valores actuales del jugador
@@ -125,6 +128,19 @@ public partial class HUD_Player : CanvasLayer
         else atacarLabel.Text = "";
      }
 
+    public void MurioP(PlayerBase p)
+    {
+        if(p is Player_1)
+        {
+            informacionLabel.Text = "Has Muerto!!!";
+            GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
+        }
+        else
+        {
+            informacionLabel.Text = "Has Muerto!!!";
+            GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
+        }
+    }
     
     
 }

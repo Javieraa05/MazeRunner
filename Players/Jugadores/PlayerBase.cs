@@ -27,6 +27,7 @@ public abstract partial class PlayerBase : CharacterBody2D
     [Signal] public delegate void KeysChangedEventHandler(LLaves llave);
     [Signal] public delegate void ActivarHabilidadEventHandler(int cuentaRegresiva);
     [Signal] public delegate void ExperienciaCambioEventHandler(int experiencia);
+    [Signal] public delegate void HaMuertoEventHandler(PlayerBase player);
 
     public static Dictionary<int, HabilidadBase> habilidadesPorPersonaje = new Dictionary<int, HabilidadBase>
     {
@@ -129,6 +130,7 @@ public abstract partial class PlayerBase : CharacterBody2D
         Experiencia = 0;
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
         EmitSignal(nameof(ExperienciaCambio), Experiencia);
+        EmitSignal(nameof(HaMuerto),this);
         foreach(LLaves llave in llaves)
         {
             llave.Aparecer();
