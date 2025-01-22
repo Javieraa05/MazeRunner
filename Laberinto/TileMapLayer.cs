@@ -16,6 +16,7 @@ public partial class TileMapLayer : Godot.TileMapLayer
     public PackedScene _keyScene;
     public PackedScene _experienciaScena;
 
+
     public override void _Ready()
     {
         laberinto.InicializarTablero();
@@ -83,8 +84,10 @@ public partial class TileMapLayer : Godot.TileMapLayer
                         var llaveInstance = (LLaves)_keyScene.Instantiate();
                         llaveInstance.Position = MapToLocal(new Vector2I(i, j));
                         AddChild(llaveInstance);
+                        GD.Print("LlavePosicion llave " + llaveInstance.Position);
+
                     }
-                    if(tileData.TieneExperiencia)
+                    if(tileData.TieneExperiencia && !tileData.TieneLlave)
                     {
                         var experienciaInstance = (Experiencia)_experienciaScena.Instantiate();
                         experienciaInstance.Position = MapToLocal(new Vector2I(i, j));

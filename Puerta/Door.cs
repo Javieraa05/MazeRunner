@@ -30,12 +30,13 @@ public partial class Door : Node2D
 
     private void OnBodyEntered(Node body)
     {
-        if (body is PlayerBase player && player.GetCantidadLlaves()>=2)
+        if (body is PlayerBase player && player.GetCantidadLlaves()>=3)
         {
             _isOpening = true;
         }
-        else
+        else if(body is PlayerBase players )
         {
+            players.EmitirNoticia("No tienes suficientes llaves");
             GD.Print("No tienes suficientes llaves para abrir la puerta.");
         }
         

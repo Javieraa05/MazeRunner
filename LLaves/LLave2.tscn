@@ -189,7 +189,7 @@ animations = [{
 "speed": 25.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="Llave2" type="Area2D"]
 script = ExtResource("1_iq5au")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

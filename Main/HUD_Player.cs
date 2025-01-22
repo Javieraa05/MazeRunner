@@ -44,7 +44,7 @@ public partial class HUD_Player : CanvasLayer
             player.Connect("KeysChanged", new Callable(this, nameof(OnKeysChanged)));
             player.Connect("ActivarHabilidad", new Callable(this, nameof(SeActivaHabilidad)));
             player.Connect("ExperienciaCambio", new Callable(this, nameof(SeCambioExperiencia)));
-            player.Connect("HaMuerto", new Callable(this, nameof(MurioP)));
+            player.Connect("Noticia", new Callable(this, nameof(Informar)));
 
 
             // Inicializa el HUD con los valores actuales del jugador
@@ -98,7 +98,7 @@ public partial class HUD_Player : CanvasLayer
     private void OnKeysChanged(int CantidadLlaves)
     {
          // Actualiza el contador en el HUD
-        KeyCounter.Text = $"{CantidadLlaves}";
+        KeyCounter.Text = $"{CantidadLlaves}/3";
     }
     public void ImagenHabilidad(Texture texture)
     {
@@ -128,18 +128,11 @@ public partial class HUD_Player : CanvasLayer
         else atacarLabel.Text = "";
      }
 
-    public void MurioP(PlayerBase p)
+    public void Informar(string noticia)
     {
-        if(p is Player_1)
-        {
-            informacionLabel.Text = "Has Muerto!!!";
-            GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
-        }
-        else
-        {
-            informacionLabel.Text = "Has Muerto!!!";
-            GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
-        }
+        informacionLabel.Text = noticia;
+        GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
+       
     }
     
     

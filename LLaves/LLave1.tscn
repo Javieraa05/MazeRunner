@@ -203,7 +203,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="Llave1" type="Area2D"]
 scale = Vector2(1.10136, 0.949766)
 script = ExtResource("1_urbia")
 metadata/_edit_group_ = true

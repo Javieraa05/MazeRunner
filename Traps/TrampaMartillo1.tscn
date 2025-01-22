@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b0tj7283e8r15"]
 
-[ext_resource type="Script" path="res://Traps/TrampaMartillo.cs" id="1_getk7"]
 [ext_resource type="Texture2D" uid="uid://b85d45l8s4v7r" path="res://Imagenes/Trampas/Push_Trap_Right.png" id="1_j31nl"]
+[ext_resource type="Script" path="res://Traps/TrampaMartillo1.cs" id="1_lyxag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br44o"]
 atlas = ExtResource("1_j31nl")
@@ -89,7 +89,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n37js"]
-size = Vector2(23.75, 27)
+size = Vector2(23.75, 31)
 
 [sub_resource type="Animation" id="Animation_lu6sl"]
 resource_name = "Collision"
@@ -132,7 +132,7 @@ _data = {
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_getk7")
+script = ExtResource("1_lyxag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, 0)

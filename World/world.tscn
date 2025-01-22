@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b2y0uf6vddfrj"]
+[gd_scene load_steps=18 format=4 uid="uid://b2y0uf6vddfrj"]
 
 [ext_resource type="Texture2D" uid="uid://dkp6n5nco2spe" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="1_sgv0j"]
 [ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b0tj7283e8r15" path="res://Traps/TrampaMartillo1.tscn" id="6_18yyv"]
 [ext_resource type="PackedScene" uid="uid://cuf8qhdoj6pvo" path="res://Rooms/room_3.tscn" id="6_46mvv"]
 [ext_resource type="PackedScene" uid="uid://c5yuiq1gwospm" path="res://Rooms/room_4.tscn" id="7_abs0e"]
+[ext_resource type="PackedScene" uid="uid://dakb02hus2blu" path="res://Traps/area_muerte.tscn" id="10_ob3ge"]
 [ext_resource type="PackedScene" uid="uid://bjp2kojruql6" path="res://Puerta/puerta.tscn" id="11_8fl1g"]
 [ext_resource type="PackedScene" uid="uid://clfjo7hkyqg6j" path="res://Players/Jugadores/Player_1.tscn" id="11_o21r3"]
 [ext_resource type="PackedScene" uid="uid://t17xsmquwfqd" path="res://Players/Jugadores/Player_2.tscn" id="12_bii6o"]
 [ext_resource type="PackedScene" uid="uid://dnx1cml2m82du" path="res://Main/area_victoria.tscn" id="12_mu8in"]
+[ext_resource type="PackedScene" uid="uid://0obc0k7xwobu" path="res://Traps/node_sierra.tscn" id="13_5iu7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt1s2"]
 texture = ExtResource("1_sgv0j")
@@ -132,8 +134,20 @@ position = Vector2(930, 900)
 [node name="Puerta" parent="TileMapLayer" instance=ExtResource("11_8fl1g")]
 position = Vector2(840, 735)
 
+[node name="AreaMuerte" parent="TileMapLayer" instance=ExtResource("10_ob3ge")]
+position = Vector2(838, 1305)
+
+[node name="AreaMuerte2" parent="TileMapLayer" instance=ExtResource("10_ob3ge")]
+position = Vector2(405, 828)
+rotation = 1.5708
+
+[node name="AreaMuerte3" parent="TileMapLayer" instance=ExtResource("10_ob3ge")]
+position = Vector2(1335, 829)
+rotation = 1.5708
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(806, 835)
+position = Vector2(855, 536)
+zoom = Vector2(2, 2)
 
 [node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
 position = Vector2(45, 1603)
@@ -143,3 +157,6 @@ position = Vector2(61, 1523)
 
 [node name="AreaVictoria" parent="." instance=ExtResource("12_mu8in")]
 position = Vector2(839, 816)
+
+[node name="NodeSierra" parent="." instance=ExtResource("13_5iu7x")]
+position = Vector2(841, 548)

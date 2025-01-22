@@ -6,10 +6,11 @@ public class Curacion : HabilidadBase
 
     protected override void Efecto(PlayerBase jugador)
     {
-        if (jugador is PlayerBase player)
+        if (jugador is PlayerBase)
         {
-            GD.Print("Se curo");
-            player.AjustarSalud(2); // Incrementa la salud en 2 puntos
+            GD.Print("P1 Se curo");
+            jugador.AjustarSalud(2); // Incrementa la salud en 2 puntos
         }
+       
     }
 }

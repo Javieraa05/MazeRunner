@@ -36,8 +36,13 @@ public partial class TrampaBase : Area2D
          
         if(!player.Escudo)
         {    
-            player.TomarDano(1); // Daño fijo de 1
             player.ReducirVelocidad();
+            if(player.Health-1 <= 0)
+            {
+                player.EmitirNoticia("Te ha matado una trampa");
+            }
+            player.TomarDano(1); // Daño fijo de 1
+            
 
         }
         }

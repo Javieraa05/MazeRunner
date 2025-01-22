@@ -343,22 +343,42 @@ theme_override_font_sizes/font_size = 24
 position = Vector2(7.5, 0)
 points = PackedVector2Array(953, 0, 953, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="Viewports"]
+[node name="MiniMapa" type="Sprite2D" parent="Viewports"]
 position = Vector2(831, 804)
 scale = Vector2(0.348203, 0.361269)
 texture = ExtResource("5_8iyvt")
 offset = Vector2(373.345, 368.147)
 
-[node name="PuntoRojo" type="Sprite2D" parent="Viewports/Sprite2D"]
+[node name="PuntoRojo" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(17.2313, 714.149)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("6_5erq1")
 offset = Vector2(5, 0)
 
-[node name="PuntoAzul" type="Sprite2D" parent="Viewports/Sprite2D"]
+[node name="PuntoAzul" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(726.588, 711.381)
 scale = Vector2(0.04, 0.039)
 texture = ExtResource("7_l13pg")
+
+[node name="Llave1" type="Sprite2D" parent="Viewports/MiniMapa"]
+position = Vector2(130.043, 108.123)
+scale = Vector2(1.93594, 1.21764)
+texture = ExtResource("6_n6bj0")
+
+[node name="Llave2" type="Sprite2D" parent="Viewports/MiniMapa"]
+position = Vector2(597.353, 127.329)
+scale = Vector2(1.93594, 1.21764)
+texture = ExtResource("6_n6bj0")
+
+[node name="Llave3" type="Sprite2D" parent="Viewports/MiniMapa"]
+position = Vector2(149.338, 556.372)
+scale = Vector2(1.93594, 1.21764)
+texture = ExtResource("6_n6bj0")
+
+[node name="Llave4" type="Sprite2D" parent="Viewports/MiniMapa"]
+position = Vector2(560.018, 567.444)
+scale = Vector2(1.93594, 1.21764)
+texture = ExtResource("6_n6bj0")
 
 [node name="LineaCuadro" type="Line2D" parent="Viewports"]
 position = Vector2(820, 794)

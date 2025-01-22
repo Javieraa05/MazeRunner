@@ -8,9 +8,9 @@ public partial class Player_1 : PlayerBase
     public override void _Ready()
 {   
     areaAtaque = GetNode<Area2D>("AreaAtaque");
-    
     player2 = GetNode<Player_2>("/root/Main/Viewports/ViewportContainer1/Viewport1/World/Player_2");
 
+    
     if(SelectedCharacter1 == 0) SelectedCharacter1=1;
     characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SelectedCharacter1}/personaje_{SelectedCharacter1}.tscn");
     
@@ -40,12 +40,32 @@ public partial class Player_1 : PlayerBase
 
         if (Input.IsActionJustPressed("habilidad_player1")) // Jugador 1
         {   
-            GD.Print("Se presiono la tecla");
+            GD.Print("P1 presiono la tecla de la habilidad");
             UsarHabilidad();
         }
-        if(Input.IsActionJustPressed("atacar_player1") && areaAtaque.OverlapsBody(player2) && player2.Experiencia < this.Experiencia)
+        if(Input.IsActionJustPressed("atacar_player1") && areaAtaque.OverlapsBody(player2) )
         {
-            EliminarP();
+            if(player2.Experiencia < this.Experiencia)
+            {
+                
+                if(player2.Health-2 < 1 && player2.llaves.Count >= 1)
+                {
+                    this.llaves.Add(player2.llaves[0]);
+                    CantidadLlaves++;
+                    EmitSignal(nameof(KeysChanged), CantidadLlaves);
+                    player2.llaves.RemoveAt(0);
+                }
+                
+                if(player2.Health-2 <= 0)
+                {
+                    player2.EmitirNoticia("Te ha matado el Jugador 1");
+                }
+                player2.TomarDano(2);
+            }
+            else
+            {
+                EmitirNoticia("No tienes suficiente experiencia");
+            }    
         }
         if(areaAtaque.OverlapsBody(player2))
         {
@@ -56,12 +76,24 @@ public partial class Player_1 : PlayerBase
         
 
     }
+    public override void UsarHabilidad()
+    {
+        if(habilidadActual == null) GD.Print("Player1 no tiene habilidad asignada");
+        if (habilidadActual != null && habilidadActual.DisponibleP1)
+        {
+            GD.Print("Player1 mando a activar la habilidad");
+            habilidadActual.Activar(this);
+            EmitSignal(nameof(ActivarHabilidad), habilidadActual.Cooldown);
+        }
+        else
+        {
+            GD.Print("No se puede usar la habilidad");
+        }
+    }
 
-    
 
-     public override void EliminarP()
-     {
-        player2.ResetPosition();
-     }
+
+
+
 }
 

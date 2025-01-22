@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hgx6wk0ibl7f"]
+[gd_scene load_steps=20 format=3 uid="uid://hgx6wk0ibl7f"]
 
 [ext_resource type="Texture2D" uid="uid://cooo74pj35rbn" path="res://Imagenes/Trampas/Push_Trap_Front.png" id="1_asrga"]
 [ext_resource type="Script" path="res://Traps/TrampaMartillo.cs" id="1_ptvup"]
@@ -89,7 +89,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21faq"]
-size = Vector2(19.0802, 27.9832)
+size = Vector2(19.0802, 29.4917)
 
 [sub_resource type="Animation" id="Animation_lu6sl"]
 resource_name = "Collision"
@@ -102,6 +102,18 @@ tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.55, 0.95, 1.05, 3.95, 4.05, 4.45, 4.55, 4.95, 5.05, 5.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11, 0), Vector2(11, 0), Vector2(13, 0), Vector2(13, 0), Vector2(22, 0), Vector2(22, 0), Vector2(19, 0), Vector2(19, 0), Vector2(14, 0), Vector2(14, 0), Vector2(11, 0), Vector2(11, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.55, 0.95, 1.05, 3.95, 4.05, 4.45, 4.55, 4.95, 5.05, 5.55),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
@@ -129,6 +141,9 @@ _data = {
 "RESET": SubResource("Animation_emhi6")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61jy5"]
+size = Vector2(18, 20)
+
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -149,3 +164,12 @@ shape = SubResource("RectangleShape2D_21faq")
 libraries = {
 "": SubResource("AnimationLibrary_n3s8r")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_61jy5")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="."]

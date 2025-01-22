@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dakb02hus2blu"]
+
+[ext_resource type="Script" path="res://Traps/AreaMuerte.cs" id="1_pkqfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i1rb"]
+size = Vector2(188, 20)
+
+[node name="AreaMuerte" type="Area2D"]
+script = ExtResource("1_pkqfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0i1rb")
+debug_color = Color(1, 0, 0, 0.419608)

@@ -350,7 +350,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="Llave4" type="Area2D"]
 script = ExtResource("1_vkbt4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

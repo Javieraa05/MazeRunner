@@ -6,11 +6,10 @@ public abstract partial class PlayerBase : CharacterBody2D
 {
     public int Speed { get; set; } = 100;
     public int MaxHealth { get; set; } = 6;
-
     public int Health { get; set; } = 6;
     public HabilidadBase habilidadActual;
-    public int SelectedCharacter1 { get; set; }
-    public int SelectedCharacter2 { get; set; }
+    public int SelectedCharacter1 = 1;
+    public int SelectedCharacter2 = 2;
     public int CantidadLlaves=0;
     protected PackedScene characterScene;
     protected AnimatedSprite2D animatedSprite;
@@ -19,15 +18,13 @@ public abstract partial class PlayerBase : CharacterBody2D
     public List<LLaves> llaves = new List<LLaves>();
     public Area2D areaAtaque;
     public bool botonAtaque=false;
-    
     public int Experiencia=0;
     
     [Signal] public delegate void HealthChangedEventHandler(int health);
-
     [Signal] public delegate void KeysChangedEventHandler(LLaves llave);
     [Signal] public delegate void ActivarHabilidadEventHandler(int cuentaRegresiva);
     [Signal] public delegate void ExperienciaCambioEventHandler(int experiencia);
-    [Signal] public delegate void HaMuertoEventHandler(PlayerBase player);
+    [Signal] public delegate void NoticiaEventHandler(string noticia);
 
     public static Dictionary<int, HabilidadBase> habilidadesPorPersonaje = new Dictionary<int, HabilidadBase>
     {
@@ -42,9 +39,6 @@ public abstract partial class PlayerBase : CharacterBody2D
     public override void _Ready()
     {
         
-        
-        
-        
         if (characterScene == null)
         {
             GD.PrintErr("No se pudo cargar la escena.");
@@ -56,6 +50,8 @@ public abstract partial class PlayerBase : CharacterBody2D
             animatedSprite = characterInstance;
         }
         SetInitialPosition();
+        EmitSignal(nameof(KeysChanged), CantidadLlaves);
+        EmitSignal(nameof(ExperienciaCambio), Experiencia);
 
 
     }
@@ -130,7 +126,6 @@ public abstract partial class PlayerBase : CharacterBody2D
         Experiencia = 0;
         EmitSignal(nameof(KeysChanged), CantidadLlaves);
         EmitSignal(nameof(ExperienciaCambio), Experiencia);
-        EmitSignal(nameof(HaMuerto),this);
         foreach(LLaves llave in llaves)
         {
             llave.Aparecer();
@@ -138,26 +133,17 @@ public abstract partial class PlayerBase : CharacterBody2D
         llaves.Clear();
         AjustarSalud(7);
     }
-
+    public void EmitirNoticia(string noticia)
+    {
+        EmitSignal(nameof(Noticia), noticia);
+    }
     public void AsignarHabilidad(HabilidadBase habilidad)
     {   
         habilidadActual = habilidad;
     }
 
-    public void UsarHabilidad()
-    {
-        if(habilidadActual == null) GD.Print("No hay habilidad asignada");
-        if (habilidadActual != null && habilidadActual.Disponible)
-        {
-            GD.Print("Se mando a activar la habilidad");
-            habilidadActual.Activar(this);
-            EmitSignal(nameof(ActivarHabilidad), habilidadActual.Cooldown);
-        }
-        else
-        {
-            GD.Print("No se puede usar la habilidad");
-        }
-    }
+    public abstract void UsarHabilidad();
+    
 
     public void AjustarSalud(int cantidad)
     {
@@ -171,8 +157,6 @@ public abstract partial class PlayerBase : CharacterBody2D
     Speed /= 4;
     GetTree().CreateTimer(2).Timeout += () => Speed*=4;
    }
-
-   public abstract void EliminarP();
 
    public void RecogerExperiencia()
    {

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0obc0k7xwobu"]
+
+[ext_resource type="PackedScene" uid="uid://h60fippm44ej" path="res://Traps/sierra.tscn" id="1_ryw2s"]
+
+[node name="NodeSierra" type="Node2D"]
+
+[node name="Sierra" parent="." instance=ExtResource("1_ryw2s")]
