@@ -4,7 +4,7 @@ public partial class Player_1 : PlayerBase
 {
     
 
-    private Player_2 player2;
+    public Player_2 player2;
     public override void _Ready()
 {   
     areaAtaque = GetNode<Area2D>("AreaAtaque");

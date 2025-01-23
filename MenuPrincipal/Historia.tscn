@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj2ghg57eksu4"]
+[gd_scene load_steps=9 format=3 uid="uid://dj2ghg57eksu4"]
 
 [ext_resource type="Script" path="res://MenuPrincipal/Historia.cs" id="1_k8emg"]
 [ext_resource type="Texture2D" uid="uid://cf16wwxrhwreg" path="res://Imagenes/UI_Essential_Pack/Puerta.png" id="1_rwvlo"]
 [ext_resource type="Texture2D" uid="uid://pnt068iwqwgc" path="res://Imagenes/UI_Essential_Pack/Martillo.png" id="2_uqk13"]
 [ext_resource type="Texture2D" uid="uid://oluc85yxed1t" path="res://Imagenes/UI_Essential_Pack/trampas.pgn.png" id="3_3vsgs"]
 [ext_resource type="Texture2D" uid="uid://dym8r1ggrwdhx" path="res://Imagenes/UI_Essential_Pack/experiencia.png" id="4_dyuv4"]
+[ext_resource type="Script" path="res://MenuPrincipal/Boton.cs" id="6_cgny1"]
+[ext_resource type="AudioStream" uid="uid://b036i7rsqjn7s" path="res://Audio/Boton/tap-a.ogg" id="7_f056w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4v0b"]
 bg_color = Color(0.331998, 0.605494, 0.83858, 1)
@@ -196,3 +198,7 @@ offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Comenzar"
+script = ExtResource("6_cgny1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("7_f056w")

@@ -3,6 +3,7 @@ using System;
 
 public partial class AreaVictoria : Area2D
 {
+    
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -11,25 +12,30 @@ public partial class AreaVictoria : Area2D
 
 	 private void OnBodyEntered(Node body)
     {
-        if (body is Player_1)
+        if (body is Player_1 player_1)
         {
             GD.Print("¡Jugador 1 gana!");
-            MostrarPantallaVictoria("¡Jugador 1 ha ganado!");
+            
+            GetTree().Paused = true;
+            player_1.EmitirNoticia("Haz Ganado la Partida");
+            player_1.player2.EmitirNoticia("El jugador 1 ha ganado la Partida");
+            GetTree().CreateTimer(6).Timeout += () => GetTree().Quit();
+
         }
-        else if (body is Player_2)
+        else if (body is Player_2 player_2)
         {
             GD.Print("¡Jugador 2 gana!");
-            MostrarPantallaVictoria("¡Jugador 2 ha ganado!");
+
+            GetTree().Paused = true;
+            player_2.EmitirNoticia("Haz Ganado la Partida");
+            player_2.player1.EmitirNoticia("El jugador 2 ha ganado la Partida");
+            GetTree().CreateTimer(6).Timeout += () => GetTree().Quit();
+
+            
         }
     }
 
-    private void MostrarPantallaVictoria(string mensaje)
-    {
-        // Pausa el juego y muestra el mensaje de victoria
-        GetTree().Paused = true;
-        GD.Print(mensaje); // Esto puede reemplazarse con un popup o una escena de victoria
-		GetTree().Quit(); // Cierra el juego
-    }
+   
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{

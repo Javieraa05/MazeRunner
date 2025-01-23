@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Player_2 : PlayerBase
 {
-    Player_1 player1;
+    public Player_1 player1;
     public override void _Ready()
     {   
         player1 = GetNode<Player_1>("/root/Main/Viewports/ViewportContainer1/Viewport1/World/Player_1");
