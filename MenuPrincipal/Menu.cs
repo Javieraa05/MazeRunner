@@ -19,7 +19,7 @@ public partial class Menu : Control
     private void OnPlayButtonPressed()
     {
         // Cambiar a la escena del juego
-        GetTree().ChangeSceneToFile("res://MenuPrincipal/SeleccionPersonajes.tscn");
+        GetTree().ChangeSceneToFile("res://MenuPrincipal/Historia.tscn");
     }
 
     private void OnQuitButtonPressed()

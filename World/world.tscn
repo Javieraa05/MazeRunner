@@ -145,15 +145,13 @@ rotation = 1.5708
 position = Vector2(1335, 829)
 rotation = 1.5708
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(855, 536)
-zoom = Vector2(2, 2)
-
 [node name="Player_1" parent="." instance=ExtResource("11_o21r3")]
 position = Vector2(45, 1603)
+scale = Vector2(2.3, 2.3)
 
 [node name="Player_2" parent="." instance=ExtResource("12_bii6o")]
-position = Vector2(61, 1523)
+position = Vector2(1595, 1569)
+scale = Vector2(2.3, 2.3)
 
 [node name="AreaVictoria" parent="." instance=ExtResource("12_mu8in")]
 position = Vector2(839, 816)

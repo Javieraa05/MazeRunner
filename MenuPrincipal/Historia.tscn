@@ -1,0 +1,198 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj2ghg57eksu4"]
+
+[ext_resource type="Script" path="res://MenuPrincipal/Historia.cs" id="1_k8emg"]
+[ext_resource type="Texture2D" uid="uid://cf16wwxrhwreg" path="res://Imagenes/UI_Essential_Pack/Puerta.png" id="1_rwvlo"]
+[ext_resource type="Texture2D" uid="uid://pnt068iwqwgc" path="res://Imagenes/UI_Essential_Pack/Martillo.png" id="2_uqk13"]
+[ext_resource type="Texture2D" uid="uid://oluc85yxed1t" path="res://Imagenes/UI_Essential_Pack/trampas.pgn.png" id="3_3vsgs"]
+[ext_resource type="Texture2D" uid="uid://dym8r1ggrwdhx" path="res://Imagenes/UI_Essential_Pack/experiencia.png" id="4_dyuv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4v0b"]
+bg_color = Color(0.331998, 0.605494, 0.83858, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8emg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.439216, 0.639216, 1)
+
+[node name="PanelObjetivo" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -802.0
+offset_top = -454.0
+offset_right = 802.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4v0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelObjetivo"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ObjetivoContainer" type="HBoxContainer" parent="PanelObjetivo/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelObjetivo/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelObjetivo/MarginContainer/ObjetivoContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.964742, 0.964742, 0.964742, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 36
+text = "Objetivo:"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelObjetivo/MarginContainer/ObjetivoContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelObjetivo/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_constants/outline_size = 15
+text = " LLegar primero al centro del mapa
+donde te espera una puerta la cual 
+se puede abrir con 3 de las 4
+llaves esparcidas por el mapa."
+
+[node name="TextureRect" type="TextureRect" parent="PanelObjetivo/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+texture = ExtResource("1_rwvlo")
+expand_mode = 2
+
+[node name="PanelObtaculos" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -863.0
+offset_top = -173.0
+offset_right = 868.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4v0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelObtaculos"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ObjetivoContainer" type="HBoxContainer" parent="PanelObtaculos/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PanelObtaculos/MarginContainer/ObjetivoContainer"]
+custom_minimum_size = Vector2(196, 191)
+layout_mode = 2
+texture = ExtResource("2_uqk13")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelObtaculos/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label2" type="Label" parent="PanelObtaculos/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_constants/outline_size = 15
+text = " En el camino puedes encontrar trampas
+y obstaculos que te dañan e impiden que
+puedas seguir adelante. "
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelObtaculos/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="TextureRect" type="TextureRect" parent="PanelObtaculos/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+texture = ExtResource("3_3vsgs")
+expand_mode = 2
+
+[node name="PanelExperiencia" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -865.5
+offset_top = 125.5
+offset_right = 865.5
+offset_bottom = 356.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4v0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelExperiencia"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ObjetivoContainer" type="HBoxContainer" parent="PanelExperiencia/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelExperiencia/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="Label2" type="Label" parent="PanelExperiencia/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_constants/outline_size = 15
+text = " Recoge la mayor cantidad de experiencia que 
+puedas, puede ser la diferencia entre la vida
+y la muerte;"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelExperiencia/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="TextureRect" type="TextureRect" parent="PanelExperiencia/MarginContainer/ObjetivoContainer"]
+layout_mode = 2
+texture = ExtResource("4_dyuv4")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -120.0
+offset_right = 170.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Comenzar"

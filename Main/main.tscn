@@ -362,22 +362,18 @@ texture = ExtResource("7_l13pg")
 
 [node name="Llave1" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(130.043, 108.123)
-scale = Vector2(1.93594, 1.21764)
 texture = ExtResource("6_n6bj0")
 
 [node name="Llave2" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(597.353, 127.329)
-scale = Vector2(1.93594, 1.21764)
 texture = ExtResource("6_n6bj0")
 
 [node name="Llave3" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(149.338, 556.372)
-scale = Vector2(1.93594, 1.21764)
 texture = ExtResource("6_n6bj0")
 
 [node name="Llave4" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(560.018, 567.444)
-scale = Vector2(1.93594, 1.21764)
 texture = ExtResource("6_n6bj0")
 
 [node name="LineaCuadro" type="Line2D" parent="Viewports"]
