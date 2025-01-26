@@ -2,16 +2,16 @@ using Godot;
 
 public partial class Door : Node2D
 {
-    public float OpenSpeed = 50f; // Velocidad de apertura
-    public float MaxDistance = 30f; // Distancia máxima de movimiento de cada bloque
+    public float VelocidadApertura = 50f; // Velocidad de apertura
+    public float DistanciaMaxima = 30f; // Distancia máxima de movimiento de cada bloque
     private StaticBody2D puertaIzquierda;
     private StaticBody2D puertaDerecha;
     private Area2D _Area2DAbrir;
 
-    private bool _isOpening = false;
-    private bool _isClosing = false;
-    private Vector2 _leftStartPos;
-    private Vector2 _rightStartPos;
+    private bool EstaAbriendo = false;
+    private bool EstaCerrando = false;
+    private Vector2 PosInicialIzq;
+    private Vector2 PosInicialDer;
 
     public override void _Ready()
     {
@@ -21,8 +21,8 @@ public partial class Door : Node2D
         _Area2DAbrir = GetNode<Area2D>("Area2DAbrir");
 
         // Guardar posiciones iniciales
-        _leftStartPos = puertaIzquierda.Position;
-        _rightStartPos = puertaDerecha.Position;
+        PosInicialIzq = puertaIzquierda.Position;
+        PosInicialDer = puertaDerecha.Position;
 
         // Conectar eventos
         _Area2DAbrir.BodyEntered += OnBodyEntered;
@@ -32,7 +32,7 @@ public partial class Door : Node2D
     {
         if (body is PlayerBase player && player.GetCantidadLlaves()>=3)
         {
-            _isOpening = true;
+            EstaAbriendo = true;
         }
         else if(body is PlayerBase players )
         {
@@ -44,7 +44,7 @@ public partial class Door : Node2D
 
     public override void _Process(double delta)
     {
-        if (_isOpening)
+        if (EstaAbriendo)
         {
             AbrirPuerta(delta);
         }
@@ -56,23 +56,23 @@ public partial class Door : Node2D
         bool derechaMovida = false;
 
         // Mover la puerta izquierda hacia la izquierda
-        if (puertaIzquierda.Position.X > _leftStartPos.X - MaxDistance)
+        if (puertaIzquierda.Position.X > PosInicialIzq.X - DistanciaMaxima)
         {
-            puertaIzquierda.Position += new Vector2(-OpenSpeed * (float)delta, 0);
+            puertaIzquierda.Position += new Vector2(-VelocidadApertura * (float)delta, 0);
             izquierdaMovida = true;
         }
 
         // Mover la puerta derecha hacia la derecha
-        if (puertaDerecha.Position.X < _rightStartPos.X + MaxDistance)
+        if (puertaDerecha.Position.X < PosInicialDer.X + DistanciaMaxima)
         {
-            puertaDerecha.Position += new Vector2(OpenSpeed * (float)delta, 0);
+            puertaDerecha.Position += new Vector2(VelocidadApertura * (float)delta, 0);
             derechaMovida = true;
         }
 
         // Detener el movimiento si ambas puertas han alcanzado sus posiciones finales
         if (!izquierdaMovida && !derechaMovida)
         {
-            _isOpening = false;
+            EstaAbriendo = false;
         }
     }
 }

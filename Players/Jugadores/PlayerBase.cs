@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public abstract partial class PlayerBase : CharacterBody2D
 {
-    public int Speed { get; set; } = 100;
-    public int MaxHealth { get; set; } = 6;
-    public int Health { get; set; } = 6;
+    public int Velocidad { get; set; } = 100;
+    public int VidaMaxima { get; set; } = 6;
+    public int Vida { get; set; } = 6;
     public HabilidadBase habilidadActual;
-    public int SelectedCharacter1 = 1;
-    public int SelectedCharacter2 = 2;
+    public int SeleccionPersonaje1 = 1;
+    public int SeleccionPersonaje2 = 2;
     public int CantidadLlaves=0;
     protected PackedScene characterScene;
     protected AnimatedSprite2D animatedSprite;
@@ -67,7 +67,7 @@ public abstract partial class PlayerBase : CharacterBody2D
 
     protected virtual void Move(Vector2 input)
     {
-        Velocity = input * Speed;
+        Velocity = input * Velocidad;
         //GD.Print($"Input: {input}, Velocity: {Velocity}");
         MoveAndSlide();
     }
@@ -108,10 +108,10 @@ public abstract partial class PlayerBase : CharacterBody2D
     public void TomarDano(int cantidadDano)
     {
         AjustarSalud(-cantidadDano);
-        GD.Print($"Salud restante: {Health}");
-        EmitSignal(nameof(HealthChanged), Health); // Emitir señal para actualizar el HUD
+        GD.Print($"Salud restante: {Vida}");
+        EmitSignal(nameof(HealthChanged), Vida); // Emitir señal para actualizar el HUD
 
-        if (Health <= 0)
+        if (Vida <= 0)
         {
             GD.Print("¡Jugador eliminado! Restableciendo posición...");
             ResetPosition(); // Llama al método para restablecer la posición
@@ -147,15 +147,15 @@ public abstract partial class PlayerBase : CharacterBody2D
 
     public void AjustarSalud(int cantidad)
     {
-        Health = Mathf.Clamp(Health + cantidad, 0, 6); // Asegura que la salud esté dentro de los límites
-        EmitSignal(nameof(HealthChanged), Health);    // Emite la señal para actualizar el HUD
-        GD.Print($"La salud del jugador ahora es: {Health}");
+        Vida = Mathf.Clamp(Vida + cantidad, 0, VidaMaxima); // Asegura que la salud esté dentro de los límites
+        EmitSignal(nameof(HealthChanged), Vida);    // Emite la señal para actualizar el HUD
+        GD.Print($"La salud del jugador ahora es: {Vida}");
     }
    
    public void ReducirVelocidad()
    {
-    Speed /= 4;
-    GetTree().CreateTimer(2).Timeout += () => Speed*=4;
+    Velocidad /= 4;
+    GetTree().CreateTimer(2).Timeout += () => Velocidad*=4;
    }
 
    public void RecogerExperiencia()

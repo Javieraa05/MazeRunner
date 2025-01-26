@@ -11,15 +11,15 @@ public partial class Player_1 : PlayerBase
     player2 = GetNode<Player_2>("/root/Main/Viewports/ViewportContainer1/Viewport1/World/Player_2");
 
     
-    if(SelectedCharacter1 == 0) SelectedCharacter1=1;
-    characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SelectedCharacter1}/personaje_{SelectedCharacter1}.tscn");
+    if(SeleccionPersonaje1 == 0) SeleccionPersonaje1=1;
+    characterScene = GD.Load<PackedScene>($"res://Players/Personaje{SeleccionPersonaje1}/personaje_{SeleccionPersonaje1}.tscn");
     
     base._Ready();
      
      // Asignar habilidad según el personaje seleccionado
-    if (habilidadesPorPersonaje.ContainsKey(SelectedCharacter1))
+    if (habilidadesPorPersonaje.ContainsKey(SeleccionPersonaje1))
     {
-        AsignarHabilidad(habilidadesPorPersonaje[SelectedCharacter1]);
+        AsignarHabilidad(habilidadesPorPersonaje[SeleccionPersonaje1]);
     }
 }
 
@@ -51,16 +51,16 @@ public partial class Player_1 : PlayerBase
                 if(player2.Experiencia < this.Experiencia)
                 {
                 
-                    if(player2.Health-2 < 1 && player2.llaves.Count >= 1)
+                    if(player2.Vida-2 < 1 && player2.llaves.Count >= 1)
                     {
                         this.llaves.Add(player2.llaves[0]);
                         CantidadLlaves++;
                         EmitSignal(nameof(KeysChanged), CantidadLlaves);
                         player2.llaves.RemoveAt(0);
                     }
-                    if(player2.Health-2 <= 0)
+                    if(player2.Vida-2 <= 0)
                     {
-                        player2.EmitirNoticia("Te ha matado el Jugador 1");
+                        player2.EmitirNoticia("Te ha asesinado el Jugador 1");
                     }
                     player2.TomarDano(2);
                 }
@@ -97,10 +97,6 @@ public partial class Player_1 : PlayerBase
             GD.Print("No se puede usar la habilidad");
         }
     }
-
-
-
-
 
 }
 

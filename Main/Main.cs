@@ -61,14 +61,14 @@ public partial class Main : Node
     player2 = Mundo.GetNodeOrNull<PlayerBase>("Player_2");
 
     //Asignar las imagenes de los jugadores en el minimapa
-    puntoRojo.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player1.SelectedCharacter1}.png");
-    puntoAzul.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player2.SelectedCharacter2}.png");
+    puntoRojo.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player1.SeleccionPersonaje1}.png");
+    puntoAzul.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player2.SeleccionPersonaje2}.png");
 
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
     var hudPlayer2 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer2/HUD_Player2");
-    var texturaIcono1 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player1.SelectedCharacter1}.png");
-    var texturaIcono2 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player2.SelectedCharacter2}.png");
+    var texturaIcono1 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player1.SeleccionPersonaje1}.png");
+    var texturaIcono2 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player2.SeleccionPersonaje2}.png");
 
     if (player1 != null && hudPlayer1 != null && player2 != null && hudPlayer2 != null)
     {

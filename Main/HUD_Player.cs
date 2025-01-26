@@ -48,7 +48,7 @@ public partial class HUD_Player : CanvasLayer
 
 
             // Inicializa el HUD con los valores actuales del jugador
-            ActualizarCorazones(jugador.Health);
+            ActualizarCorazones(jugador.Vida);
         }
     }
     private void SeActivaHabilidad(float cuentaRegresiva)

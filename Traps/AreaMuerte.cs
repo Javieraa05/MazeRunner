@@ -14,7 +14,7 @@ public partial class AreaMuerte : Area2D
 		if (body is PlayerBase player)
 		{
 			player.ResetPosition();
-			player.EmitirNoticia("Te ha matado un Martillo");
+			player.EmitirNoticia("Te ha asesinado un Martillo");
 		}
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

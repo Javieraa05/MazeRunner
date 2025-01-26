@@ -15,7 +15,7 @@ size = Vector2(63, 22)
 [node name="Puerta" type="Node2D"]
 scale = Vector2(0.94, 0.94)
 script = ExtResource("1_10stm")
-OpenSpeed = 10.0
+VelocidadApertura = 10.0
 
 [node name="PuertaDerecha" type="StaticBody2D" parent="."]
 position = Vector2(16, 0)

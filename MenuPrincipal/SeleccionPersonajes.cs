@@ -130,13 +130,13 @@ public partial class SeleccionPersonajes : Control
                 var player1Node = mainNode.GetNodeOrNull<Player_1>("Viewports/ViewportContainer1/Viewport1/World/Player_1");
                 if (player1Node != null)
                 {
-                    player1Node.SelectedCharacter1 = SeleccionPlayer1;
+                    player1Node.SeleccionPersonaje1 = SeleccionPlayer1;
                 }
 
                 var player2Node = mainNode.GetNodeOrNull<Player_2>("Viewports/ViewportContainer1/Viewport1/World/Player_2");
                 if (player2Node != null)
                 {
-                    player2Node.SelectedCharacter2 = SeleccionPlayer2;
+                    player2Node.SeleccionPersonaje2 = SeleccionPlayer2;
                 }
             }
 
