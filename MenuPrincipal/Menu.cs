@@ -2,27 +2,27 @@ using Godot;
 
 public partial class Menu : Control
 {
-    private Button playButton;
-    private Button quitButton;
+    private Button BotonJugar;
+    private Button BotonSalir;
 
     public override void _Ready()
     {
         // Obtener referencias a los botones
-        playButton = GetNode<Button>("Jugar");
-        quitButton = GetNode<Button>("Salir");
+        BotonJugar = GetNode<Button>("Jugar");
+        BotonSalir = GetNode<Button>("Salir");
 
         // Conectar las señales de los botones
-        playButton.Pressed += OnPlayButtonPressed;
-        quitButton.Pressed += OnQuitButtonPressed;
+        BotonJugar.Pressed += OnBotonJugarPressed;
+        BotonSalir.Pressed += OnBotonSalirPressed;
     }
 
-    private void OnPlayButtonPressed()
+    private void OnBotonJugarPressed()
     {
         // Cambiar a la escena del juego
         GetTree().ChangeSceneToFile("res://MenuPrincipal/Historia.tscn");
     }
 
-    private void OnQuitButtonPressed()
+    private void OnBotonSalirPressed()
     {
         // Salir del juego
         GD.Print("Salir presionado");

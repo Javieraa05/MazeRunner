@@ -5,16 +5,16 @@ using System.Collections.Generic;
 public partial class SeleccionPersonajes : Control
 {
     private int PersonajeActual = 0; // Índice del personaje actual
-    private string[] _personajes = {
+    private string[] Personajes = {
         "Personaje1", "Personaje2", "Personaje3", "Personaje4", 
         "Personaje5"
     };
     private bool EsTurnoJugador1 = true; // Controla el turno de selección
-    private TextureRect _imagenPersonaje;
-    private Label _etiquetaJugador;
-    private int _seleccionPlayer1;
-    private int _seleccionPlayer2;
-    private Label _etiquetaHistoria;
+    private TextureRect ImagenPersonaje;
+    private Label EtiquetaJugador;
+    private int SeleccionPlayer1;
+    private int SeleccionPlayer2;
+    private Label EtiquetaHistoria;
     private Dictionary <int, Personaje> personajes = new Dictionary<int, Personaje>();
 
 
@@ -79,9 +79,9 @@ public partial class SeleccionPersonajes : Control
 
         ));
        
-        _imagenPersonaje = GetNode<TextureRect>("VContainer/HContainer/ContainerImagen/TextureRect");
-        _etiquetaJugador = GetNode<Label>("VContainer/LabelPlayer");
-        _etiquetaHistoria = GetNode<Label>("VContainer/PanelContainer/MarginContainer/LabelHistoria");
+        ImagenPersonaje = GetNode<TextureRect>("VContainer/HContainer/ContainerImagen/TextureRect");
+        EtiquetaJugador = GetNode<Label>("VContainer/LabelPlayer");
+        EtiquetaHistoria = GetNode<Label>("VContainer/PanelContainer/MarginContainer/LabelHistoria");
 
         ActualizarVista();
         
@@ -92,13 +92,13 @@ public partial class SeleccionPersonajes : Control
 
     private void OnBotonAnteriorPressed()
     {
-        PersonajeActual = (PersonajeActual - 1 + _personajes.Length) % _personajes.Length;
+        PersonajeActual = (PersonajeActual - 1 + Personajes.Length) % Personajes.Length;
         ActualizarVista();
     }
 
     private void OnBotonSiguientePressed()
     {
-        PersonajeActual = (PersonajeActual + 1) % _personajes.Length;
+        PersonajeActual = (PersonajeActual + 1) % Personajes.Length;
         ActualizarVista();
     }
 
@@ -107,16 +107,16 @@ public partial class SeleccionPersonajes : Control
       if (EsTurnoJugador1)
     {
         // Guarda la selección del Player 1
-        _seleccionPlayer1 = PersonajeActual + 1;
-        GD.Print($"Player 1 seleccionó: {_seleccionPlayer1}");
+        SeleccionPlayer1 = PersonajeActual + 1;
+        GD.Print($"Player 1 seleccionó: {SeleccionPlayer1}");
         EsTurnoJugador1 = false;
-        _etiquetaJugador.Text = "Player 2";
+        EtiquetaJugador.Text = "Jugador 2";
     }
     else
     {
         // Guarda la selección del Player 2
-        _seleccionPlayer2 = PersonajeActual + 1;
-        GD.Print($"Player 2 seleccionó: {_seleccionPlayer2}");
+        SeleccionPlayer2 = PersonajeActual + 1;
+        GD.Print($"Player 2 seleccionó: {SeleccionPlayer2}");
 
         // Carga la escena Main
         var mainScene = GD.Load<PackedScene>("res://Main/main.tscn");
@@ -130,13 +130,13 @@ public partial class SeleccionPersonajes : Control
                 var player1Node = mainNode.GetNodeOrNull<Player_1>("Viewports/ViewportContainer1/Viewport1/World/Player_1");
                 if (player1Node != null)
                 {
-                    player1Node.SelectedCharacter1 = _seleccionPlayer1;
+                    player1Node.SelectedCharacter1 = SeleccionPlayer1;
                 }
 
                 var player2Node = mainNode.GetNodeOrNull<Player_2>("Viewports/ViewportContainer1/Viewport1/World/Player_2");
                 if (player2Node != null)
                 {
-                    player2Node.SelectedCharacter2 = _seleccionPlayer2;
+                    player2Node.SelectedCharacter2 = SeleccionPlayer2;
                 }
             }
 
@@ -150,16 +150,16 @@ public partial class SeleccionPersonajes : Control
 
     private void ActualizarVista()
     {
-        _imagenPersonaje.Texture = (Texture2D)GD.Load<Texture>($"res://Imagenes/Personajes/{_personajes[PersonajeActual]}.png");
+        ImagenPersonaje.Texture = (Texture2D)GD.Load<Texture>($"res://Imagenes/Personajes/{Personajes[PersonajeActual]}.png");
 
 
-    	_etiquetaJugador.Text = EsTurnoJugador1 ? "Jugador 1" : "Jugador 2";
+    	EtiquetaJugador.Text = EsTurnoJugador1 ? "Jugador 1" : "Jugador 2";
 
-        _etiquetaHistoria.Text = GetHistoriaPersonaje(PersonajeActual+1);
+        EtiquetaHistoria.Text = ObtenerHistoriaPersonaje(PersonajeActual+1);
     }
 
     // Método para mostrar la historia de un personaje seleccionado
-    public string GetHistoriaPersonaje(int id)
+    public string ObtenerHistoriaPersonaje(int id)
     {
         if (personajes.ContainsKey(id))
         {
