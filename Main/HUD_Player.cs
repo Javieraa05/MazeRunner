@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public partial class HUD_Player : CanvasLayer
 {
-    private PlayerBase player; // Referencia al jugador asociado
-    private Label KeyCounter;
-    private List<TextureRect> hearts; // Lista de corazones del HUD
+    private PlayerBase jugador; // Referencia al jugador asociado
+    private Label ContadorLlaves;
+    private List<TextureRect> corazones; // Lista de corazones del HUD
     private TextureRect imagenHabilidad; 
     private Label textoHabilidad;
     private Label ExperienciaContador;
@@ -16,16 +16,16 @@ public partial class HUD_Player : CanvasLayer
     {
         
         // Inicializa los corazones del HUD
-        hearts = new List<TextureRect>();
+        corazones = new List<TextureRect>();
         foreach (Node child in GetNode("PanelContainer/MarginContainer/VBoxContainer/HeartsContainer").GetChildren())
         {
             if (child is TextureRect textureRect)
             {
-                hearts.Add(textureRect);
+                corazones.Add(textureRect);
             }
         }
 
-        KeyCounter = GetNodeOrNull<Label>("PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer/KeyCounter");
+        ContadorLlaves = GetNodeOrNull<Label>("PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer/KeyCounter");
         ExperienciaContador = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/ExperienciaContainer/ExperienciaLabel");
         imagenHabilidad = GetNode<TextureRect>("HabilidadContainer/IconoHabilidad");
         textoHabilidad = GetNode<Label>("HabilidadContainer/TeclaYCooldown");
@@ -34,21 +34,21 @@ public partial class HUD_Player : CanvasLayer
         
     }
 
-    public void SetPlayer(PlayerBase player)
+    public void SeleccionarJugador(PlayerBase jugador)
     {
-        this.player = player;
-        if (player != null)
+        this.jugador = jugador;
+        if (jugador != null)
         {
             // Conecta las señales del jugador al HUD
-            player.Connect("HealthChanged", new Callable(this, nameof(OnHealthChanged)));
-            player.Connect("KeysChanged", new Callable(this, nameof(OnKeysChanged)));
-            player.Connect("ActivarHabilidad", new Callable(this, nameof(SeActivaHabilidad)));
-            player.Connect("ExperienciaCambio", new Callable(this, nameof(SeCambioExperiencia)));
-            player.Connect("Noticia", new Callable(this, nameof(Informar)));
+            jugador.Connect("HealthChanged", new Callable(this, nameof(CorazonesCambian)));
+            jugador.Connect("KeysChanged", new Callable(this, nameof(LlavesCambian)));
+            jugador.Connect("ActivarHabilidad", new Callable(this, nameof(SeActivaHabilidad)));
+            jugador.Connect("ExperienciaCambio", new Callable(this, nameof(ExperienciaCambia)));
+            jugador.Connect("Noticia", new Callable(this, nameof(Informar)));
 
 
             // Inicializa el HUD con los valores actuales del jugador
-            UpdateHearts(player.Health);
+            ActualizarCorazones(jugador.Health);
         }
     }
     private void SeActivaHabilidad(float cuentaRegresiva)
@@ -80,25 +80,25 @@ public partial class HUD_Player : CanvasLayer
         };
     }
 
-    private void OnHealthChanged(int health)
+    private void CorazonesCambian(int health)
     {
-        UpdateHearts(health);
+        ActualizarCorazones(health);
     }
 
-    private void UpdateHearts(int health)
+    private void ActualizarCorazones(int health)
     {
-        for (int i = 0; i < hearts.Count; i++)
+        for (int i = 0; i < corazones.Count; i++)
         {
-            hearts[i].Texture = i < health
+            corazones[i].Texture = i < health
                 ? GD.Load<Texture2D>("res://Imagenes/Hearts/full.png")
                 : GD.Load<Texture2D>("res://Imagenes/Hearts/empty.png");
         }
     }
 
-    private void OnKeysChanged(int CantidadLlaves)
+    private void LlavesCambian(int CantidadLlaves)
     {
          // Actualiza el contador en el HUD
-        KeyCounter.Text = $"{CantidadLlaves}/3";
+        ContadorLlaves.Text = $"{CantidadLlaves}/3";
     }
     public void ImagenHabilidad(Texture texture)
     {
@@ -111,14 +111,14 @@ public partial class HUD_Player : CanvasLayer
         textoHabilidad.Text = teclaHabilidad;
     }
 
-    public void SeCambioExperiencia(int experiencia)
+    public void ExperienciaCambia(int experiencia)
     {
         ExperienciaContador.Text = experiencia.ToString();
     }
     
      public override void _Process(double delta)
      {
-        if(player.botonAtaque)
+        if(jugador.botonAtaque)
         {
             string tecla; 
             if(teclaHabilidad == "E") tecla = "R";

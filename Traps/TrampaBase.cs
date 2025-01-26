@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public partial class TrampaBase : Area2D
 {
     public int Damage = 1;              // Daño que inflige la trampa
-    public float ActivationCooldown = 5; // Tiempo de espera entre activaciones
+    public float TiempoEnfriamiento= 5; // Tiempo de espera entre activaciones
     protected bool _isActive = true;
     
     protected AnimatedSprite2D animatedSprite2D;
@@ -32,7 +32,7 @@ public partial class TrampaBase : Area2D
 
         // Inicia el cooldown
         _isActive = false;
-        GetTree().CreateTimer(ActivationCooldown).Timeout += ResetTrap;
+        GetTree().CreateTimer(TiempoEnfriamiento).Timeout += ResetTrap;
          
         if(!player.Escudo)
         {    

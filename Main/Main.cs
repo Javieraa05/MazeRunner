@@ -72,8 +72,8 @@ public partial class Main : Node
 
     if (player1 != null && hudPlayer1 != null && player2 != null && hudPlayer2 != null)
     {
-        hudPlayer1.SetPlayer(player1);
-        hudPlayer2.SetPlayer(player2);
+        hudPlayer1.SeleccionarJugador(player1);
+        hudPlayer2.SeleccionarJugador(player2);
         hudPlayer1.ImagenHabilidad(texturaIcono1);
         hudPlayer2.ImagenHabilidad(texturaIcono2);
         hudPlayer1.TeclaHabilidad("E");

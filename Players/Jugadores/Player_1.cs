@@ -90,7 +90,7 @@ public partial class Player_1 : PlayerBase
         {
             GD.Print("Player1 mando a activar la habilidad");
             habilidadActual.Activar(this);
-            EmitSignal(nameof(ActivarHabilidad), habilidadActual.Cooldown);
+            EmitSignal(nameof(ActivarHabilidad), habilidadActual.Enfriamiento);
         }
         else
         {

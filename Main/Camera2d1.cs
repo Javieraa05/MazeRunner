@@ -3,7 +3,7 @@ using System;
 
 public partial class Camera2d1 : Camera2D
 {
-	private PlayerBase target;
+	private PlayerBase Objetivo;
     
 
     public override void _Ready()
@@ -16,27 +16,27 @@ public partial class Camera2d1 : Camera2D
     }
    public override void _Process(double delta)
 {
-    if (target != null)
+    if (Objetivo != null)
     {
          // Calcula la nueva posición
-        var newPosition = target.GlobalPosition;
+        var newPosition = Objetivo.GlobalPosition;
 
         // Restringe la posición según los límites
         newPosition.X = Mathf.Clamp(newPosition.X, LimitLeft, LimitRight);
         newPosition.Y = Mathf.Clamp(newPosition.Y, LimitTop, LimitBottom);
 
         Position = newPosition;
-        Zoom = target.Zoom;
+        Zoom = Objetivo.Zoom;
         
     }
     else
     {
-        GD.PrintErr("El objetivo (target) no está asignado.");
+        GD.PrintErr("El objetivo (Objetivo) no está asignado.");
     }
 }
 
     public void SetTarget(PlayerBase newTarget)
     {
-        target = newTarget; 
+        Objetivo = newTarget; 
     }
 }
