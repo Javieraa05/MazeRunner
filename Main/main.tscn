@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc5hnk61jqmqb"]
+[gd_scene load_steps=8 format=3 uid="uid://cc5hnk61jqmqb"]
 
 [ext_resource type="Script" path="res://Main/Main.cs" id="1_27c8a"]
 [ext_resource type="PackedScene" uid="uid://b2y0uf6vddfrj" path="res://World/world.tscn" id="1_h8ldf"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" path="res://Main/HUD_Player.cs" id="4_ta12e"]
 [ext_resource type="Texture2D" uid="uid://kjib8yowsaf4" path="res://Imagenes/Experiencia/experiencia.png" id="5_1sk3r"]
 [ext_resource type="Texture2D" uid="uid://vxfjw2r7r83t" path="res://Imagenes/MiniMapa.png" id="5_8iyvt"]
-[ext_resource type="Texture2D" uid="uid://b64xh8k7onvhq" path="res://Imagenes/PuntoRojo.png" id="6_5erq1"]
 [ext_resource type="Texture2D" uid="uid://dypa1hsas5d4p" path="res://Imagenes/Llaves/LlaveUHDt.png" id="6_n6bj0"]
-[ext_resource type="Texture2D" uid="uid://di7vby1s45t1e" path="res://Imagenes/PuntoAzul.png" id="7_l13pg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_27c8a")
@@ -351,14 +349,10 @@ offset = Vector2(373.345, 368.147)
 
 [node name="PuntoRojo" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(17.2313, 714.149)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("6_5erq1")
 offset = Vector2(5, 0)
 
 [node name="PuntoAzul" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(726.588, 711.381)
-scale = Vector2(0.04, 0.039)
-texture = ExtResource("7_l13pg")
 
 [node name="Llave1" type="Sprite2D" parent="Viewports/MiniMapa"]
 position = Vector2(130.043, 108.123)

@@ -14,6 +14,7 @@ public class Escudo : HabilidadBase
             GD.Print("activo el escudo");
             jugador.Escudo = true;
             jugador.GetTree().CreateTimer(20).Timeout += () => jugador.Escudo = false;
+            jugador.EmitirNoticia("Haz activado el escudo");
         }
     }
 }

@@ -10,6 +10,7 @@ public class Curacion : HabilidadBase
         {
             GD.Print("P1 Se curo");
             jugador.AjustarSalud(2); // Incrementa la salud en 2 puntos
+            jugador.EmitirNoticia("Te haz curado");
         }
        
     }

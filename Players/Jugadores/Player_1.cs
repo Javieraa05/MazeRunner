@@ -45,27 +45,34 @@ public partial class Player_1 : PlayerBase
         }
         if(Input.IsActionJustPressed("atacar_player1") && areaAtaque.OverlapsBody(player2) )
         {
-            if(player2.Experiencia < this.Experiencia)
-            {
-                
-                if(player2.Health-2 < 1 && player2.llaves.Count >= 1)
+            
+            if(!player2.Escudo)
+            {   
+                if(player2.Experiencia < this.Experiencia)
                 {
-                    this.llaves.Add(player2.llaves[0]);
-                    CantidadLlaves++;
-                    EmitSignal(nameof(KeysChanged), CantidadLlaves);
-                    player2.llaves.RemoveAt(0);
-                }
                 
-                if(player2.Health-2 <= 0)
-                {
-                    player2.EmitirNoticia("Te ha matado el Jugador 1");
+                    if(player2.Health-2 < 1 && player2.llaves.Count >= 1)
+                    {
+                        this.llaves.Add(player2.llaves[0]);
+                        CantidadLlaves++;
+                        EmitSignal(nameof(KeysChanged), CantidadLlaves);
+                        player2.llaves.RemoveAt(0);
+                    }
+                    if(player2.Health-2 <= 0)
+                    {
+                        player2.EmitirNoticia("Te ha matado el Jugador 1");
+                    }
+                    player2.TomarDano(2);
                 }
-                player2.TomarDano(2);
+                else
+                {
+                    EmitirNoticia("No tienes suficiente experiencia");
+                } 
             }
             else
             {
-                EmitirNoticia("No tienes suficiente experiencia");
-            }    
+                EmitirNoticia("El Jugador 2 tiene un escudo activo");
+            }       
         }
         if(areaAtaque.OverlapsBody(player2))
         {

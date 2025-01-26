@@ -16,6 +16,7 @@ public class IntercambiaPosicion : HabilidadBase
                 // Intercambia las posiciones
                 player1.Position = posicionPlayer2;
                 player2.Position = posicionPlayer1;
+                player2.EmitirNoticia("Te han intercambiado la posicion");
                 GD.Print("Intercambio la posicion");
             }
              else if (jugador is Player_2 player_2 && jugador.GetParent().GetNodeOrNull<Player_1>("Player_1") is Player_1 player_1)
@@ -27,6 +28,7 @@ public class IntercambiaPosicion : HabilidadBase
             // Intercambia las posiciones
             player_1.Position = posicionPlayer2;
             player_2.Position = posicionPlayer1;
+            player_1.EmitirNoticia("Te han intercambiado la posicion");
             GD.Print("Intercambio la posicion");
         }
     }

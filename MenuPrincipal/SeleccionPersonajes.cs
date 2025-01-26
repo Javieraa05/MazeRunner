@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public partial class SeleccionPersonajes : Control
 {
-    private int _personajeActual = 0; // Índice del personaje actual
+    private int PersonajeActual = 0; // Índice del personaje actual
     private string[] _personajes = {
         "Personaje1", "Personaje2", "Personaje3", "Personaje4", 
         "Personaje5"
     };
-    private bool _esTurnoPlayer1 = true; // Controla el turno de selección
+    private bool EsTurnoJugador1 = true; // Controla el turno de selección
     private TextureRect _imagenPersonaje;
     private Label _etiquetaJugador;
     private int _seleccionPlayer1;
@@ -35,7 +35,7 @@ public partial class SeleccionPersonajes : Control
         ));
         personajes.Add(2, new Personaje(
             "Yadira\n", 
-            "Sprint\n", 
+            "Super Velocidad\n", 
             "Campeona del Marabana tres años seguidos, siempre decía que su secreto era\n" +
             "'correr detrás de la guagua cuando no hay vuelto'.\n" +
             "Una vez, en pleno apagón, corrió tan rápido para alcanzar la última croqueta en la cafetería\n" +
@@ -92,30 +92,30 @@ public partial class SeleccionPersonajes : Control
 
     private void OnBotonAnteriorPressed()
     {
-        _personajeActual = (_personajeActual - 1 + _personajes.Length) % _personajes.Length;
+        PersonajeActual = (PersonajeActual - 1 + _personajes.Length) % _personajes.Length;
         ActualizarVista();
     }
 
     private void OnBotonSiguientePressed()
     {
-        _personajeActual = (_personajeActual + 1) % _personajes.Length;
+        PersonajeActual = (PersonajeActual + 1) % _personajes.Length;
         ActualizarVista();
     }
 
     private void OnBotonSeleccionarPressed()
     {
-      if (_esTurnoPlayer1)
+      if (EsTurnoJugador1)
     {
         // Guarda la selección del Player 1
-        _seleccionPlayer1 = _personajeActual + 1;
+        _seleccionPlayer1 = PersonajeActual + 1;
         GD.Print($"Player 1 seleccionó: {_seleccionPlayer1}");
-        _esTurnoPlayer1 = false;
+        EsTurnoJugador1 = false;
         _etiquetaJugador.Text = "Player 2";
     }
     else
     {
         // Guarda la selección del Player 2
-        _seleccionPlayer2 = _personajeActual + 1;
+        _seleccionPlayer2 = PersonajeActual + 1;
         GD.Print($"Player 2 seleccionó: {_seleccionPlayer2}");
 
         // Carga la escena Main
@@ -150,12 +150,12 @@ public partial class SeleccionPersonajes : Control
 
     private void ActualizarVista()
     {
-        _imagenPersonaje.Texture = (Texture2D)GD.Load<Texture>($"res://Imagenes/Personajes/{_personajes[_personajeActual]}.png");
+        _imagenPersonaje.Texture = (Texture2D)GD.Load<Texture>($"res://Imagenes/Personajes/{_personajes[PersonajeActual]}.png");
 
 
-    	_etiquetaJugador.Text = _esTurnoPlayer1 ? "Player 1" : "Player 2";
+    	_etiquetaJugador.Text = EsTurnoJugador1 ? "Jugador 1" : "Jugador 2";
 
-        _etiquetaHistoria.Text = GetHistoriaPersonaje(_personajeActual+1);
+        _etiquetaHistoria.Text = GetHistoriaPersonaje(PersonajeActual+1);
     }
 
     // Método para mostrar la historia de un personaje seleccionado

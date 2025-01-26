@@ -60,6 +60,9 @@ public partial class Main : Node
     player1 = world.GetNodeOrNull<PlayerBase>("Player_1");
     player2 = world.GetNodeOrNull<PlayerBase>("Player_2");
 
+    puntoRojo.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player1.SelectedCharacter1}.png");
+    puntoAzul.Texture = (Texture2D)GD.Load<Texture2D>($"res://Imagenes/Personajes/Personaje{player2.SelectedCharacter2}.png");
+
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
     var hudPlayer2 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer2/HUD_Player2");

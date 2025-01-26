@@ -27,6 +27,8 @@ public partial class Player_2 : PlayerBase
     protected override void SetInitialPosition()
     {
         Position = new Vector2(1637, 1603);
+        //Position = new Vector2(45, 1600);
+
     }
     public override void _Process(double delta)
     {
@@ -39,27 +41,34 @@ public partial class Player_2 : PlayerBase
         }
         if(Input.IsActionJustPressed("atacar_player2") && areaAtaque.OverlapsBody(player1) )
         {
-            if(player1.Experiencia < this.Experiencia)
-            {
-                if(player1.Health-2 < 1 && player1.llaves.Count >= 1)
+            if(!player1.Escudo)
+            {  
+                if(player1.Experiencia < this.Experiencia)
                 {
-                    this.llaves.Add(player1.llaves[0]);
-                    CantidadLlaves++;
-                    EmitSignal(nameof(KeysChanged), CantidadLlaves);
-                    player1.llaves.RemoveAt(0);
-                }
+                    if(player1.Health-2 < 1 && player1.llaves.Count >= 1)
+                    {
+                        this.llaves.Add(player1.llaves[0]);
+                        CantidadLlaves++;
+                        EmitSignal(nameof(KeysChanged), CantidadLlaves);
+                        player1.llaves.RemoveAt(0);
+                    }
                 
-                if(player1.Health-2 <= 0)
-                {
-                    player1.EmitirNoticia("Te ha matado el Jugador 1");
-                }
-                player1.TomarDano(2);
+                    if(player1.Health-2 <= 0)
+                    {
+                        player1.EmitirNoticia("Te ha matado el Jugador 1");
+                    }
+                    player1.TomarDano(2);
 
+                }
+                else
+                {
+                    EmitirNoticia("No tienes suficiente experiencia");
+                } 
             }
             else
             {
-                EmitirNoticia("No tienes suficiente experiencia");
-            }    
+                EmitirNoticia("El Jugador 1 tiene un escudo activo");
+            }   
         }
         if(areaAtaque.OverlapsBody(player1))
         {
