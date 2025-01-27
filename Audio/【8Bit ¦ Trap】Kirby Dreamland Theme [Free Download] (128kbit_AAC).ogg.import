@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bsblkqtt36rn0"
+path="res://.godot/imported/【8Bit ¦ Trap】Kirby Dreamland Theme [Free Download] (128kbit_AAC).ogg-fbb4414f92bfc49cb25bf06a0c4fa95e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/【8Bit ¦ Trap】Kirby Dreamland Theme [Free Download] (128kbit_AAC).ogg"
+dest_files=["res://.godot/imported/【8Bit ¦ Trap】Kirby Dreamland Theme [Free Download] (128kbit_AAC).ogg-fbb4414f92bfc49cb25bf06a0c4fa95e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

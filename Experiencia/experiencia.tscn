@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://46uldy8cjjh2"]
+[gd_scene load_steps=5 format=3 uid="uid://46uldy8cjjh2"]
 
 [ext_resource type="Script" path="res://Experiencia/Experiencia.cs" id="1_v6ybf"]
 [ext_resource type="Texture2D" uid="uid://kjib8yowsaf4" path="res://Imagenes/Experiencia/experiencia.png" id="2_jn2xx"]
+[ext_resource type="AudioStream" uid="uid://miy2monpbf25" path="res://Audio/bubble-pop-283674.ogg" id="3_j1elx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qamlc"]
 size = Vector2(168, 166.5)
@@ -18,3 +19,7 @@ shape = SubResource("RectangleShape2D_qamlc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jn2xx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j1elx")
+volume_db = 1.0

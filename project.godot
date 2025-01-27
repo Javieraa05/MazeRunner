@@ -14,6 +14,10 @@ config/name="MazeRunner"
 run/main_scene="res://MenuPrincipal/Menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
+[autoload]
+
+ControladorAudio="*res://Audio/controlador_audio.tscn"
+
 [display]
 
 window/size/viewport_width=1920

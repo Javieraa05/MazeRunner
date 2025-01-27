@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpbykdn1ibe55"
+path="res://.godot/imported/Undertale Ost; 098 - Battle Against a True Hero (128kbit_Opus).ogg-e26e885368a76ce248b82c850d63b81b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Undertale Ost; 098 - Battle Against a True Hero (128kbit_Opus).ogg"
+dest_files=["res://.godot/imported/Undertale Ost; 098 - Battle Against a True Hero (128kbit_Opus).ogg-e26e885368a76ce248b82c850d63b81b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

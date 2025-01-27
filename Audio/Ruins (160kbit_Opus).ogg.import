@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5fi3fxqk1e0v"
+path="res://.godot/imported/Ruins (160kbit_Opus).ogg-5ee752d1f7ffc1c0640f6641c741748a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Ruins (160kbit_Opus).ogg"
+dest_files=["res://.godot/imported/Ruins (160kbit_Opus).ogg-5ee752d1f7ffc1c0640f6641c741748a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

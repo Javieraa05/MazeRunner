@@ -14,17 +14,17 @@ public abstract class HabilidadBase
         
         if(jugador is Player_1 player_1)
         {
-        Efecto(player_1);
-        DisponibleP1 = false;
-        tiempoRestanteEnfriamiento = Enfriamiento;
-        jugador.GetTree().CreateTimer(Enfriamiento).Timeout += () => DisponibleP1 = true;
+            Efecto(player_1);
+            DisponibleP1 = false;
+            tiempoRestanteEnfriamiento = Enfriamiento;
+            jugador.GetTree().CreateTimer(Enfriamiento).Timeout += () => DisponibleP1 = true;
         }
         if(jugador is Player_2 player_2)
         {
-        Efecto(player_2);
-        DisponibleP2 = false;
-        tiempoRestanteEnfriamiento= Enfriamiento;
-        jugador.GetTree().CreateTimer(Enfriamiento).Timeout += () => DisponibleP2 = true;
+            Efecto(player_2);
+            DisponibleP2 = false;
+            tiempoRestanteEnfriamiento= Enfriamiento;
+            jugador.GetTree().CreateTimer(Enfriamiento).Timeout += () => DisponibleP2 = true;
         }
     }
 

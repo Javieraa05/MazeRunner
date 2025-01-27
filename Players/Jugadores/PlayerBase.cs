@@ -19,6 +19,8 @@ public abstract partial class PlayerBase : CharacterBody2D
     public Area2D areaAtaque;
     public bool botonAtaque=false;
     public int Experiencia=0;
+    public float TiempoEnfriamientoAtaque = 2;
+    public bool PuedeAtacar = true;
     
     [Signal] public delegate void HealthChangedEventHandler(int health);
     [Signal] public delegate void KeysChangedEventHandler(LLaves llave);

@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmggxtdsqgcxc"]
+
+[ext_resource type="AudioStream" uid="uid://k8joeypkk3wx" path="res://Audio/Bossfight - The Maze Of Mayonnaise (128kbit_AAC) (mp3cut.net).ogg" id="1_6q572"]
+[ext_resource type="AudioStream" uid="uid://wv56d5od0dxw" path="res://Audio/Labyrinth - Sonic The Hedgehog (Masato Nakamura) OST (128kbit_Opus).ogg" id="2_hae2y"]
+[ext_resource type="AudioStream" uid="uid://b5fi3fxqk1e0v" path="res://Audio/Ruins (160kbit_Opus).ogg" id="3_iqq5i"]
+[ext_resource type="AudioStream" uid="uid://bpbykdn1ibe55" path="res://Audio/Undertale Ost; 098 - Battle Against a True Hero (128kbit_Opus).ogg" id="4_8r8q7"]
+[ext_resource type="AudioStream" uid="uid://bsblkqtt36rn0" path="res://Audio/【8Bit ¦ Trap】Kirby Dreamland Theme [Free Download] (128kbit_AAC).ogg" id="5_fev3m"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kgivo"]
+stream_count = 5
+stream_0 = ExtResource("1_6q572")
+stream_1 = ExtResource("2_hae2y")
+stream_2 = ExtResource("3_iqq5i")
+stream_3 = ExtResource("4_8r8q7")
+stream_4 = ExtResource("5_fev3m")
+
+[node name="ControladorAudio" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_kgivo")
+volume_db = -10.297
+autoplay = true

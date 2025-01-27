@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://divduk5pjsfgj"
+path="res://.godot/imported/fire-sound-effects-224089 (1).ogg-5e89925f891002683f61769d39ea900c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/fire-sound-effects-224089 (1).ogg"
+dest_files=["res://.godot/imported/fire-sound-effects-224089 (1).ogg-5e89925f891002683f61769d39ea900c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

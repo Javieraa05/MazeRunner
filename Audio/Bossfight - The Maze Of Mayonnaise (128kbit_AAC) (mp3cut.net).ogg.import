@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://k8joeypkk3wx"
+path="res://.godot/imported/Bossfight - The Maze Of Mayonnaise (128kbit_AAC) (mp3cut.net).ogg-d2631da6ccdc9aae45d72b7aa83ea05b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Bossfight - The Maze Of Mayonnaise (128kbit_AAC) (mp3cut.net).ogg"
+dest_files=["res://.godot/imported/Bossfight - The Maze Of Mayonnaise (128kbit_AAC) (mp3cut.net).ogg-d2631da6ccdc9aae45d72b7aa83ea05b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -43,34 +43,7 @@ public partial class Player_2 : PlayerBase
         }
         if(Input.IsActionJustPressed("atacar_player2") && areaAtaque.OverlapsBody(player1) )
         {
-            if(!player1.Escudo)
-            {  
-                if(player1.Experiencia < this.Experiencia)
-                {
-                    if(player1.Vida-2 < 1 && player1.llaves.Count >= 1)
-                    {
-                        this.llaves.Add(player1.llaves[0]);
-                        CantidadLlaves++;
-                        EmitSignal(nameof(KeysChanged), CantidadLlaves);
-                        player1.llaves.RemoveAt(0);
-                    }
-                
-                    if(player1.Vida-2 <= 0)
-                    {
-                        player1.EmitirNoticia("Te ha asesinado el Jugador 1");
-                    }
-                    player1.TomarDano(2);
-
-                }
-                else
-                {
-                    EmitirNoticia("No tienes suficiente experiencia");
-                } 
-            }
-            else
-            {
-                EmitirNoticia("El Jugador 1 tiene un escudo activo");
-            }   
+            Atacar();
         }
         if(areaAtaque.OverlapsBody(player1))
         {
@@ -95,5 +68,40 @@ public partial class Player_2 : PlayerBase
         {
             GD.Print("No se puede usar la habilidad");
         }
+    }
+    public void Atacar()
+    {
+        if(PuedeAtacar)
+        {
+            if(!player1.Escudo)
+            {  
+                if(player1.Experiencia < this.Experiencia)
+                {
+                    PuedeAtacar = false;
+                    if(player1.Vida-2 < 1 && player1.llaves.Count >= 1)
+                    {
+                        this.llaves.Add(player1.llaves[0]);
+                        CantidadLlaves++;
+                        EmitSignal(nameof(KeysChanged), CantidadLlaves);
+                        player1.llaves.RemoveAt(0);
+                    }
+                
+                    if(player1.Vida-2 <= 0)
+                    {
+                        player1.EmitirNoticia("Te ha asesinado el Jugador 1");
+                    }
+                    player1.TomarDano(2);
+                    GetTree().CreateTimer(TiempoEnfriamientoAtaque).Timeout += () =>  PuedeAtacar = true;
+                }
+                else
+                {
+                    EmitirNoticia("No tienes suficiente experiencia");
+                } 
+            }
+            else
+            {
+                EmitirNoticia("El Jugador 1 tiene un escudo activo");
+            }  
+        } 
     }
 }

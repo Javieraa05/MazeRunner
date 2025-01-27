@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5oonmfpkjelw"]
+[gd_scene load_steps=31 format=3 uid="uid://b5oonmfpkjelw"]
 
 [ext_resource type="Script" path="res://LLaves/LLaves.cs" id="1_iq5au"]
 [ext_resource type="Texture2D" uid="uid://q0308maufvxd" path="res://Imagenes/Llaves/Key 13 - GOLD - Spritesheet.png" id="2_wec0n"]
+[ext_resource type="AudioStream" uid="uid://cfi11cljbp7sg" path="res://Audio/coin-257878.ogg" id="3_ygwxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ale6o"]
 size = Vector2(6, 12)
@@ -200,3 +201,7 @@ scale = Vector2(0.595238, 0.457447)
 sprite_frames = SubResource("SpriteFrames_7qjiv")
 frame = 5
 frame_progress = 0.295173
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ygwxq")
+volume_db = 2.0

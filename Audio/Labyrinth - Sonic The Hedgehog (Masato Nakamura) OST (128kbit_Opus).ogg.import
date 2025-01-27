@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wv56d5od0dxw"
+path="res://.godot/imported/Labyrinth - Sonic The Hedgehog (Masato Nakamura) OST (128kbit_Opus).ogg-16e427b48e0a3404c34964d0d3547d65.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Labyrinth - Sonic The Hedgehog (Masato Nakamura) OST (128kbit_Opus).ogg"
+dest_files=["res://.godot/imported/Labyrinth - Sonic The Hedgehog (Masato Nakamura) OST (128kbit_Opus).ogg-16e427b48e0a3404c34964d0d3547d65.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
