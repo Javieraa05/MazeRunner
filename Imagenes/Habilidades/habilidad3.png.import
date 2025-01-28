@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcea385cb18bj"
-path="res://.godot/imported/border.png-c1b0a3671b39886841451d5b30facac8.ctex"
+uid="uid://d4bet2iwjpdf0"
+path="res://.godot/imported/habilidad3.png-c7fc87f471141e20d919d12dc0ecd009.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/basic/border.png"
-dest_files=["res://.godot/imported/border.png-c1b0a3671b39886841451d5b30facac8.ctex"]
+source_file="res://Imagenes/Habilidades/habilidad3.png"
+dest_files=["res://.godot/imported/habilidad3.png-c7fc87f471141e20d919d12dc0ecd009.ctex"]
 
 [params]
 

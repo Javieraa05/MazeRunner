@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2clvnk2u2gue"
-path="res://.godot/imported/heart.png-44c2e3a0b6c9118ec09e44b1b291cb92.ctex"
+uid="uid://thjh5kyahdgs"
+path="res://.godot/imported/habilidad1.png-24b8ceb979ac3bf6d39b9f882ca14245.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/basic/heart.png"
-dest_files=["res://.godot/imported/heart.png-44c2e3a0b6c9118ec09e44b1b291cb92.ctex"]
+source_file="res://Imagenes/Habilidades/habilidad1.png"
+dest_files=["res://.godot/imported/habilidad1.png-24b8ceb979ac3bf6d39b9f882ca14245.ctex"]
 
 [params]
 

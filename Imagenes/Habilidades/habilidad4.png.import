@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4uyud3gflfl"
-path="res://.godot/imported/health_bar.png-86f09707adaaa33bb63c260554a922e2.ctex"
+uid="uid://dtowgy1v60hqg"
+path="res://.godot/imported/habilidad4.png-4c26707415e0ce3555d7d2bc0d786410.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/health_bar/health_bar.png"
-dest_files=["res://.godot/imported/health_bar.png-86f09707adaaa33bb63c260554a922e2.ctex"]
+source_file="res://Imagenes/Habilidades/habilidad4.png"
+dest_files=["res://.godot/imported/habilidad4.png-4c26707415e0ce3555d7d2bc0d786410.ctex"]
 
 [params]
 

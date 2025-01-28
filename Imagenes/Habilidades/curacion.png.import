@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dski2v4w1rf8u"
-path="res://.godot/imported/escudo.png-d5b08c421f68416f2f3214886b846678.ctex"
+uid="uid://cotsqy3oyj3qg"
+path="res://.godot/imported/curacion.png-748b32b639864e355fb78cee9f59dad7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/escudo.png"
-dest_files=["res://.godot/imported/escudo.png-d5b08c421f68416f2f3214886b846678.ctex"]
+source_file="res://Imagenes/Habilidades/curacion.png"
+dest_files=["res://.godot/imported/curacion.png-748b32b639864e355fb78cee9f59dad7.ctex"]
 
 [params]
 

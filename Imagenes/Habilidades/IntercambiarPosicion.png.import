@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://568vua1uvgoq"
-path="res://.godot/imported/heart_animated_2.png-bc6f6bf2b4ad872592d2ff28cef368d5.ctex"
+uid="uid://dww3tny1l6231"
+path="res://.godot/imported/IntercambiarPosicion.png-ad9ecd6ea9bbcf9096571cef61ced815.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/animated/no_border/heart_animated_2.png"
-dest_files=["res://.godot/imported/heart_animated_2.png-bc6f6bf2b4ad872592d2ff28cef368d5.ctex"]
+source_file="res://Imagenes/Habilidades/IntercambiarPosicion.png"
+dest_files=["res://.godot/imported/IntercambiarPosicion.png-ad9ecd6ea9bbcf9096571cef61ced815.ctex"]
 
 [params]
 

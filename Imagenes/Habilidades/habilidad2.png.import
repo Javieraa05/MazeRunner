@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bldlit1t3d0ls"
-path="res://.godot/imported/habilidad5.png-cdfa3901e69ff5ca55e1df22b568ce6e.ctex"
+uid="uid://c25tc2r05fbgl"
+path="res://.godot/imported/habilidad2.png-9db595c6b92540241958db71232ac452.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/habilidad5.png"
-dest_files=["res://.godot/imported/habilidad5.png-cdfa3901e69ff5ca55e1df22b568ce6e.ctex"]
+source_file="res://Imagenes/Habilidades/habilidad2.png"
+dest_files=["res://.godot/imported/habilidad2.png-9db595c6b92540241958db71232ac452.ctex"]
 
 [params]
 

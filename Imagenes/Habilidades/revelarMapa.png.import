@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpoqfu2kpvylg"
-path="res://.godot/imported/heart_animated_1.png-d1cacf964740d7e6acc6ae2a70a211de.ctex"
+uid="uid://drv6gcqawxfo"
+path="res://.godot/imported/revelarMapa.png-472007b25054e9db0648feac7ee982fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/animated/border/heart_animated_1.png"
-dest_files=["res://.godot/imported/heart_animated_1.png-d1cacf964740d7e6acc6ae2a70a211de.ctex"]
+source_file="res://Imagenes/Habilidades/revelarMapa.png"
+dest_files=["res://.godot/imported/revelarMapa.png-472007b25054e9db0648feac7ee982fc.ctex"]
 
 [params]
 

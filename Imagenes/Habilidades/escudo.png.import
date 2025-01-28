@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlyjx703ectuy"
-path="res://.godot/imported/sprint.png-dedd9d0b775a0bf71803dac27ec85f75.ctex"
+uid="uid://cba8qivw3pj8h"
+path="res://.godot/imported/escudo.png-36dd3e0fc2865e5c5aa543c8d5f3ad79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/Hearts/sprint.png"
-dest_files=["res://.godot/imported/sprint.png-dedd9d0b775a0bf71803dac27ec85f75.ctex"]
+source_file="res://Imagenes/Habilidades/escudo.png"
+dest_files=["res://.godot/imported/escudo.png-36dd3e0fc2865e5c5aa543c8d5f3ad79.ctex"]
 
 [params]
 

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kjib8yowsaf4" path="res://Imagenes/Experiencia/experiencia.png" id="5_1sk3r"]
 [ext_resource type="Texture2D" uid="uid://vxfjw2r7r83t" path="res://Imagenes/MiniMapa.png" id="5_8iyvt"]
 [ext_resource type="Texture2D" uid="uid://dypa1hsas5d4p" path="res://Imagenes/Llaves/LlaveUHDt.png" id="6_n6bj0"]
-[ext_resource type="PackedScene" uid="uid://dpkwvqiv2e3qh" path="res://Main/pausa.tscn" id="8_wou1d"]
+[ext_resource type="PackedScene" path="res://Main/pausa.tscn" id="8_wou1d"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_27c8a")

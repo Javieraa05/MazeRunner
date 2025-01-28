@@ -67,8 +67,8 @@ public partial class Main : Node
     // Vincular HUDs
     var hudPlayer1 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer1/HUD_Player1");
     var hudPlayer2 = GetNodeOrNull<HUD_Player>("Viewports/ViewportContainer2/HUD_Player2");
-    var texturaIcono1 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player1.SeleccionPersonaje1}.png");
-    var texturaIcono2 = GD.Load<Texture>($"res://Imagenes/Hearts/habilidad{player2.SeleccionPersonaje2}.png");
+    var texturaIcono1 = GD.Load<Texture>($"res://Imagenes/Habilidades/habilidad{player1.SeleccionPersonaje1}.png");
+    var texturaIcono2 = GD.Load<Texture>($"res://Imagenes/Habilidades/habilidad{player2.SeleccionPersonaje2}.png");
 
     if (player1 != null && hudPlayer1 != null && player2 != null && hudPlayer2 != null)
     {
