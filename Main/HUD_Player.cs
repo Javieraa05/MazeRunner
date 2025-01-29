@@ -132,7 +132,6 @@ public partial class HUD_Player : CanvasLayer
     {
         informacionLabel.Text = noticia;
         GetTree().CreateTimer(5).Timeout += () => informacionLabel.Text = "";
-       
     }
     
     

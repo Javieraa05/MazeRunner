@@ -14,7 +14,11 @@ public partial class SeleccionPersonajes : Control
     private Label EtiquetaJugador;
     private int SeleccionPlayer1;
     private int SeleccionPlayer2;
+    private Label EtiquetaNombre;
+    private Label EtiquetaHabilidad;
     private Label EtiquetaHistoria;
+    
+
     private Dictionary <int, Personaje> personajes = new Dictionary<int, Personaje>();
 
 
@@ -24,7 +28,7 @@ public partial class SeleccionPersonajes : Control
          // Inicializar los personajes
         personajes.Add(1, new Personaje(
             "Miguel\n", 
-            "Curación\n", 
+            "Curación   Tiempo de Recarga: 25s", 
             "Conocido en su barrio como el “doctor de los remedios caseros”, \n" +
             "se hizo famoso porque curó al vecino con una mezcla de miel, limón y “un toquecito” de ron. \n" +
             "Cuando el ciclón dejó sin médicos al pueblo, él tomó la batuta, aplicando desde sueros improvisados \n" +
@@ -35,41 +39,38 @@ public partial class SeleccionPersonajes : Control
         ));
         personajes.Add(2, new Personaje(
             "Yadira\n", 
-            "Super Velocidad\n", 
+            "Super Velocidad   Tiempo de Recarga: 35s", 
             "Campeona del Marabana tres años seguidos, siempre decía que su secreto era\n" +
-            "'correr detrás de la guagua cuando no hay vuelto'.\n" +
+            "'correr detrás de las guagua cuando no habian gacelas'.\n" +
             "Una vez, en pleno apagón, corrió tan rápido para alcanzar la última croqueta en la cafetería\n" +
             "que hasta el vendedor quedó asustado.\n" +
-            "Ahora, en el laberinto, Yadira usa su velocidad para esquivar trampas y llegar primera a las cajas de comida…\n" +
-            "porque “el que no corre, vuela”."
+            "Ahora, en el laberinto, Yadira usa su velocidad para esquivar enemigos."
 
 
         ));
         personajes.Add(3, new Personaje(
             "Maritza\n", 
-            "Escudo\n", 
+            "Escudo   Tiempo de Recarga: 40s", 
             "Era herrera en un taller de mecánica en Centro Habana.\n" +
             "Un día, tras un apagón que dejó la ciudad sin hornos, creó un escudo indestructible\n" +
             "fundiendo pedazos de lavadoras soviéticas y tapas de olla de presión.\n" +
             "En su barrio, siempre la llamaban para proteger las mesas de dominó cuando alguien se ponía “muy caliente”.\n" +
-            "Ahora, en el laberinto, su escudo es legendario y siempre dice:\n" +
-            "“¡Aquí no pasa ni el panadero con el carrito!”."
+            "Ahora, en el laberinto, su escudo es legendario."
 
         ));
         personajes.Add(4, new Personaje(
             "Ernesto\n", 
-            "Revelación de Mapa\n", 
+            "Revelación de Mapa   Tiempo de Recarga: 25s", 
             "Ernesto trabajaba como guía turístico en Viñales, conocido por llevar a los extranjeros\n" +
             "a 'rutas alternativas' donde el GPS no funcionaba.\n" +
             "Con un ojo para los atajos y una habilidad innata para leer mapas del tiempo de los españoles,\n" +
             "siempre decía: 'Si yo me pierdo, ¡es porque el camino cambió de lugar!'.\n" +
-            "Ahora, en el laberinto, su habilidad para descubrir pasillos secretos lo convirtió en el tipo que todos siguen,\n" +
-            "especialmente cuando hay comida de por medio."
+            "Ahora, en el laberinto, su habilidad para descubrir pasillos secretos lo convirtió en el tipo que todos siguen."
 
         ));
         personajes.Add(5, new Personaje(
             "Manolo\n", 
-            "Intercambio de Posición\n", 
+            "Intercambio de Posición   Tiempo de Recarga: 45s", 
             "Manolo era un maestro del truco y la improvisación, conocido en el malecón\n" +
             "por su habilidad de cambiar su lugar en la cola del pollo con una charla rápida y un par de gestos mágicos.\n" +
             "Una vez, logró colarse en una cola de dos cuadras con el famoso\n" +
@@ -81,7 +82,9 @@ public partial class SeleccionPersonajes : Control
        
         ImagenPersonaje = GetNode<TextureRect>("VContainer/HContainer/ContainerImagen/TextureRect");
         EtiquetaJugador = GetNode<Label>("VContainer/LabelPlayer");
-        EtiquetaHistoria = GetNode<Label>("VContainer/PanelContainer/MarginContainer/LabelHistoria");
+        EtiquetaNombre = GetNode<Label>("VContainer/PanelContainer/MarginContainer/VContainer/LabelNombre");
+        EtiquetaHabilidad = GetNode<Label>("VContainer/PanelContainer/MarginContainer/VContainer/LabelHabilidad");
+        EtiquetaHistoria = GetNode<Label>("VContainer/PanelContainer/MarginContainer/VContainer/LabelHistoria");
 
         ActualizarVista();
         
@@ -155,6 +158,8 @@ public partial class SeleccionPersonajes : Control
 
     	EtiquetaJugador.Text = EsTurnoJugador1 ? "Jugador 1" : "Jugador 2";
 
+        EtiquetaNombre.Text = ObtenerNombrePersonaje(PersonajeActual+1);
+        EtiquetaHabilidad.Text = ObtenerHabilidadPersonaje(PersonajeActual+1);
         EtiquetaHistoria.Text = ObtenerHistoriaPersonaje(PersonajeActual+1);
     }
 
@@ -163,9 +168,23 @@ public partial class SeleccionPersonajes : Control
     {
         if (personajes.ContainsKey(id))
         {
-            return $"Nombre: {personajes[id].Nombre}\n" +
-                   $"Habilidad: {personajes[id].Habilidad}\n" +
-                   $"Historia: {personajes[id].Historia}";
+            return $"Historia: {personajes[id].Historia}";
+        }
+        return "Personaje no encontrado.";
+    }
+     public string ObtenerNombrePersonaje(int id)
+    {
+        if (personajes.ContainsKey(id))
+        {
+            return $"Nombre: {personajes[id].Nombre}";
+        }
+        return "Personaje no encontrado.";
+    }
+     public string ObtenerHabilidadPersonaje(int id)
+    {
+        if (personajes.ContainsKey(id))
+        {
+            return $"Habilidad: {personajes[id].Habilidad}";
         }
         return "Personaje no encontrado.";
     }
@@ -177,7 +196,7 @@ public partial class SeleccionPersonajes : Control
         public string Nombre { get; set; }
         public string Habilidad { get; set; }
         public string Historia { get; set; }
-
+    
         public Personaje(string nombre, string habilidad, string historia)
         {
             Nombre = nombre;
