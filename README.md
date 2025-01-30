@@ -38,8 +38,9 @@ Cada personaje tiene una habilidad única que puede ser activada estratégicamen
 - **C#** (Lenguaje de programación)
 - **Pixel Art** (Estilo gráfico)
 
-## 📸 Capturas del Juego *(Opcional)*
-_Aquí puedes agregar algunas imágenes del juego para hacerlo más llamativo._
+## 📸 Capturas del Juego 
+![Menú de selección de Personajes](Imagenes/Capturas/SeleccionPersonajes.png)
+![Inicio del Juego](Imagenes/Capturas/InicioJuego.png)
 
 ## 💡 Notas Finales
 Maze Runners es un juego de estrategia y habilidad que pondrá a prueba tu rapidez mental y reflejos. ¡Elige tu personaje sabiamente, usa tu habilidad en el momento adecuado y escapa del laberinto antes que tu rival!  
