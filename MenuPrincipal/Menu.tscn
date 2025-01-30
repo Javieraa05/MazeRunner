@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3whc1cukj3pu"]
 
 [ext_resource type="Script" path="res://MenuPrincipal/Menu.cs" id="1_sxxhg"]
-[ext_resource type="Texture2D" uid="uid://btr5l13ypnu88" path="res://Imagenes/Menu Principal/edited_maze_refined.webp" id="2_208vf"]
+[ext_resource type="Texture2D" uid="uid://jfa5yrvdospu" path="res://Imagenes/Menu Principal/edited_maze_refined.webp" id="2_208vf"]
 [ext_resource type="Script" path="res://MenuPrincipal/Boton.cs" id="3_es8q0"]
 [ext_resource type="AudioStream" uid="uid://b036i7rsqjn7s" path="res://Audio/Boton/tap-a.ogg" id="4_eeoa3"]
 

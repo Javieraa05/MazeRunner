@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://b2y0uf6vddfrj"]
 
-[ext_resource type="Texture2D" uid="uid://dkp6n5nco2spe" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="1_sgv0j"]
-[ext_resource type="Texture2D" uid="uid://cadg7c6sknvps" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
+[ext_resource type="Texture2D" uid="uid://c10twgkmn7enm" path="res://Imagenes/TilesLaberinto/brick_tileset.png" id="1_sgv0j"]
+[ext_resource type="Texture2D" uid="uid://dwupadhda14ct" path="res://Imagenes/TilesLaberinto/maze_tiles_32x32_dark.png" id="2_gwdqb"]
 [ext_resource type="PackedScene" uid="uid://crhrtrwdwwaqm" path="res://Rooms/room_1.tscn" id="4_f2ng0"]
 [ext_resource type="PackedScene" uid="uid://hgx6wk0ibl7f" path="res://Traps/TrampaMartillo2.tscn" id="4_wh1qu"]
 [ext_resource type="PackedScene" uid="uid://bijpwe5hvkew4" path="res://Rooms/room_2.tscn" id="5_k7eu6"]
