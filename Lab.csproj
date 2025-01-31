@@ -4,6 +4,5 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo> <!-- Desactiva generación automática -->
   </PropertyGroup>
 </Project>

@@ -12,6 +12,7 @@ public partial class Door : Node2D
     private bool EstaCerrando = false;
     private Vector2 PosInicialIzq;
     private Vector2 PosInicialDer;
+    AudioStreamPlayer audioStreamPlayer;
 
     public override void _Ready()
     {
@@ -19,6 +20,7 @@ public partial class Door : Node2D
         puertaIzquierda = GetNode<StaticBody2D>("PuertaIzquierda");
         puertaDerecha = GetNode<StaticBody2D>("PuertaDerecha");
         _Area2DAbrir = GetNode<Area2D>("Area2DAbrir");
+        audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 
         // Guardar posiciones iniciales
         PosInicialIzq = puertaIzquierda.Position;
@@ -33,6 +35,7 @@ public partial class Door : Node2D
         if (body is PlayerBase player && player.GetCantidadLlaves()>=3)
         {
             EstaAbriendo = true;
+            audioStreamPlayer.Play();
         }
         else if(body is PlayerBase players )
         {

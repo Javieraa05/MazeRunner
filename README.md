@@ -5,6 +5,9 @@
 ## 📜 Historia del Juego
 Dos jugadores han sido atrapados en un laberinto lleno de peligros y solo uno podrá salir victorioso. Para ganar, deberán esquivar trampas, usar habilidades únicas y recolectar llaves que abren la puerta de la victoria. 
 
+## 🔧 Instalación y Ejecución
+Para jugar, instala el archivo MazeRunners_Installer.exe y sigue las instrucciones en pantalla.
+
 ## 🕹️ Controles
 - **Jugador 1**:
   - Movimiento: `W A S D`

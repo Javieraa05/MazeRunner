@@ -1,19 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6dtv2bhfqfbt"]
+[gd_scene load_steps=15 format=3 uid="uid://b6dtv2bhfqfbt"]
 
 [ext_resource type="Script" path="res://Traps/TrampaPuas.cs" id="1_qtkgc"]
 [ext_resource type="Texture2D" uid="uid://ya4kv5wjoxqj" path="res://Imagenes/Trampas/Spike Trap.png" id="2_g8aw6"]
+[ext_resource type="AudioStream" uid="uid://bwdreokdvhyy" path="res://Audio/draw-sword1-44724.ogg" id="3_eu1n4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3l4a"]
 atlas = ExtResource("2_g8aw6")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_osyqe"]
-atlas = ExtResource("2_g8aw6")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir2f2"]
-atlas = ExtResource("2_g8aw6")
-region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kgyn"]
 atlas = ExtResource("2_g8aw6")
@@ -52,12 +45,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l3l4a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_osyqe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir2f2")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7kgyn")
@@ -101,3 +88,6 @@ sprite_frames = SubResource("SpriteFrames_2srqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2sgd4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eu1n4")

@@ -6,6 +6,7 @@ public partial class TrampaBase : Area2D
     public int Danno = 1;              // Daño que inflige la trampa
     public float TiempoEnfriamiento= 5; // Tiempo de espera entre activaciones
     protected bool EstaActiva = true;
+    AudioStreamPlayer audioStreamPlayer;
     
     protected AnimatedSprite2D animatedSprite2D;
 
@@ -14,6 +15,7 @@ public partial class TrampaBase : Area2D
         Visible = false;
         BodyEntered += OnBodyEntered;  // Conectar el evento cuando un cuerpo entra
         animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
     }
 
     // Método que pueden sobrescribir las subclases para añadir lógica particular.
@@ -41,6 +43,7 @@ public partial class TrampaBase : Area2D
             {
                 player.EmitirNoticia("Te ha matado una trampa");
             }
+            audioStreamPlayer.Play();
             player.TomarDano(Danno); 
             
 

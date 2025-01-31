@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnm2ffk8084e7"]
+[gd_scene load_steps=20 format=3 uid="uid://bnm2ffk8084e7"]
 
 [ext_resource type="Script" path="res://Traps/TrampaFuego.cs" id="1_61y2l"]
 [ext_resource type="Texture2D" uid="uid://c3kyrwv3gkibu" path="res://Imagenes/Trampas/Fire_Trap.png" id="2_prifl"]
+[ext_resource type="AudioStream" uid="uid://cnnf03lrl5vfa" path="res://Audio/fire.ogg" id="3_nno35"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84kis"]
 atlas = ExtResource("2_prifl")
@@ -129,3 +130,6 @@ frame_progress = 0.716389
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_078un")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nno35")

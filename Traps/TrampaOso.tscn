@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bx3nxdnkul4mv"]
+[gd_scene load_steps=14 format=3 uid="uid://bx3nxdnkul4mv"]
 
 [ext_resource type="Script" path="res://Traps/TrampaOso.cs" id="1_simxh"]
 [ext_resource type="Texture2D" uid="uid://dilchvw1towcb" path="res://Imagenes/Trampas/Bear_Trap.png" id="2_pqqs8"]
+[ext_resource type="AudioStream" uid="uid://ctkvbht1kobl8" path="res://Audio/metal-crunch-263638.ogg" id="3_sgtvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we3d8"]
 atlas = ExtResource("2_pqqs8")
@@ -86,3 +87,6 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ghvs5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sgtvy")

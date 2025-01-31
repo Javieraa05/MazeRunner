@@ -41,30 +41,50 @@ text = "MAZE
 RUNNERS"
 metadata/_edit_use_anchors_ = true
 
-[node name="Jugar" type="Button" parent="."]
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -393.0
+offset_top = -296.0
+offset_right = -53.0
+offset_bottom = -66.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jugar" type="Button" parent="Container"]
 layout_mode = 2
-offset_left = 1552.0
-offset_top = 960.0
-offset_right = 1892.0
-offset_bottom = 1034.0
 text = "Jugar"
 script = ExtResource("3_es8q0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Jugar"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Jugar"]
 stream = ExtResource("4_eeoa3")
 
-[node name="Salir" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = -126.0
-offset_right = 373.0
-offset_bottom = -52.0
-grow_vertical = 0
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 25
+
+[node name="Creditos" type="Button" parent="Container"]
+layout_mode = 2
+text = "Créditos
+"
+script = ExtResource("3_es8q0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Creditos"]
+stream = ExtResource("4_eeoa3")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="Salir" type="Button" parent="Container"]
+layout_mode = 2
 text = "Salir"
 script = ExtResource("3_es8q0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Salir"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Salir"]
 stream = ExtResource("4_eeoa3")
